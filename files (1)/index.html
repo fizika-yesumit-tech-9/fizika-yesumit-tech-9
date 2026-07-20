@@ -1,0 +1,197 @@
+<!--
+  פיזיקה יישומית בשילוב טכנולוגיה - כיתה ט' | דף בית
+  אתר לימוד דיגיטלי מלווה לתוכנית הלימודים השנתית, כיתה ט' - רמה בינונית
+  ד"ר ישי מור, המכללה האקדמית בית ברל | מגיש: מוטי לרנר
+
+  הצהרת AI: דף זה נבנה בסיוע Claude (Anthropic) לפי מפרט מדויק שסיפק מוטי לרנר
+  (כותרת, טקסט הסבר קצר, שלושה איורים ממחישים, ורשת של 6 קוביות ניווט לעמודים
+  פנימיים). האיורים הם גרפיקת SVG מקורית שנוצרה עבור האתר (לא תמונות מצולמות),
+  כדי להימנע מבעיות זכויות יוצרים. יש לעדכן כאן את הפרומפטים המדויקים ששימשו.
+-->
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>פיזיקה יישומית בשילוב טכנולוגיה — כיתה ט'</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500;700;900&family=Heebo:wght@300;400;600&family=Roboto+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#10141b; --panel:#1a212c; --panel-2:#212a37; --line:#2c3646;
+    --amber:#ffb020; --amber-dim:#7a5a20; --teal:#33d6c0; --red:#ff5a5f;
+    --text:#edeff3; --muted:#8b93a1;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:'Heebo',sans-serif;}
+  body{min-height:100vh;padding:36px 16px 60px;}
+  .wrap{max-width:1080px;margin:0 auto;}
+
+  .eyebrow{font-family:'Roboto Mono',monospace;color:var(--teal);font-size:12px;letter-spacing:2px;text-transform:uppercase;text-align:center;}
+  h1{
+    font-family:'Rubik',sans-serif;font-weight:900;text-align:center;
+    font-size:clamp(28px,5vw,46px);margin:8px 0 18px;line-height:1.25;
+  }
+  h1 span{color:var(--amber);}
+
+  .intro{
+    color:var(--text);font-size:15px;line-height:1.9;max-width:760px;margin:0 auto 34px;text-align:center;
+  }
+  .intro b{color:var(--amber);}
+
+  .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:44px;}
+  @media(max-width:760px){ .gallery{grid-template-columns:1fr;} }
+  .gcard{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px;text-align:center;}
+  .gcard svg{width:100%;height:120px;margin-bottom:10px;}
+  .gcard-title{font-family:'Rubik',sans-serif;font-weight:700;font-size:14px;margin-bottom:4px;}
+  .gcard-desc{font-size:12px;color:var(--muted);line-height:1.5;}
+
+  .section-title{
+    font-family:'Rubik',sans-serif;font-weight:700;font-size:19px;
+    text-align:center;margin:0 0 22px;
+  }
+
+  .topic-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:30px;}
+  @media(max-width:900px){ .topic-grid{grid-template-columns:1fr 1fr;} }
+  @media(max-width:600px){ .topic-grid{grid-template-columns:1fr;} }
+
+  .topic{
+    position:relative;display:flex;flex-direction:column;background:var(--panel);
+    border:1px solid var(--line);border-radius:14px;padding:22px 20px;text-decoration:none;
+    color:var(--text);transition:transform .15s, border-color .15s;min-height:190px;
+  }
+  .topic:hover{transform:translateY(-3px);border-color:var(--amber);}
+  .topic.external{border-color:var(--teal);}
+  .topic.external:hover{border-color:var(--teal);}
+
+  .t-num{font-family:'Roboto Mono',monospace;font-size:11px;color:var(--muted);margin-bottom:10px;}
+  .t-icon{
+    width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    background:var(--panel-2);border:1px solid var(--line);margin-bottom:12px;color:var(--amber);
+  }
+  .topic.external .t-icon{color:var(--teal);border-color:var(--teal);background:rgba(51,214,192,.1);}
+  .t-icon svg{width:22px;height:22px;}
+  .t-title{font-family:'Rubik',sans-serif;font-weight:700;font-size:16px;margin-bottom:8px;}
+  .t-desc{font-size:13px;color:var(--muted);line-height:1.6;flex:1;}
+  .t-action{margin-top:12px;font-size:13px;font-weight:600;color:var(--amber);}
+  .topic.external .t-action{color:var(--teal);}
+
+  footer{margin-top:20px;color:var(--muted);font-size:12px;text-align:center;line-height:1.8;}
+  footer a{color:var(--teal);}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="eyebrow">כיתה ט' · תוכנית לימודים שנתית</div>
+  <h1>פיזיקה יישומית <span>בשילוב טכנולוגיה</span></h1>
+
+  <div class="intro">
+    פיזיקה יישומית היא הענף של המדע שמסביר <b>למה הטכנולוגיה שסביבנו עובדת</b> —
+    למה חגורת בטיחות מצילה חיים בתאונה, איך קפיץ בולם זעזוע, מאיפה מגיעה האנרגיה
+    שמדליקה את הבית, ואיך זורם חשמל במעגל. באתר הזה כל נושא מלווה על ידי
+    <b>"מורה" אישי מבוסס בינה מלאכותית (Gem)</b> שעוזר לך לחקור, לשאול שאלות
+    ולהבין לעומק — לא רק לשנן.
+  </div>
+
+  <div class="gallery">
+    <div class="gcard">
+      <svg viewBox="0 0 200 120"><rect width="200" height="120" fill="#171e28" rx="10"/>
+        <rect x="35" y="60" width="130" height="35" rx="8" fill="#2c3646"/>
+        <rect x="50" y="40" width="80" height="28" rx="8" fill="#2c3646"/>
+        <circle cx="65" cy="95" r="12" fill="#0d1117"/><circle cx="65" cy="95" r="5" fill="#8b93a1"/>
+        <circle cx="140" cy="95" r="12" fill="#0d1117"/><circle cx="140" cy="95" r="5" fill="#8b93a1"/>
+        <line x1="55" y1="45" x2="120" y2="88" stroke="#ffb020" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="120" cy="88" r="4" fill="#ffb020"/>
+      </svg>
+      <div class="gcard-title">בטיחות ברכב</div>
+      <div class="gcard-desc">חגורות בטיחות, חיכוך ומרחק בלימה — מכניקה שמצילה חיים.</div>
+    </div>
+
+    <div class="gcard">
+      <svg viewBox="0 0 200 120"><rect width="200" height="120" fill="#171e28" rx="10"/>
+        <rect x="70" y="90" width="60" height="10" rx="3" fill="#2c3646"/>
+        <path d="M100 90 V70 Q88 65 100 60 Q112 55 100 50 Q88 45 100 40 Q112 35 100 30 Q88 25 100 20"
+              stroke="#33d6c0" stroke-width="4" fill="none" stroke-linecap="round"/>
+        <rect x="75" y="12" width="50" height="10" rx="3" fill="#2c3646"/>
+      </svg>
+      <div class="gcard-title">קפיצים וחומרים</div>
+      <div class="gcard-desc">חוק הוק, בולמי זעזועים, ואלסטיות של חומרים יומיומיים.</div>
+    </div>
+
+    <div class="gcard">
+      <svg viewBox="0 0 200 120"><rect width="200" height="120" fill="#171e28" rx="10"/>
+        <rect x="55" y="30" width="90" height="55" rx="4" fill="#212a37" stroke="#2c3646"/>
+        <line x1="65" y1="40" x2="135" y2="40" stroke="#33d6c0" stroke-width="2"/>
+        <line x1="65" y1="52" x2="135" y2="52" stroke="#33d6c0" stroke-width="2"/>
+        <line x1="65" y1="64" x2="135" y2="64" stroke="#33d6c0" stroke-width="2"/>
+        <line x1="65" y1="76" x2="135" y2="76" stroke="#33d6c0" stroke-width="2"/>
+        <rect x="90" y="85" width="20" height="14" fill="#2c3646"/>
+        <path d="M96 99 l10 20 l-14 0 l10 20" stroke="#ffb020" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="gcard-title">אנרגיה וחשמל</div>
+      <div class="gcard-desc">פאנלים סולריים, מעגלים חשמליים, ומעברי אנרגיה בבית.</div>
+    </div>
+  </div>
+
+  <div class="section-title">בחר/י את הנושא שלך</div>
+  <div class="topic-grid">
+
+    <a href="01-oryanut.html" class="topic">
+      <div class="t-num">נושא 1</div>
+      <div class="t-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a7 7 0 0 0-7 7c0 3 2 4 2 6v2h10v-2c0-2 2-3 2-6a7 7 0 0 0-7-7z"/><path d="M9 21h6"/></svg></div>
+      <div class="t-title">המורה שלי לאוריינות וכלי AI</div>
+      <div class="t-desc">שפת המכונות, מודלי שפה גדולים, ובניית עוזרי AI אישיים (Gems).</div>
+      <div class="t-action">כניסה לנושא ←</div>
+    </a>
+
+    <a href="02-mechanica.html" class="topic">
+      <div class="t-num">נושא 2</div>
+      <div class="t-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/><path d="M5 17h-1l1-8h10l3 4h2v4h-2"/><path d="M9 9V6h4v3"/></svg></div>
+      <div class="t-title">המורה שלי למכניקה וכוחות בחיי היום יום</div>
+      <div class="t-desc">מסה וכבידה, חיכוך, חוקי ניוטון ובטיחות בדרכים.</div>
+      <div class="t-action">כניסה לנושא ←</div>
+    </a>
+
+    <a href="03-elastiyut.html" class="topic">
+      <div class="t-num">נושא 3</div>
+      <div class="t-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 20V16 Q10 14 6 12 Q2 10 6 8 Q10 6 6 4"/></svg></div>
+      <div class="t-title">המורה שלי לאלסטיות</div>
+      <div class="t-desc">חוק הוק, קפיצים, בולמי זעזועים ומנגנונים אלסטיים.</div>
+      <div class="t-action">כניסה לנושא ←</div>
+    </a>
+
+    <a href="04-energiya.html" class="topic">
+      <div class="t-num">נושא 4</div>
+      <div class="t-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 4 14h6l-1 8 9-12h-6z"/></svg></div>
+      <div class="t-title">המורה שלי לאנרגיות</div>
+      <div class="t-desc">שימור אנרגיה, בזבוז חום, ואנרגיות מתחדשות.</div>
+      <div class="t-action">כניסה לנושא ←</div>
+    </a>
+
+    <a href="https://friends-pardeschna.github.io/hachashmalai-harashi/" class="topic external" target="_blank" rel="noopener">
+      <div class="t-num">נושא 5 · אתר חיצוני</div>
+      <div class="t-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 4 14h6l-1 8 9-12h-6z"/></svg></div>
+      <div class="t-title">המורה שלי לחשמל</div>
+      <div class="t-desc">"החשמלאי הראשי" — סביבת האבחון האינטראקטיבית שכבר בנינו.</div>
+      <div class="t-action">מעבר לאתר ↗</div>
+    </a>
+
+    <a href="06-cheker.html" class="topic">
+      <div class="t-num">נושא 6</div>
+      <div class="t-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10" cy="10" r="6"/><line x1="21" y1="21" x2="15" y2="15"/></svg></div>
+      <div class="t-title">המורה שלי לפרויקט החקר</div>
+      <div class="t-desc">בניית תיק עבודות, יריד תוצרים, וסיכום שנתי.</div>
+      <div class="t-action">כניסה לנושא ←</div>
+    </a>
+
+  </div>
+
+  <footer>
+    פרויקט לימודי · פיזיקה יישומית בשילוב טכנולוגיה, כיתה ט' — ד"ר ישי מור, המכללה האקדמית בית ברל<br>
+    מגיש: מוטי לרנר
+  </footer>
+
+</div>
+</body>
+</html>
