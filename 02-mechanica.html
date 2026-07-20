@@ -16,7 +16,7 @@
   :root{
     --bg:#10141b; --panel:#1a212c; --panel-2:#212a37; --line:#2c3646;
     --amber:#ffb020; --amber-dim:#7a5a20; --teal:#33d6c0; --red:#ff5a5f;
-    --green:#6fcf6f; --violet:#b98cff; --text:#edeff3; --muted:#8b93a1;
+    --green:#6fcf6f; --violet:#b98cff; --law1:#33d6c0; --law2:#ffb020; --law3:#b98cff; --text:#edeff3; --muted:#8b93a1;
   }
   *{box-sizing:border-box;}
   html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:'Heebo',sans-serif;}
@@ -181,6 +181,94 @@
 #spaceGame .complete-banner p{color:var(--muted);font-size:14px;margin-bottom:16px;}
 #spaceGame footer{margin-top:28px;color:var(--muted);font-size:12px;text-align:center;line-height:1.8;}
 @media(max-width:760px){#spaceGame .layout{grid-template-columns:1fr;}}
+
+  /* --- סגנון משחק רבעיות ניוטון (מוטמע) --- */
+  #quartetsGame .wrap{max-width:1000px;margin:0 auto;}
+#quartetsGame .eyebrow{font-family:'Roboto Mono',monospace;color:var(--teal);font-size:12px;letter-spacing:2px;text-transform:uppercase;}
+#quartetsGame h1{font-family:'Rubik',sans-serif;font-weight:900;font-size:clamp(24px,4.5vw,34px);margin:6px 0 4px;}
+#quartetsGame h1 span{color:var(--amber);}
+#quartetsGame .subtitle{color:var(--muted);font-size:14px;margin-bottom:20px;line-height:1.6;max-width:720px;}
+#quartetsGame .families{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:22px;}
+#quartetsGame .family{
+    position:relative;overflow:hidden;background:var(--panel);border-radius:12px;padding:12px 14px;
+    border:1.5px solid var(--line);
+  }
+#quartetsGame .family.law1{border-color:var(--law1);}
+#quartetsGame .family.law2{border-color:var(--law2);}
+#quartetsGame .family.law3{border-color:var(--law3);}
+#quartetsGame .family-title{font-family:'Rubik',sans-serif;font-weight:700;font-size:13px;margin-bottom:8px;}
+#quartetsGame .family.law1 .family-title{color:var(--law1);}
+#quartetsGame .family.law2 .family-title{color:var(--law2);}
+#quartetsGame .family.law3 .family-title{color:var(--law3);}
+#quartetsGame .family-dots{display:flex;gap:5px;}
+#quartetsGame .fdot{width:16px;height:16px;border-radius:4px;background:var(--panel-2);border:1px solid var(--line);}
+#quartetsGame .fdot.filled.law1{background:var(--law1);border-color:var(--law1);}
+#quartetsGame .fdot.filled.law2{background:var(--law2);border-color:var(--law2);}
+#quartetsGame .fdot.filled.law3{background:var(--law3);border-color:var(--law3);}
+#quartetsGame .family.complete{box-shadow:0 0 22px -4px currentColor;}
+#quartetsGame .board{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+#quartetsGame .card-slot{perspective:1000px;height:150px;}
+#quartetsGame .card{
+    position:relative;width:100%;height:100%;transform-style:preserve-3d;
+    transition:transform .6s cubic-bezier(.4,.2,.2,1);cursor:pointer;
+  }
+#quartetsGame .card.flipped{transform:rotateY(180deg);cursor:default;}
+#quartetsGame .card.collected{cursor:default;}
+#quartetsGame .card.shake{animation:shake .45s;}
+#quartetsGame .face{
+    position:absolute;inset:0;backface-visibility:hidden;border-radius:12px;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    padding:10px;text-align:center;
+  }
+#quartetsGame .face-back{
+    background:linear-gradient(135deg,var(--panel-2),var(--panel));border:1.5px solid var(--line);
+  }
+#quartetsGame .face-back .card-icon{width:34px;height:34px;color:var(--muted);opacity:.6;margin-bottom:6px;}
+#quartetsGame .face-back .card-num{font-family:'Roboto Mono',monospace;font-size:11px;color:var(--muted);}
+#quartetsGame .face-front{
+    background:var(--panel-2);border:1.5px solid var(--amber);transform:rotateY(180deg);
+    font-size:12px;line-height:1.5;justify-content:flex-start;padding-top:14px;overflow:hidden;
+  }
+#quartetsGame .card.collected .face-front{border-color:var(--green);}
+#quartetsGame .event-text{font-size:11.5px;color:var(--text);margin-bottom:8px;}
+#quartetsGame .law-btns{display:flex;flex-direction:column;gap:4px;width:100%;}
+#quartetsGame .law-btn{
+    font-family:'Heebo',sans-serif;font-size:10.5px;padding:5px 6px;border-radius:6px;border:1px solid var(--line);
+    background:var(--panel);color:var(--text);cursor:pointer;
+  }
+#quartetsGame .law-btn:hover{border-color:var(--amber);}
+#quartetsGame .law-btn.correct{background:rgba(111,207,111,.25);border-color:var(--green);color:var(--green);}
+#quartetsGame .law-btn.wrong{background:rgba(255,90,95,.25);border-color:var(--red);color:#ff9a9d;}
+#quartetsGame .collected-badge{
+    position:absolute;top:6px;left:6px;background:var(--green);color:#0a2e0a;border-radius:50%;
+    width:20px;height:20px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;
+  }
+#quartetsGame .status-line{text-align:center;font-family:'Roboto Mono',monospace;font-size:12px;color:var(--muted);margin-top:18px;}
+#quartetsGame .complete-banner{
+    display:none;background:var(--panel);border:1.5px solid var(--green);border-radius:14px;
+    padding:24px;text-align:center;margin-bottom:18px;position:relative;overflow:hidden;
+  }
+#quartetsGame .complete-banner.show{display:block;}
+#quartetsGame .complete-banner h2{font-family:'Rubik',sans-serif;font-size:20px;color:var(--green);margin:0 0 8px;}
+#quartetsGame .btn{padding:11px 20px;border-radius:8px;border:none;font-weight:700;cursor:pointer;
+    background:var(--amber);color:#241705;font-family:'Heebo',sans-serif;font-size:14px;}
+#quartetsGame .confetti-piece{
+    position:fixed;top:-20px;width:8px;height:14px;z-index:99;pointer-events:none;
+    animation:fall linear forwards;
+  }
+#quartetsGame footer{margin-top:28px;color:var(--muted);font-size:12px;text-align:center;line-height:1.8;}
+@media(max-width:680px){#quartetsGame .families{grid-template-columns:1fr;}}
+@media(max-width:680px){#quartetsGame .board{grid-template-columns:repeat(2,1fr);}}
+@keyframes shake{
+    10%,90%{transform:rotateY(180deg) translateX(-3px);}
+    20%,80%{transform:rotateY(180deg) translateX(4px);}
+    30%,50%,70%{transform:rotateY(180deg) translateX(-6px);}
+    40%,60%{transform:rotateY(180deg) translateX(6px);}
+  }
+@keyframes fall{
+    0%{transform:translateY(0) rotate(0deg);opacity:1;}
+    100%{transform:translateY(105vh) rotate(720deg);opacity:.3;}
+  }
 </style>
 </head>
 <body>
@@ -278,6 +366,231 @@
       <div class="formula-box">משקל = מסה × g<br>(W = m × g)</div>
     </div>
   </div>
+
+  <div class="section-title" style="margin-top:34px;">רבעיות ניוטון — תרגול שלושת החוקים</div>
+<div id="quartetsGame">
+<div class="wrap">
+
+  <div class="eyebrow">משחק תרגול · נושא 2 מכניקה</div>
+  <h1>רבעיות <span>ניוטון</span></h1>
+  <div class="subtitle">
+    12 קלפי אירוע — לכל אירוע יש אינטראקציה בין גופים שמוסברת על ידי אחד משלושת
+    חוקי ניוטון. פתחו קלף, קראו את האירוע, ובחרו את החוק הנכון. השלימו רבעייה
+    (4 אירועים נכונים) לכל חוק.
+  </div>
+
+  <div class="families" id="families">
+    <div class="family law1" id="fam-law1">
+      <div class="family-title">חוק ראשון — אינרציה</div>
+      <div class="family-dots" id="dots-law1"></div>
+    </div>
+    <div class="family law2" id="fam-law2">
+      <div class="family-title">חוק שני — F = m×a</div>
+      <div class="family-dots" id="dots-law2"></div>
+    </div>
+    <div class="family law3" id="fam-law3">
+      <div class="family-title">חוק שלישי — פעולה-תגובה</div>
+      <div class="family-dots" id="dots-law3"></div>
+    </div>
+  </div>
+
+  <div class="complete-banner" id="completeBannerQuartets">
+    <h2>כל הכבוד! השלמת את כל שלוש הרבעיות 🏆</h2>
+    <p style="color:var(--muted);font-size:14px;margin-bottom:14px;">זיהית נכון את שלושת חוקי ניוטון בכל 12 האירועים.</p>
+    <button class="btn" onclick="resetGame()">שחק שוב</button>
+  </div>
+
+  <div class="board" id="board"></div>
+
+  <div class="status-line" id="statusLineQuartets">0 / 12 קלפים נאספו</div>
+
+  <footer>
+    פרויקט לימודי · פיזיקה יישומית בשילוב טכנולוגיה, כיתה ט'<br>
+    מגיש: מוטי לרנר
+  </footer>
+
+</div>
+
+<script>
+/* ---------- 12 קלפי אירוע: 4 לכל חוק, רמת קושי בינונית-קשה ---------- */
+const LAW_NAMES = { law1:"חוק ראשון", law2:"חוק שני", law3:"חוק שלישי" };
+
+const EVENTS = [
+  { law:"law1", text:"נוסע לא חגור ממשיך לנוע קדימה כשהרכב בולם פתאום." },
+  { law:"law1", text:"מושכים מפת שולחן בבת אחת, והכלים שעליה כמעט לא זזים ממקומם." },
+  { law:"law1", text:"לוויין ממשיך לנוע במהירות כמעט קבועה בחלל, בלי מנוע פעיל." },
+  { law:"law1", text:"כדור מונח על הרצפה לא זז מעצמו, עד שמישהו בועט בו." },
+
+  { law:"law2", text:"קשה יותר להשיג את אותה תאוצה כשדוחפים עגלת קניות מלאה מאשר עגלה ריקה." },
+  { law:"law2", text:"מכונית ספורט קלה מאיצה מהר יותר ממשאית כבדה, גם עם כוח דומה מהמנוע." },
+  { law:"law2", text:"אותה בעיטה נותנת לכדור פינג-פונג תאוצה גדולה בהרבה מאשר לכדור באולינג." },
+  { law:"law2", text:"טיל כבד יותר זקוק לכוח דחף גדול יותר כדי להשיג את אותה תאוצה כמו טיל קל." },
+
+  { law:"law3", text:"שחיין דוחף את המים אחורה בידיים וברגליים, ומתקדם קדימה במים." },
+  { law:"law3", text:"רובה 'בועט' אחורה לכיוון הכתף ברגע שיורים ממנו כדור." },
+  { law:"law3", text:"מנוע סילון פולט גזים חמים אחורה, וזה מה שדוחף את המטוס קדימה." },
+  { law:"law3", text:"בקפיצה ממקפצה, הרגליים דוחפות אותה למטה, והיא דוחפת את הגוף למעלה." }
+];
+
+let cards = [];
+let collectedCount = { law1:0, law2:0, law3:0 };
+let totalCollected = 0;
+let lockBoard = false;
+
+function shuffle(arr){
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--){
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function buildDots(){
+  ["law1","law2","law3"].forEach(law => {
+    const wrap = document.getElementById('dots-' + law);
+    wrap.innerHTML = '';
+    for (let i = 0; i < 4; i++){
+      const d = document.createElement('div');
+      d.className = 'fdot';
+      d.id = `dot-${law}-${i}`;
+      wrap.appendChild(d);
+    }
+  });
+}
+
+function updateDots(){
+  ["law1","law2","law3"].forEach(law => {
+    for (let i = 0; i < 4; i++){
+      const d = document.getElementById(`dot-${law}-${i}`);
+      d.className = 'fdot' + (i < collectedCount[law] ? ` filled ${law}` : '');
+    }
+    document.getElementById('fam-' + law).classList.toggle('complete', collectedCount[law] === 4);
+  });
+}
+
+function buildBoard(){
+  const board = document.getElementById('board');
+  board.innerHTML = '';
+  cards = shuffle(EVENTS.map((e, i) => ({ ...e, id:i, collected:false })));
+
+  cards.forEach((card, idx) => {
+    const slot = document.createElement('div');
+    slot.className = 'card-slot';
+
+    const cardEl = document.createElement('div');
+    cardEl.className = 'card';
+    cardEl.id = 'card-' + idx;
+    cardEl.onclick = () => flipCard(idx);
+
+    const back = document.createElement('div');
+    back.className = 'face face-back';
+    back.innerHTML = `
+      <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+      <div class="card-num">אירוע ${idx + 1}</div>
+    `;
+
+    const front = document.createElement('div');
+    front.className = 'face face-front';
+    front.id = 'front-' + idx;
+    front.innerHTML = `
+      <div class="event-text">${card.text}</div>
+      <div class="law-btns">
+        <button class="law-btn" onclick="event.stopPropagation(); answer(${idx},'law1')">חוק ראשון — אינרציה</button>
+        <button class="law-btn" onclick="event.stopPropagation(); answer(${idx},'law2')">חוק שני — F = m×a</button>
+        <button class="law-btn" onclick="event.stopPropagation(); answer(${idx},'law3')">חוק שלישי — פעולה-תגובה</button>
+      </div>
+    `;
+
+    cardEl.appendChild(back);
+    cardEl.appendChild(front);
+    slot.appendChild(cardEl);
+    board.appendChild(slot);
+  });
+}
+
+function flipCard(idx){
+  if (lockBoard) return;
+  const card = cards[idx];
+  if (card.collected) return;
+  const el = document.getElementById('card-' + idx);
+  el.classList.toggle('flipped');
+}
+
+function answer(idx, chosenLaw){
+  const card = cards[idx];
+  if (card.collected) return;
+  const front = document.getElementById('front-' + idx);
+  const buttons = front.querySelectorAll('.law-btn');
+
+  if (chosenLaw === card.law){
+    buttons.forEach(b => { if (b.textContent.includes(LAW_NAMES[card.law])) b.classList.add('correct'); b.disabled = true; });
+    card.collected = true;
+    collectedCount[card.law]++;
+    totalCollected++;
+    const el = document.getElementById('card-' + idx);
+    el.classList.add('collected');
+    const badge = document.createElement('div');
+    badge.className = 'collected-badge';
+    badge.textContent = '✓';
+    el.appendChild(badge);
+
+    updateDots();
+    document.getElementById('statusLineQuartets').textContent = `${totalCollected} / 12 קלפים נאספו`;
+
+    if (collectedCount[card.law] === 4){
+      burstConfetti();
+    }
+    if (totalCollected === 12){
+      setTimeout(() => {
+        document.getElementById('completeBannerQuartets').classList.add('show');
+        burstConfetti(60);
+      }, 400);
+    }
+  } else {
+    buttons.forEach(b => b.disabled = true);
+    const wrongBtn = [...buttons].find(b => b.textContent.includes(LAW_NAMES[chosenLaw]));
+    if (wrongBtn) wrongBtn.classList.add('wrong');
+    const el = document.getElementById('card-' + idx);
+    el.classList.add('shake');
+    setTimeout(() => {
+      el.classList.remove('shake');
+      buttons.forEach(b => { b.disabled = false; b.classList.remove('wrong'); });
+    }, 700);
+  }
+}
+
+/* ---------- קונפטי - גרפיקה מתקדמת קלה, ללא ספריות חיצוניות ---------- */
+function burstConfetti(count){
+  count = count || 26;
+  const colors = ['#33d6c0', '#ffb020', '#b98cff', '#6fcf6f', '#ff5a5f'];
+  for (let i = 0; i < count; i++){
+    const piece = document.createElement('div');
+    piece.className = 'confetti-piece';
+    piece.style.left = (Math.random() * 100) + 'vw';
+    piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+    piece.style.animationDuration = (1.6 + Math.random() * 1.4) + 's';
+    piece.style.opacity = 0.85;
+    document.body.appendChild(piece);
+    setTimeout(() => piece.remove(), 3200);
+  }
+}
+
+function resetGame(){
+  collectedCount = { law1:0, law2:0, law3:0 };
+  totalCollected = 0;
+  document.getElementById('completeBannerQuartets').classList.remove('show');
+  document.getElementById('statusLineQuartets').textContent = '0 / 12 קלפים נאספו';
+  buildDots();
+  updateDots();
+  buildBoard();
+}
+
+buildDots();
+updateDots();
+buildBoard();
+</script>
+</div>
 
   <footer>
     פרויקט לימודי · פיזיקה יישומית בשילוב טכנולוגיה, כיתה ט'<br>
