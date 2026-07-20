@@ -16,7 +16,7 @@
   :root{
     --bg:#10141b; --panel:#1a212c; --panel-2:#212a37; --line:#2c3646;
     --amber:#ffb020; --amber-dim:#7a5a20; --teal:#33d6c0; --red:#ff5a5f;
-    --text:#edeff3; --muted:#8b93a1;
+    --green:#6fcf6f; --violet:#b98cff; --text:#edeff3; --muted:#8b93a1;
   }
   *{box-sizing:border-box;}
   html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:'Heebo',sans-serif;}
@@ -76,6 +76,111 @@
 
   footer{margin-top:40px;color:var(--muted);font-size:12px;text-align:center;line-height:1.8;}
   footer a{color:var(--teal);}
+
+  /* --- סגנון משחק מהנדס החלל (מוטמע) --- */
+  #spaceGame .wrap{max-width:900px;margin:0 auto;}
+#spaceGame .eyebrow{font-family:'Roboto Mono',monospace;color:var(--teal);font-size:12px;letter-spacing:2px;text-transform:uppercase;}
+#spaceGame h1{font-family:'Rubik',sans-serif;font-weight:900;font-size:clamp(24px,4.5vw,34px);margin:6px 0 4px;}
+#spaceGame h1 span{color:var(--amber);}
+#spaceGame .subtitle{color:var(--muted);font-size:14px;margin-bottom:18px;line-height:1.6;max-width:700px;}
+#spaceGame .story{
+    background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--violet);
+    border-radius:10px;padding:14px 18px;margin-bottom:18px;font-size:13.5px;line-height:1.7;
+  }
+#spaceGame .story b{color:var(--violet);}
+#spaceGame .progress-row{display:flex;align-items:center;gap:12px;margin-bottom:16px;}
+#spaceGame .progress-track{flex:1;height:8px;background:var(--panel-2);border-radius:4px;overflow:hidden;}
+#spaceGame .progress-fill{height:100%;background:var(--amber);width:0%;transition:width .3s;}
+#spaceGame .progress-label{font-family:'Roboto Mono',monospace;font-size:12px;color:var(--muted);white-space:nowrap;}
+#spaceGame .layout{display:grid;grid-template-columns:1fr 240px;gap:18px;align-items:start;}
+#spaceGame .wheel-stage{
+    background:var(--panel);border:1px solid var(--line);border-radius:14px;
+    padding:26px 20px;text-align:center;
+  }
+#spaceGame .wheel-stage .wheel-hint{font-size:13px;color:var(--muted);margin-bottom:16px;}
+#spaceGame .wheel-outer{position:relative;width:230px;height:230px;margin:0 auto 18px;}
+#spaceGame .wheel{
+    width:100%;height:100%;border-radius:50%;position:relative;
+    border:4px solid var(--panel-2);box-shadow:0 0 0 2px var(--line);
+    transition:transform 3.2s cubic-bezier(.15,.85,.25,1);
+  }
+#spaceGame .wheel-label{
+    position:absolute;top:50%;left:50%;width:80px;height:16px;line-height:16px;
+    margin-top:-8px;margin-left:-40px;
+    text-align:center;white-space:nowrap;overflow:hidden;
+    font-family:'Rubik',sans-serif;font-size:10.5px;font-weight:700;color:#fff;
+    text-shadow:0 0 3px #000,0 0 3px #000,1px 1px 1px #000;
+    transform-origin:50% 50%;pointer-events:none;
+  }
+#spaceGame .wheel-center{
+    position:absolute;top:50%;left:50%;width:22px;height:22px;margin:-11px;border-radius:50%;
+    background:var(--bg);border:2px solid var(--amber);z-index:3;
+  }
+#spaceGame .wheel-pointer{
+    position:absolute;top:-14px;left:50%;margin-right:-10px;transform:translateX(50%);
+    width:0;height:0;border-left:12px solid transparent;border-right:12px solid transparent;
+    border-top:18px solid var(--amber);z-index:4;
+  }
+#spaceGame .wheel-target-tag{
+    font-family:'Roboto Mono',monospace;font-size:12px;color:var(--muted);margin-top:6px;min-height:18px;
+  }
+#spaceGame .mission-card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px;}
+#spaceGame .mission-tag{font-family:'Roboto Mono',monospace;font-size:11px;color:var(--amber);letter-spacing:1px;margin-bottom:10px;}
+#spaceGame .mission-planets{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+#spaceGame .planet-chip{
+    display:flex;align-items:center;gap:6px;background:var(--panel-2);border:1px solid var(--line);
+    border-radius:20px;padding:6px 12px;font-size:13px;
+  }
+#spaceGame .planet-chip .dot{width:9px;height:9px;border-radius:50%;}
+#spaceGame .mission-arrow{color:var(--muted);font-size:16px;}
+#spaceGame .mission-text{font-size:14.5px;line-height:1.7;margin-bottom:16px;}
+#spaceGame .mission-text b{color:var(--amber);}
+#spaceGame .fictional-badge{
+    display:inline-block;font-family:'Roboto Mono',monospace;font-size:10px;color:var(--violet);
+    border:1px solid var(--violet);border-radius:10px;padding:1px 8px;margin-right:6px;
+  }
+#spaceGame .answer-row{display:flex;gap:8px;align-items:center;margin-bottom:10px;}
+#spaceGame .answer-row input{
+    flex:1;padding:11px;background:var(--panel-2);color:var(--text);border:1px solid var(--line);
+    border-radius:8px;font-family:'Roboto Mono',monospace;font-size:15px;
+  }
+#spaceGame .answer-row .unit{font-family:'Roboto Mono',monospace;color:var(--muted);font-size:13px;}
+#spaceGame .btn{
+    padding:11px 18px;border-radius:8px;border:none;font-weight:700;cursor:pointer;
+    background:var(--amber);color:#241705;font-family:'Heebo',sans-serif;font-size:14px;
+  }
+#spaceGame .btn:disabled{opacity:.4;cursor:not-allowed;}
+#spaceGame .btn.ghost{background:transparent;border:1px solid var(--line);color:var(--muted);width:100%;margin-top:8px;}
+#spaceGame .btn.next{background:var(--green);color:#0a2e0a;width:100%;margin-top:10px;display:none;}
+#spaceGame .btn.next.show{display:block;}
+#spaceGame .feedback{margin-top:10px;padding:12px;border-radius:8px;font-size:13.5px;line-height:1.6;display:none;}
+#spaceGame .feedback.show{display:block;}
+#spaceGame .feedback.ok{background:rgba(111,207,111,.12);border:1px solid var(--green);color:var(--green);}
+#spaceGame .feedback.bad{background:rgba(255,90,95,.1);border:1px solid var(--red);color:#ff9a9d;}
+#spaceGame .side-panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;}
+#spaceGame .side-panel h2{font-family:'Rubik',sans-serif;font-size:13px;margin:0 0 10px;color:var(--muted);letter-spacing:.5px;}
+#spaceGame .g-row{
+    display:flex;justify-content:space-between;align-items:center;font-family:'Roboto Mono',monospace;
+    font-size:12px;padding:5px 0;border-bottom:1px dashed var(--line);
+  }
+#spaceGame .g-row:last-child{border-bottom:none;}
+#spaceGame .g-row .g-name{color:var(--text);display:flex;align-items:center;gap:5px;}
+#spaceGame .g-row .g-val{color:var(--amber);}
+#spaceGame .g-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+#spaceGame .fict-tag{font-size:9px;color:var(--violet);border:1px solid var(--violet);border-radius:6px;padding:0 4px;}
+#spaceGame .formula-box{
+    margin-top:14px;padding-top:12px;border-top:1px solid var(--line);
+    font-family:'Roboto Mono',monospace;font-size:13px;color:var(--teal);text-align:center;line-height:1.8;
+  }
+#spaceGame .complete-banner{
+    display:none;background:var(--panel);border:1.5px solid var(--green);border-radius:14px;
+    padding:24px;text-align:center;
+  }
+#spaceGame .complete-banner.show{display:block;}
+#spaceGame .complete-banner h2{font-family:'Rubik',sans-serif;font-size:20px;color:var(--green);margin:0 0 8px;}
+#spaceGame .complete-banner p{color:var(--muted);font-size:14px;margin-bottom:16px;}
+#spaceGame footer{margin-top:28px;color:var(--muted);font-size:12px;text-align:center;line-height:1.8;}
+@media(max-width:760px){#spaceGame .layout{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -95,7 +200,7 @@
     <a class="gem-slot filled" href="https://gemini.google.com/gem/1A9znmOtpgjVcFwAqN9ySrtWIk9c5UBFO?usp=sharing" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg>
       <div class="gem-slot-title">המורה שלי למכניקה</div>
-      <div class="gem-slot-desc">כוח, כוח כבידה, מסה מול משקל, שלושת חוקי ניוטון, חיכוך ונצילות — הסבר ותרגול.</div>
+      <div class="gem-slot-desc">כוח, כוח כבידה, מסה מול משקל, חיכוך ונצילות — הסבר ותרגול.</div>
       <div class="gem-slot-arrow">פתיחת שיחה ←</div>
     </a>
     <div class="gem-slot">
@@ -107,6 +212,277 @@
       <div class="gem-slot-title">Gem 3 · יתווסף בהמשך</div>
     </div>
   </div>
+
+  <div class="section-title" style="margin-top:34px;">מהנדס החלל — משחק אינטראקטיבי לתרגול מסה ומשקל</div>
+<div id="spaceGame">
+<div class="wrap">
+
+  <div class="eyebrow">משחק תרגול · נושא 2 מכניקה</div>
+  <h1>מהנדס <span>החלל</span></h1>
+  <div class="subtitle">משחק אינטראקטיבי לתרגול מסה ומשקל — רמת קושי בינונית.</div>
+
+  <div class="story">
+    <b>קריאה דחופה מתחנת המחקר הבין-כוכבית:</b> מהנדס החלל בודק ציוד רגיש שנשלח בין
+    גופים שונים במערכת השמש (ומעבר לה). כל גוף מפעיל כוח כבידה שונה — וזה משפיע ישירות
+    על <b>המשקל</b> של הציוד, גם כשה<b>מסה</b> שלו נשארת בדיוק אותה מסה. עזור/י למהנדס
+    לחשב נכון לפני שהציוד יוצא לדרך.
+  </div>
+
+  <div class="progress-row">
+    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="progress-label" id="progressLabel">משימה 1 מתוך 12</div>
+  </div>
+
+  <div class="complete-banner" id="completeBanner">
+    <h2>כל הכבוד, מהנדס/ת חלל! 🚀</h2>
+    <p id="completeText"></p>
+    <button class="btn" onclick="resetGame()">שחק שוב</button>
+  </div>
+
+  <div class="layout" id="gameLayout">
+    <div>
+      <div class="wheel-stage" id="wheelStage">
+        <div class="wheel-hint">סובב/י את גלגל הכבידה כדי לגלות לאיזה גוף שמיימי הציוד יוצא הפעם:</div>
+        <div class="wheel-outer">
+          <div class="wheel-pointer"></div>
+          <div class="wheel" id="wheel"></div>
+          <div class="wheel-center"></div>
+        </div>
+        <div class="wheel-target-tag" id="wheelTargetTag">&nbsp;</div>
+        <button class="btn" id="spinBtn" onclick="spinWheel()">סובב את הגלגל 🎡</button>
+      </div>
+
+      <div class="mission-card" id="missionCard" style="display:none;margin-top:18px;">
+        <div class="mission-tag" id="missionTag">משימה 1</div>
+        <div class="mission-planets" id="missionPlanets"></div>
+        <div class="mission-text" id="missionText"></div>
+
+        <div class="answer-row">
+          <input type="number" step="any" id="answerInput" placeholder="הקלד את התשובה">
+          <span class="unit" id="answerUnit">ניוטון (N)</span>
+        </div>
+        <button class="btn" id="checkBtn" onclick="checkAnswer()">בדוק תשובה</button>
+        <button class="btn next" id="nextBtn" onclick="nextMission()">למשימה הבאה ←</button>
+
+        <div class="feedback" id="feedback"></div>
+      </div>
+    </div>
+
+    <div class="side-panel">
+      <h2>טבלת כוח כבידה (g)</h2>
+      <div id="gTable"></div>
+      <div class="formula-box">משקל = מסה × g<br>(W = m × g)</div>
+    </div>
+  </div>
+
+  <footer>
+    פרויקט לימודי · פיזיקה יישומית בשילוב טכנולוגיה, כיתה ט'<br>
+    מגיש: מוטי לרנר
+  </footer>
+
+</div>
+
+<script>
+/* ---------- נתוני גופים: כוח כבידה g (מ'/שנייה בריבוע) ---------- */
+/* ערכים אמיתיים מעוגלים לצורך פשטות החישוב במשחק; שני גופים מסומנים כדמיוניים. */
+const BODIES = {
+  mercury: { name:"מרקורי", g:3.7,  color:"#b3a394", fictional:false },
+  venus:   { name:"נגה (ונוס)", g:9,  color:"#e0c27a", fictional:false },
+  earth:   { name:"כדור הארץ", g:10, color:"#4fb3ff", fictional:false },
+  moon:    { name:"הירח", g:1.6, color:"#c9cdd4", fictional:false },
+  mars:    { name:"מאדים", g:3.7, color:"#ff7a59", fictional:false },
+  jupiter: { name:"צדק (יופיטר)", g:25, color:"#e0a878", fictional:false },
+  saturn:  { name:"שבתאי (סאטורן)", g:10.4, color:"#e0c98a", fictional:false },
+  uranus:  { name:"אורנוס", g:8.7, color:"#7ad6d6", fictional:false },
+  neptune: { name:"נפטון", g:11.2, color:"#5c7cff", fictional:false },
+  zorgon:  { name:"זורגון", g:16.5, color:"#b98cff", fictional:true },
+  novaya:  { name:"נובאיה", g:4.5, color:"#ff8cc6", fictional:true }
+};
+
+/* ---------- 12 המשימות ---------- */
+/* type "mass": נתונה מסה קבועה, מחשבים משקל ביעד = mass * g[to].
+   type "weight": נתון משקל במקור, יש לגזור מסה = weight / g[from], ואז לחשב משקל ביעד. */
+const MISSIONS = [
+  { from:"mercury", to:"earth",   type:"mass",   mass:6,  answer:60,  unit:"N" },
+  { from:"earth",   to:"moon",    type:"weight", weightFrom:50, answer:8,  unit:"N" },
+  { from:"mars",    to:"jupiter", type:"mass",   mass:4,  answer:100, unit:"N" },
+  { from:"venus",   to:"moon",    type:"weight", weightFrom:45, answer:8,  unit:"N" },
+  { from:"moon",    to:"saturn",  type:"mass",   mass:5,  answer:52,  unit:"N" },
+  { from:"jupiter", to:"uranus",  type:"weight", weightFrom:250, answer:87, unit:"N" },
+  { from:"neptune", to:"earth",   type:"mass",   mass:3,  answer:30,  unit:"N" },
+  { from:"zorgon",  to:"moon",    type:"mass",   mass:5,  answer:8,   unit:"N" },
+  { from:"novaya",  to:"mars",    type:"weight", weightFrom:45, answer:37, unit:"N" },
+  { from:"earth",   to:"venus",   type:"mass",   mass:7,  answer:63,  unit:"N" },
+  { from:"saturn",  to:"moon",    type:"weight", weightFrom:104, answer:16, unit:"N" },
+  { from:"uranus",  to:"neptune", type:"mass",   mass:10, answer:112, unit:"N" }
+];
+
+let current = 0;
+let solved = 0;
+let wheelRotation = 0;
+const WHEEL_ORDER = Object.keys(BODIES); // סדר קבוע של הגופים על הגלגל
+
+function angleForBody(key){
+  const i = WHEEL_ORDER.indexOf(key);
+  const seg = 360 / WHEEL_ORDER.length;
+  return i*seg + seg/2; // מרכז הפלח של אותו גוף
+}
+
+function spinWheel(){
+  const m = MISSIONS[current];
+  const targetAngle = angleForBody(m.to);
+  document.getElementById('spinBtn').disabled = true;
+  document.getElementById('wheelTargetTag').textContent = 'מסתובב...';
+
+  // מספר סיבובים מלאים + זווית שתביא בדיוק את פלח היעד מתחת למחוג העליון (0 מעלות)
+  const fullSpins = 5;
+  const finalRotation = wheelRotation + fullSpins*360 + (360 - (targetAngle % 360));
+  wheelRotation = finalRotation;
+
+  const wheel = document.getElementById('wheel');
+  wheel.style.transform = `rotate(${finalRotation}deg)`;
+
+  setTimeout(() => {
+    document.getElementById('wheelTargetTag').textContent = `נחת על: ${BODIES[m.to].name}${BODIES[m.to].fictional ? ' (דמיוני)' : ''}`;
+    document.getElementById('missionCard').style.display = 'block';
+    renderMission();
+  }, 3300);
+}
+
+const WHEEL_SHORT_NAME = {
+  mercury:"מרקורי", venus:"נגה", earth:"כדוה\"א", moon:"הירח", mars:"מאדים",
+  jupiter:"צדק", saturn:"שבתאי", uranus:"אורנוס", neptune:"נפטון",
+  zorgon:"זורגון", novaya:"נובאיה"
+};
+
+function buildWheel(){
+  const wheel = document.getElementById('wheel');
+  const n = WHEEL_ORDER.length;
+  const seg = 360 / n;
+  const stops = WHEEL_ORDER.map((key, i) => `${BODIES[key].color} ${i*seg}deg ${(i+1)*seg}deg`).join(',');
+  wheel.style.background = `conic-gradient(${stops})`;
+  wheel.innerHTML = '';
+  WHEEL_ORDER.forEach((key, i) => {
+    const angle = i*seg + seg/2; // מרכז הפלח, מדוד בכיוון השעון מ-12:00
+    const label = document.createElement('div');
+    label.className = 'wheel-label';
+    // ממירים לזווית ה-CSS (rotate(0)=כיוון 3:00), וממרכזים את התווית באמצע הפלח (רדיוס אמצעי)
+    label.style.transform = `rotate(${angle - 90}deg) translateX(68px)`;
+    label.textContent = WHEEL_SHORT_NAME[key];
+    wheel.appendChild(label);
+  });
+}
+
+function buildGTable(){
+  const wrap = document.getElementById('gTable');
+  wrap.innerHTML = '';
+  Object.values(BODIES).forEach(b => {
+    const row = document.createElement('div');
+    row.className = 'g-row';
+    row.innerHTML = `<span class="g-name"><span class="g-dot" style="background:${b.color}"></span>${b.name}${b.fictional ? ' <span class="fict-tag">דמיוני</span>' : ''}</span><span class="g-val">${b.g} מ/ש²</span>`;
+    wrap.appendChild(row);
+  });
+}
+
+function renderMission(){
+  const m = MISSIONS[current];
+  const from = BODIES[m.from], to = BODIES[m.to];
+
+  document.getElementById('missionTag').textContent = `משימה ${current + 1}`;
+  document.getElementById('progressLabel').textContent = `משימה ${current + 1} מתוך ${MISSIONS.length}`;
+  document.getElementById('progressFill').style.width = (current / MISSIONS.length * 100) + '%';
+
+  const planetsWrap = document.getElementById('missionPlanets');
+  planetsWrap.innerHTML = `
+    <div class="planet-chip"><span class="dot" style="background:${from.color}"></span>${from.name}${from.fictional ? '<span class="fictional-badge">דמיוני</span>' : ''}</div>
+    <span class="mission-arrow">←</span>
+    <div class="planet-chip"><span class="dot" style="background:${to.color}"></span>${to.name}${to.fictional ? '<span class="fictional-badge">דמיוני</span>' : ''}</div>
+  `;
+
+  let text;
+  if (m.type === 'mass'){
+    text = `מהנדס החלל בודק ציוד שמסתו <b>${m.mass} ק"ג</b>, שהובא מ${from.name}. זכור/י: המסה נשארת זהה בכל מקום ביקום. מהו <b>משקל</b> הציוד (בניוטון) על ${to.name}, שבו כוח הכבידה הוא g = ${to.g} מ/ש²?`;
+  } else {
+    text = `מהנדס החלל מודד את הציוד על ${from.name} (g = ${from.g} מ/ש²), והוא שוקל שם <b>${m.weightFrom} ניוטון</b>. עליך קודם לחשב את המסה של הציוד (שנשארת קבועה), ואז את <b>משקלו</b> על ${to.name} (g = ${to.g} מ/ש²).`;
+  }
+  document.getElementById('missionText').innerHTML = text;
+
+  document.getElementById('answerInput').value = '';
+  document.getElementById('answerInput').disabled = false;
+  document.getElementById('checkBtn').disabled = false;
+  document.getElementById('checkBtn').style.display = 'inline-block';
+  document.getElementById('nextBtn').classList.remove('show');
+  const fb = document.getElementById('feedback');
+  fb.classList.remove('show');
+  fb.textContent = '';
+}
+
+function checkAnswer(){
+  const m = MISSIONS[current];
+  const val = parseFloat(document.getElementById('answerInput').value);
+  const fb = document.getElementById('feedback');
+  fb.classList.add('show');
+
+  if (Number.isNaN(val)){
+    fb.className = 'feedback show bad';
+    fb.textContent = 'יש להקליד מספר.';
+    return;
+  }
+
+  const tolerance = 0.4;
+  const correct = Math.abs(val - m.answer) <= tolerance;
+
+  document.getElementById('answerInput').disabled = true;
+  document.getElementById('checkBtn').style.display = 'none';
+  document.getElementById('nextBtn').classList.add('show');
+
+  if (correct){
+    solved++;
+    fb.className = 'feedback show ok';
+    let explain = m.type === 'mass'
+      ? `נכון! ${m.mass} ק"ג × ${BODIES[m.to].g} מ/ש² = ${m.answer} ניוטון.`
+      : `נכון! מסה = ${m.weightFrom} ÷ ${BODIES[m.from].g} = ${(m.weightFrom / BODIES[m.from].g).toFixed(1)} ק"ג. ואז ${(m.weightFrom / BODIES[m.from].g).toFixed(1)} × ${BODIES[m.to].g} = ${m.answer} ניוטון.`;
+    fb.textContent = explain;
+  } else {
+    fb.className = 'feedback show bad';
+    let explain = m.type === 'mass'
+      ? `לא מדויק. התשובה הנכונה: ${m.mass} ק"ג × ${BODIES[m.to].g} מ/ש² = ${m.answer} ניוטון.`
+      : `לא מדויק. קודם מסה = ${m.weightFrom} ÷ ${BODIES[m.from].g} = ${(m.weightFrom / BODIES[m.from].g).toFixed(1)} ק"ג, ואז × ${BODIES[m.to].g} = ${m.answer} ניוטון.`;
+    fb.textContent = explain;
+  }
+}
+
+function nextMission(){
+  current++;
+  if (current >= MISSIONS.length){
+    document.getElementById('gameLayout').style.display = 'none';
+    document.getElementById('completeBanner').classList.add('show');
+    document.getElementById('progressFill').style.width = '100%';
+    document.getElementById('progressLabel').textContent = `הושלמו ${MISSIONS.length} מתוך ${MISSIONS.length}`;
+    document.getElementById('completeText').textContent = `פתרת נכון ${solved} מתוך ${MISSIONS.length} משימות. הציוד מוכן לשיגור!`;
+    return;
+  }
+  document.getElementById('missionCard').style.display = 'none';
+  document.getElementById('spinBtn').disabled = false;
+  document.getElementById('wheelTargetTag').textContent = '\u00a0';
+}
+
+function resetGame(){
+  current = 0;
+  solved = 0;
+  wheelRotation = 0;
+  document.getElementById('wheel').style.transform = 'rotate(0deg)';
+  document.getElementById('gameLayout').style.display = 'grid';
+  document.getElementById('completeBanner').classList.remove('show');
+  document.getElementById('missionCard').style.display = 'none';
+  document.getElementById('spinBtn').disabled = false;
+  document.getElementById('wheelTargetTag').textContent = '\u00a0';
+}
+
+buildWheel();
+buildGTable();
+</script>
+</div>
 
   <footer>
     <a href="index.html">חזרה לדף הבית</a> · פיזיקה יישומית בשילוב טכנולוגיה, כיתה ט'
