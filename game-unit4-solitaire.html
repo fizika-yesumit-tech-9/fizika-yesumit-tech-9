@@ -1,1 +1,377 @@
+<!--
+  סוליטר האנרגיה - משחק תרגול חזרה | יחידה 4: אנרגיות
+  פיזיקה יישומית בשילוב טכנולוגיה, כיתה ט'
+  הצהרת AI: קובץ זה נבנה בסיוע Claude (Anthropic). בנק הזוגות מבוסס על תוכן
+  ארבעת ה-Gems הראשונים ביחידה 4 (מבקר האנרגיה הירוקה, מבקר הנצילות והחום,
+  שגריר האנרגיות המתחדשות, מפקח האנרגיה הביתי).
+-->
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>סוליטר האנרגיה — משחק תרגול | יחידה 4</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500;700;900&family=Heebo:wght@300;400;600&family=Roboto+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#10141b; --panel:#1a212c; --panel-2:#212a37; --line:#2c3646;
+    --amber:#ffb020; --amber-dim:#7a5a20; --teal:#33d6c0; --teal-dim:#1c5c54; --red:#ff5a5f;
+    --text:#edeff3; --muted:#8b93a1;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:'Heebo',sans-serif;}
+  body{min-height:100vh;padding:24px 16px 70px;}
+  .wrap{max-width:1000px;margin:0 auto;}
 
+  .breadcrumb{font-family:'Roboto Mono',monospace;font-size:12px;color:var(--muted);margin-bottom:18px;}
+  .breadcrumb a{color:var(--teal);text-decoration:none;}
+  .breadcrumb a:hover{text-decoration:underline;}
+
+  .head{display:flex;align-items:center;gap:16px;margin-bottom:10px;flex-wrap:wrap;}
+  .head-icon{
+    width:56px;height:56px;border-radius:16px;display:flex;align-items:center;justify-content:center;
+    background:var(--panel);border:1px solid var(--line);color:var(--amber);flex-shrink:0;
+  }
+  .head-icon svg{width:28px;height:28px;}
+  h1{font-family:'Rubik',sans-serif;font-weight:900;font-size:clamp(24px,4.2vw,34px);margin:0;line-height:1.3;}
+
+  .desc{
+    background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--amber);
+    border-radius:10px;padding:16px 20px;margin-bottom:22px;font-size:14px;line-height:1.8;
+  }
+  .desc b{color:var(--amber);}
+
+  .hud{
+    display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between;
+    background:var(--panel-2);border:1px solid var(--line);border-radius:12px;
+    padding:12px 18px;margin-bottom:22px;
+  }
+  .hud-stats{display:flex;gap:22px;flex-wrap:wrap;}
+  .hud-stat{font-family:'Roboto Mono',monospace;font-size:13px;color:var(--muted);}
+  .hud-stat b{color:var(--text);font-size:16px;display:block;font-family:'Rubik',sans-serif;}
+  .hud-btn{
+    background:transparent;border:1.5px solid var(--teal);color:var(--teal);
+    font-family:'Rubik',sans-serif;font-weight:700;font-size:13px;
+    padding:9px 18px;border-radius:9px;cursor:pointer;transition:.15s;
+  }
+  .hud-btn:hover{background:var(--teal);color:#0a1512;}
+
+  .legend{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:18px;font-size:12px;color:var(--muted);}
+  .legend span{display:inline-flex;align-items:center;gap:6px;}
+  .legend i{width:12px;height:12px;border-radius:3px;display:inline-block;}
+  .legend .q{background:var(--amber);}
+  .legend .a{background:var(--teal);}
+
+  .level-screen{
+    background:var(--panel);border:1px solid var(--line);border-radius:14px;
+    padding:32px 24px;text-align:center;
+  }
+  .level-screen h2{font-family:'Rubik',sans-serif;font-size:18px;margin:0 0 22px;color:var(--text);}
+  .level-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:640px;margin:0 auto;}
+  @media(max-width:640px){ .level-grid{grid-template-columns:1fr;} }
+  .level-btn{
+    background:var(--panel-2);border:1.5px solid var(--line);border-radius:12px;
+    padding:20px 14px;cursor:pointer;color:var(--text);transition:.15s;text-align:center;
+  }
+  .level-btn:hover{transform:translateY(-3px);}
+  .level-btn .lv-name{font-family:'Rubik',sans-serif;font-weight:700;font-size:16px;margin-bottom:4px;}
+  .level-btn .lv-desc{font-size:12px;color:var(--muted);}
+  .level-btn.easy{border-color:#6fcf6f;}
+  .level-btn.easy .lv-name{color:#6fcf6f;}
+  .level-btn.medium{border-color:var(--amber);}
+  .level-btn.medium .lv-name{color:var(--amber);}
+  .level-btn.hard{border-color:var(--red);}
+  .level-btn.hard .lv-name{color:var(--red);}
+
+  .level-tag{
+    font-family:'Roboto Mono',monospace;font-size:11px;padding:4px 10px;border-radius:20px;
+    border:1px solid var(--line);color:var(--muted);
+  }
+
+  .hidden{display:none !important;}
+
+  .board{
+    display:grid;grid-template-columns:repeat(6,1fr);gap:10px;
+  }
+  @media(max-width:760px){ .board{grid-template-columns:repeat(4,1fr);} }
+  @media(max-width:460px){ .board{grid-template-columns:repeat(3,1fr);gap:8px;} }
+
+  .card{
+    position:relative;aspect-ratio:3/4;perspective:800px;cursor:pointer;
+  }
+  .card-inner{
+    position:relative;width:100%;height:100%;transition:transform .45s cubic-bezier(.2,.7,.3,1);
+    transform-style:preserve-3d;
+  }
+  .card.flipped .card-inner, .card.matched .card-inner{transform:rotateY(180deg);}
+
+  .face{
+    position:absolute;inset:0;border-radius:10px;backface-visibility:hidden;
+    display:flex;align-items:center;justify-content:center;text-align:center;
+    padding:8px;font-size:11px;line-height:1.4;
+  }
+  .face-back{
+    background:linear-gradient(155deg,var(--panel-2),var(--panel));
+    border:1.5px solid var(--line);color:var(--muted);
+  }
+  .face-back svg{width:22px;height:22px;opacity:.55;}
+  .face-front{
+    transform:rotateY(180deg);border:1.5px solid var(--line);
+    font-family:'Heebo',sans-serif;font-weight:600;color:var(--text);
+  }
+  .face-front.q{border-color:var(--amber);background:rgba(255,176,32,.08);}
+  .face-front.a{border-color:var(--teal);background:rgba(51,214,192,.08);}
+
+  .card.matched .face-front.q{border-color:#6fcf6f;background:rgba(111,207,111,.12);}
+  .card.matched .face-front.a{border-color:#6fcf6f;background:rgba(111,207,111,.12);}
+  .card.matched{cursor:default;opacity:.75;}
+
+  .card.wrong .card-inner{animation:shake .4s;}
+  @keyframes shake{
+    0%,100%{transform:rotateY(180deg) translateX(0);}
+    25%{transform:rotateY(180deg) translateX(-5px);}
+    75%{transform:rotateY(180deg) translateX(5px);}
+  }
+
+  .win-panel{
+    display:none;margin-top:26px;background:var(--panel);border:1px solid var(--amber);
+    border-radius:14px;padding:26px;text-align:center;
+  }
+  .win-panel.show{display:block;}
+  .win-panel h2{font-family:'Rubik',sans-serif;color:var(--amber);margin:0 0 8px;}
+  .win-panel p{color:var(--muted);font-size:14px;margin:0 0 16px;}
+
+  footer{margin-top:40px;color:var(--muted);font-size:12px;text-align:center;line-height:1.8;}
+  footer a{color:var(--teal);}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="breadcrumb"><a href="index.html">← דף הבית</a> · <a href="04-energiya.html">נושא 4: אנרגיות</a> · משחק תרגול</div>
+
+  <div class="head">
+    <div class="head-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 4 14h6l-1 8 9-12h-6z"/></svg></div>
+    <h1>סוליטר האנרגיה</h1>
+  </div>
+
+  <div class="desc">
+    משחק התאמה לתרגול חזרה על ארבעת ה-Gems הראשונים ביחידה: <b>מבקר האנרגיה הירוקה</b>,
+    <b>מבקר הנצילות והחום</b>, <b>שגריר האנרגיות המתחדשות</b> ו<b>מפקח האנרגיה הביתי</b>.
+    כל לוח מכיל כרטיסי <b>שאלה</b> (מסגרת ענבר) וכרטיסי <b>תשובה</b> (מסגרת טורקיז) —
+    הפכו שני קלפים בכל תור, ומצאו את הזוגות המתאימים.
+  </div>
+
+  <div class="legend">
+    <span><i class="q"></i> כרטיס שאלה</span>
+    <span><i class="a"></i> כרטיס תשובה</span>
+  </div>
+
+  <div class="level-screen" id="levelScreen">
+    <h2>בחרו רמת קושי</h2>
+    <div class="level-grid">
+      <div class="level-btn easy" onclick="newGame(1)">
+        <div class="lv-name">קל</div>
+        <div class="lv-desc">6 זוגות · המושגים הבסיסיים</div>
+      </div>
+      <div class="level-btn medium" onclick="newGame(2)">
+        <div class="lv-name">בינוני</div>
+        <div class="lv-desc">9 זוגות · כולל נצילות ואנרגיות מתחדשות</div>
+      </div>
+      <div class="level-btn hard" onclick="newGame(3)">
+        <div class="lv-name">קשה</div>
+        <div class="lv-desc">12 זוגות · כל בנק השאלות</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hud hidden" id="hud">
+    <div class="hud-stats">
+      <div class="hud-stat">רמה<b id="stat-level">—</b></div>
+      <div class="hud-stat">מהלכים<b id="stat-moves">0</b></div>
+      <div class="hud-stat">זוגות שנמצאו<b id="stat-matches">0 / 12</b></div>
+      <div class="hud-stat">זמן<b id="stat-time">00:00</b></div>
+    </div>
+    <button class="hud-btn" onclick="backToLevels()">רמת קושי אחרת</button>
+  </div>
+
+  <div class="board hidden" id="board"></div>
+
+  <div class="win-panel" id="winPanel">
+    <h2>🎉 כל הכבוד, סיימת את הלוח!</h2>
+    <p id="winStats"></p>
+    <button class="hud-btn" onclick="backToLevels()">בחרו רמה אחרת</button>
+  </div>
+
+  <footer>
+    <a href="04-energiya.html">חזרה לנושא 4</a> · <a href="index.html">דף הבית</a> · פיזיקה יישומית בשילוב טכנולוגיה, כיתה ט'
+  </footer>
+
+</div>
+
+<script>
+  // בנק הזוגות: שאלה קצרה <-> תשובה קצרה, מבוסס על 4 ה-Gems הראשונים
+  // level: 1 = מופיע בקל+בינוני+קשה, 2 = מופיע בבינוני+קשה בלבד, 3 = מופיע בקשה בלבד
+  const PAIRS = [
+    { level: 1, q: "חוק שימור האנרגיה אומר ש...", a: "אנרגיה לא נוצרת ולא נעלמת, רק משנה צורה" },
+    { level: 1, q: "הנוסחה לאנרגיית גובה", a: "Ep = m·g·h" },
+    { level: 1, q: "הנוסחה לאנרגיית תנועה", a: "Ek = ½·m·v²" },
+    { level: 1, q: "הנוסחה לאנרגיית אלסטיות", a: "Eel = ½·k·x²" },
+    { level: 1, q: "וואט (W) היא יחידת מדידה של...", a: "הספק" },
+    { level: 1, q: "קילוואט-שעה (קוט\"ש) היא יחידת מדידה של...", a: "צריכת אנרגיה" },
+    { level: 2, q: "לאיזו צורת אנרגיה הופך רוב האנרגיה שאובדת בחיכוך?", a: "חום" },
+    { level: 2, q: "מהי נצילות מערכתית?", a: "היחס בין אנרגיה שימושית לכלל האנרגיה שנצרכה" },
+    { level: 2, q: "מה משותף לטורבינת רוח ותחנה הידרואלקטרית?", a: "שתיהן הופכות אנרגיית תנועה לחשמל" },
+    { level: 3, q: "איך תא פוטו-וולטאי מייצר חשמל?", a: "ממיר ישירות אור שמש לזרם חשמלי" },
+    { level: 3, q: "למה דלקים מאובנים נחשבים משאב מתכלה?", a: "נוצרו במיליוני שנים ולא ניתן לחדש בקצב הצריכה" },
+    { level: 3, q: "שלושה פתרונות טכנולוגיים לפיזור חום במכשירים", a: "מאווררים, צלעות קירור וקירור מים" },
+  ];
+
+  const LEVEL_NAMES = { 1: "קל", 2: "בינוני", 3: "קשה" };
+
+  let currentLevel = null;
+  let activePairs = [];
+  let board = [];
+  let flipped = [];
+  let matchedCount = 0;
+  let moves = 0;
+  let timerInterval = null;
+  let seconds = 0;
+  let lock = false;
+
+  function shuffle(arr){
+    for(let i = arr.length - 1; i > 0; i--){
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  }
+
+  function buildDeck(){
+    let deck = [];
+    activePairs.forEach((pair, idx) => {
+      deck.push({ pairId: idx, type: 'q', text: pair.q });
+      deck.push({ pairId: idx, type: 'a', text: pair.a });
+    });
+    return shuffle(deck);
+  }
+
+  function formatTime(s){
+    const m = Math.floor(s / 60).toString().padStart(2, '0');
+    const sec = (s % 60).toString().padStart(2, '0');
+    return m + ':' + sec;
+  }
+
+  function startTimer(){
+    clearInterval(timerInterval);
+    seconds = 0;
+    document.getElementById('stat-time').textContent = '00:00';
+    timerInterval = setInterval(() => {
+      seconds++;
+      document.getElementById('stat-time').textContent = formatTime(seconds);
+    }, 1000);
+  }
+
+  function backToLevels(){
+    clearInterval(timerInterval);
+    document.getElementById('levelScreen').classList.remove('hidden');
+    document.getElementById('hud').classList.add('hidden');
+    document.getElementById('board').classList.add('hidden');
+    document.getElementById('winPanel').classList.remove('show');
+  }
+
+  function newGame(level){
+    if(level) currentLevel = level;
+    activePairs = PAIRS.filter(p => p.level <= currentLevel);
+
+    document.getElementById('levelScreen').classList.add('hidden');
+    document.getElementById('hud').classList.remove('hidden');
+    document.getElementById('board').classList.remove('hidden');
+
+    board = buildDeck();
+    flipped = [];
+    matchedCount = 0;
+    moves = 0;
+    lock = false;
+    document.getElementById('stat-level').textContent = LEVEL_NAMES[currentLevel];
+    document.getElementById('stat-moves').textContent = '0';
+    document.getElementById('stat-matches').textContent = '0 / ' + activePairs.length;
+    document.getElementById('winPanel').classList.remove('show');
+    startTimer();
+    renderBoard();
+  }
+
+  function renderBoard(){
+    const boardEl = document.getElementById('board');
+    boardEl.innerHTML = '';
+    board.forEach((card, i) => {
+      const cardEl = document.createElement('div');
+      cardEl.className = 'card';
+      cardEl.dataset.index = i;
+      cardEl.innerHTML = `
+        <div class="card-inner">
+          <div class="face face-back">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 4 14h6l-1 8 9-12h-6z"/></svg>
+          </div>
+          <div class="face face-front ${card.type}">${card.text}</div>
+        </div>
+      `;
+      cardEl.addEventListener('click', () => onCardClick(i));
+      boardEl.appendChild(cardEl);
+    });
+  }
+
+  function onCardClick(i){
+    if(lock) return;
+    const card = board[i];
+    if(card.matched || flipped.includes(i)) return;
+
+    const cardEl = document.querySelector(`.card[data-index="${i}"]`);
+    cardEl.classList.add('flipped');
+    flipped.push(i);
+
+    if(flipped.length === 2){
+      lock = true;
+      moves++;
+      document.getElementById('stat-moves').textContent = moves;
+      const [i1, i2] = flipped;
+      const c1 = board[i1], c2 = board[i2];
+      const isMatch = c1.pairId === c2.pairId && c1.type !== c2.type;
+
+      if(isMatch){
+        c1.matched = true; c2.matched = true;
+        matchedCount++;
+        document.getElementById('stat-matches').textContent = matchedCount + ' / ' + activePairs.length;
+        setTimeout(() => {
+          document.querySelector(`.card[data-index="${i1}"]`).classList.add('matched');
+          document.querySelector(`.card[data-index="${i2}"]`).classList.add('matched');
+          flipped = [];
+          lock = false;
+          if(matchedCount === activePairs.length) finishGame();
+        }, 350);
+      } else {
+        const el1 = document.querySelector(`.card[data-index="${i1}"]`);
+        const el2 = document.querySelector(`.card[data-index="${i2}"]`);
+        el1.classList.add('wrong'); el2.classList.add('wrong');
+        setTimeout(() => {
+          el1.classList.remove('flipped', 'wrong');
+          el2.classList.remove('flipped', 'wrong');
+          flipped = [];
+          lock = false;
+        }, 900);
+      }
+    }
+  }
+
+  function finishGame(){
+    clearInterval(timerInterval);
+    document.getElementById('winStats').textContent =
+      `סיימת ב-${moves} מהלכים ובזמן ${formatTime(seconds)}. נסו לשפר את התוצאה בסיבוב הבא!`;
+    document.getElementById('winPanel').classList.add('show');
+  }
+
+  // המשחק מתחיל רק לאחר בחירת רמת קושי (ראו level-screen)
+</script>
+</body>
+</html>
