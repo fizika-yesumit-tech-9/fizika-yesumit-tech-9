@@ -1,1 +1,469 @@
+<!--
+  סולמות וחבלים - יחידה 4, Gems 5-8 | פיזיקה יישומית בשילוב טכנולוגיה, כיתה ט'
+  הצהרת AI: קובץ זה נבנה בסיוע Claude (Anthropic). בנק השאלות מבוסס על תוכן
+  ארבעת ה-Gems: מומחה אנרגיית הגובה, מומחה אנרגיית התנועה, מומחה אנרגיית
+  האלסטיות, ושומר האנרגיה המכנית. שאלות תיאורטיות וחישוביות, רמת קושי
+  בינונית-גבוהה.
+-->
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>סולמות וחבלים — אנרגיה מכנית | יחידה 4</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500;700;900&family=Heebo:wght@300;400;600&family=Roboto+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#10141b; --panel:#1a212c; --panel-2:#212a37; --line:#2c3646;
+    --amber:#ffb020; --amber-dim:#7a5a20; --teal:#33d6c0; --teal-dim:#1c5c54; --red:#ff5a5f;
+    --text:#edeff3; --muted:#8b93a1;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:'Heebo',sans-serif;}
+  body{min-height:100vh;padding:24px 16px 70px;}
+  .wrap{max-width:1050px;margin:0 auto;}
 
+  .breadcrumb{font-family:'Roboto Mono',monospace;font-size:12px;color:var(--muted);margin-bottom:18px;}
+  .breadcrumb a{color:var(--teal);text-decoration:none;}
+  .breadcrumb a:hover{text-decoration:underline;}
+
+  .head{display:flex;align-items:center;gap:16px;margin-bottom:10px;flex-wrap:wrap;}
+  .head-icon{
+    width:56px;height:56px;border-radius:16px;display:flex;align-items:center;justify-content:center;
+    background:var(--panel);border:1px solid var(--line);color:var(--amber);flex-shrink:0;
+  }
+  .head-icon svg{width:28px;height:28px;}
+  h1{font-family:'Rubik',sans-serif;font-weight:900;font-size:clamp(22px,4vw,32px);margin:0;line-height:1.3;}
+
+  .desc{
+    background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--amber);
+    border-radius:10px;padding:16px 20px;margin-bottom:20px;font-size:14px;line-height:1.8;
+  }
+  .desc b{color:var(--amber);}
+
+  .legend{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:18px;font-size:12px;color:var(--muted);}
+  .legend span{display:inline-flex;align-items:center;gap:6px;}
+  .legend i{width:13px;height:13px;border-radius:4px;display:inline-block;}
+  .legend .ladder{background:var(--teal);}
+  .legend .snake{background:var(--red);}
+  .legend .quest{background:var(--amber);}
+
+  .hud{
+    display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between;
+    background:var(--panel-2);border:1px solid var(--line);border-radius:12px;
+    padding:14px 18px;margin-bottom:20px;
+  }
+  .players{display:flex;gap:18px;flex-wrap:wrap;}
+  .player-chip{
+    display:flex;align-items:center;gap:8px;font-family:'Roboto Mono',monospace;font-size:13px;
+    padding:6px 12px;border-radius:20px;border:1.5px solid var(--line);color:var(--muted);
+  }
+  .player-chip.active{border-color:var(--amber);color:var(--text);background:rgba(255,176,32,.08);}
+  .player-dot{width:12px;height:12px;border-radius:50%;flex-shrink:0;}
+  .p1-dot{background:var(--amber);} .p2-dot{background:var(--teal);}
+  .player-chip b{font-family:'Rubik',sans-serif;}
+
+  .dice-area{display:flex;align-items:center;gap:14px;}
+  .dice{
+    width:52px;height:52px;border-radius:12px;background:var(--panel);border:1.5px solid var(--line);
+    display:flex;align-items:center;justify-content:center;font-family:'Rubik',sans-serif;
+    font-weight:900;font-size:24px;color:var(--amber);
+  }
+  .roll-btn{
+    background:var(--amber);color:#241a06;border:none;font-family:'Rubik',sans-serif;font-weight:700;
+    font-size:14px;padding:12px 22px;border-radius:9px;cursor:pointer;transition:.15s;
+  }
+  .roll-btn:hover{transform:translateY(-2px);}
+  .roll-btn:disabled{opacity:.4;cursor:not-allowed;transform:none;}
+  .reset-btn{
+    background:transparent;border:1.5px solid var(--teal);color:var(--teal);
+    font-family:'Rubik',sans-serif;font-weight:700;font-size:13px;
+    padding:10px 16px;border-radius:9px;cursor:pointer;transition:.15s;
+  }
+  .reset-btn:hover{background:var(--teal);color:#0a1512;}
+
+  .turn-msg{font-family:'Roboto Mono',monospace;font-size:13px;color:var(--muted);margin-bottom:14px;min-height:18px;}
+  .turn-msg b{color:var(--amber);}
+
+  .board{
+    display:grid;grid-template-columns:repeat(8,1fr);gap:4px;
+    background:var(--panel-2);border:1px solid var(--line);border-radius:14px;padding:10px;
+  }
+  .cell{
+    position:relative;aspect-ratio:1/1;background:var(--panel);border:1px solid var(--line);
+    border-radius:7px;display:flex;align-items:flex-start;justify-content:flex-start;
+    padding:3px 5px;font-family:'Roboto Mono',monospace;font-size:9px;color:var(--muted);
+  }
+  .cell.ladder{border-color:var(--teal);background:rgba(51,214,192,.10);}
+  .cell.snake{border-color:var(--red);background:rgba(255,90,95,.10);}
+  .cell.quest{border-color:var(--amber);background:rgba(255,176,32,.10);}
+  .cell.goal{border-color:#6fcf6f;background:rgba(111,207,111,.15);}
+  .cell-icon{position:absolute;top:2px;left:2px;font-size:12px;}
+  .tokens{position:absolute;bottom:3px;right:3px;display:flex;gap:2px;}
+  .token{width:13px;height:13px;border-radius:50%;border:1.5px solid var(--bg);}
+
+  @media(max-width:600px){
+    .cell{font-size:7px;}
+    .cell-icon{font-size:9px;}
+    .token{width:9px;height:9px;}
+  }
+
+  .modal-overlay{
+    display:none;position:fixed;inset:0;background:rgba(8,10,14,.82);
+    align-items:center;justify-content:center;z-index:50;padding:16px;
+  }
+  .modal-overlay.show{display:flex;}
+  .modal{
+    background:var(--panel);border:1.5px solid var(--amber);border-radius:16px;
+    padding:26px;max-width:480px;width:100%;
+  }
+  .modal-tag{font-family:'Roboto Mono',monospace;font-size:11px;color:var(--amber);margin-bottom:8px;}
+  .modal-q{font-family:'Rubik',sans-serif;font-weight:700;font-size:16px;line-height:1.5;margin-bottom:18px;}
+  .opt-btn{
+    display:block;width:100%;text-align:right;background:var(--panel-2);border:1.5px solid var(--line);
+    color:var(--text);border-radius:10px;padding:12px 14px;margin-bottom:9px;cursor:pointer;
+    font-family:'Heebo',sans-serif;font-size:14px;transition:.12s;
+  }
+  .opt-btn:hover:not(:disabled){border-color:var(--teal);}
+  .opt-btn.correct{border-color:#6fcf6f;background:rgba(111,207,111,.15);}
+  .opt-btn.wrong{border-color:var(--red);background:rgba(255,90,95,.15);}
+  .opt-btn:disabled{cursor:default;}
+  .modal-feedback{font-size:13px;color:var(--muted);margin:14px 0;min-height:20px;line-height:1.6;}
+  .modal-continue{
+    background:var(--amber);color:#241a06;border:none;font-family:'Rubik',sans-serif;font-weight:700;
+    font-size:14px;padding:11px 20px;border-radius:9px;cursor:pointer;display:none;
+  }
+  .modal-continue.show{display:inline-block;}
+
+  .win-panel{
+    display:none;margin-top:22px;background:var(--panel);border:1px solid var(--amber);
+    border-radius:14px;padding:26px;text-align:center;
+  }
+  .win-panel.show{display:block;}
+  .win-panel h2{font-family:'Rubik',sans-serif;color:var(--amber);margin:0 0 8px;}
+  .win-panel p{color:var(--muted);font-size:14px;margin:0 0 16px;}
+
+  footer{margin-top:40px;color:var(--muted);font-size:12px;text-align:center;line-height:1.8;}
+  footer a{color:var(--teal);}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="breadcrumb"><a href="index.html">← דף הבית</a> · <a href="04-energiya.html">נושא 4: אנרגיות</a> · משחק תרגול</div>
+
+  <div class="head">
+    <div class="head-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 4 14h6l-1 8 9-12h-6z"/></svg></div>
+    <h1>סולמות וחבלים: אנרגיה מכנית</h1>
+  </div>
+
+  <div class="desc">
+    משחק חזרה לזוגות על ארבעת ה-Gems: <b>מומחה אנרגיית הגובה</b>, <b>מומחה אנרגיית התנועה</b>,
+    <b>מומחה אנרגיית האלסטיות</b> ו<b>שומר האנרגיה המכנית</b>. שאלות תיאורטיות וחישוביות
+    ברמת קושי בינונית-גבוהה — תשובה נכונה מקפיצה 2 משבצות קדימה, תשובה שגויה מחזירה 2 אחורה.
+  </div>
+
+  <div class="legend">
+    <span><i class="ladder"></i> סולם — עולים</span>
+    <span><i class="snake"></i> נחש — יורדים</span>
+    <span><i class="quest"></i> משבצת שאלה</span>
+  </div>
+
+  <div class="hud">
+    <div class="players">
+      <div class="player-chip active" id="chip-0"><span class="player-dot p1-dot"></span><b>שחקן 1</b> · משבצת <span id="pos-0">1</span></div>
+      <div class="player-chip" id="chip-1"><span class="player-dot p2-dot"></span><b>שחקן 2</b> · משבצת <span id="pos-1">1</span></div>
+    </div>
+    <div class="dice-area">
+      <div class="dice" id="diceVal">?</div>
+      <button class="roll-btn" id="rollBtn" onclick="rollDice()">הטילו קובייה 🎲</button>
+      <button class="reset-btn" onclick="resetGame()">התחלה חדשה</button>
+    </div>
+  </div>
+
+  <div class="turn-msg" id="turnMsg">תור <b>שחקן 1</b> — לחצו על "הטילו קובייה"</div>
+
+  <div class="board" id="board"></div>
+
+  <div class="win-panel" id="winPanel">
+    <h2 id="winTitle">🎉 שחקן 1 ניצח!</h2>
+    <p>מגיע לכם כבוד — עברתם את כל הלוח.</p>
+    <button class="reset-btn" onclick="resetGame()">משחק חדש</button>
+  </div>
+
+  <footer>
+    <a href="04-energiya.html">חזרה לנושא 4</a> · <a href="index.html">דף הבית</a> · פיזיקה יישומית בשילוב טכנולוגיה, כיתה ט'
+  </footer>
+
+</div>
+
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <div class="modal-tag" id="modalTag">משבצת שאלה</div>
+    <div class="modal-q" id="modalQ"></div>
+    <div id="modalOpts"></div>
+    <div class="modal-feedback" id="modalFeedback"></div>
+    <button class="modal-continue" id="modalContinue" onclick="closeModal()">המשך ←</button>
+  </div>
+</div>
+
+<script>
+  const BOARD_SIZE = 40;
+
+  // סולמות: התחלה (נמוך) -> סוף (גבוה)
+  const LADDERS = { 2:18, 7:29, 13:24, 19:35, 27:38 };
+  // נחשים: התחלה (גבוה) -> סוף (נמוך)
+  const SNAKES = { 32:11, 36:15, 25:9, 20:4, 39:31 };
+  // משבצות שאלה
+  const QUEST_CELLS = new Set([3,6,10,14,17,21,23,26,28,30,33,37]);
+
+  // בנק השאלות: תיאורטיות וחישוביות, רמה בינונית-גבוהה, על בסיס Gems 5-8
+  const QUESTIONS = [
+    { q: "אם מכפילים את הגובה של גוף פי 2 (באותה מסה), מה קורה לאנרגיית הגובה שלו?", opts: ["מוכפלת פי 2", "מוכפלת פי 4", "לא משתנה"], correct: 0 },
+    { q: "גוף במסה 4 ק\"ג נמצא בגובה 5 מטר (g=10). מהי אנרגיית הגובה שלו?", opts: ["100 ג'אול", "200 ג'אול", "20 ג'אול"], correct: 1 },
+    { q: "לגוף אנרגיית גובה Ep=300J, מסתו 6 ק\"ג (g=10). מהו גובהו?", opts: ["50 מטר", "0.5 מטר", "5 מטר"], correct: 2 },
+    { q: "למה בתרגילי אנרגיית גובה תמיד קובעים 'נקודת ייחוס'?", opts: ["כי גובה הוא תמיד יחסי למשהו", "כי g משתנה לפי גובה", "כי מסה תלויה בגובה"], correct: 0 },
+    { q: "אם מכפילים את המהירות של גוף פי 2 (באותה מסה), מה קורה לאנרגיה הקינטית שלו?", opts: ["מוכפלת פי 2", "מוכפלת פי 4", "לא משתנה"], correct: 1 },
+    { q: "גוף במסה 2 ק\"ג נע במהירות 3 מ'/ש'. מהי האנרגיה הקינטית שלו?", opts: ["6 ג'אול", "18 ג'אול", "9 ג'אול"], correct: 2 },
+    { q: "מהי האנרגיה הקינטית של גוף הנמצא במנוחה מוחלטת?", opts: ["אפס", "תלוי במסה בלבד", "לא ניתן לדעת"], correct: 0 },
+    { q: "לגוף אנרגיה קינטית Ek=32J ומסה 4 ק\"ג. מהי מהירותו?", opts: ["8 מ'/ש'", "16 מ'/ש'", "4 מ'/ש'"], correct: 2 },
+    { q: "קפיץ נמתח למרחק כפול ממה שנמתח קודם (אותו קפיץ). מה קורה לאנרגיה האלסטית האגורה בו?", opts: ["מוכפלת פי 2", "מוכפלת פי 4", "לא משתנה"], correct: 1 },
+    { q: "קפיץ עם קבוע k=200 N/m נמתח 0.2 מטר. מהי האנרגיה האלסטית האגורה בו?", opts: ["4 ג'אול", "40 ג'אול", "0.4 ג'אול"], correct: 0 },
+    { q: "לקפיץ אנרגיה אלסטית Eel=18J וקבוע k=400 N/m. מהו מרחק המתיחה שלו?", opts: ["0.03 מטר", "3 מטר", "0.3 מטר"], correct: 2 },
+    { q: "האם קפיץ דחוס וקפיץ מתוח (באותו מרחק עיוות) אוגרים אנרגיה אלסטית לפי אותה נוסחה?", opts: ["כן, שתיהן לפי אותה נוסחה", "לא, לדחיסה יש נוסחה שונה", "רק מתיחה נחשבת אנרגיה אלסטית"], correct: 0 },
+    { q: "גוף נופל בנפילה חופשית ממנוחה. ברגע השחרור, באיזו צורת אנרגיה נמצאת כל האנרגיה שלו?", opts: ["אנרגיית תנועה בלבד", "אנרגיית גובה בלבד", "חצי-חצי בין גובה לתנועה"], correct: 1 },
+    { q: "גוף נופל בנפילה חופשית ממנוחה מגובה 5 מטר (g=10, ללא הפסדים). מהי מהירותו כשהוא מגיע לקרקע?", opts: ["5 מ'/ש'", "20 מ'/ש'", "10 מ'/ש'"], correct: 2 },
+    { q: "למה במצב האידיאלי שנלמד ב'שומר האנרגיה המכנית' מניחים 'אין הפסדי אנרגיה'?", opts: ["כי במציאות אין באמת חיכוך", "כדי להתמקד בעיקרון השימור לפני שמסבכים אותו בהפסדים", "כי חוק השימור לא תקף עם חיכוך"], correct: 1 },
+    { q: "כדור במסה 1 ק\"ג נע במהירות 4 מ'/ש' ופוגע בקפיץ עם k=100 N/m (ללא הפסדים). מהו מרחק הדחיסה המקסימלי?", opts: ["0.4 מטר", "1.6 מטר", "0.04 מטר"], correct: 0 },
+  ];
+
+  let players = [
+    { name: "שחקן 1", pos: 1, colorClass: "p1-dot" },
+    { name: "שחקן 2", pos: 1, colorClass: "p2-dot" },
+  ];
+  let currentPlayer = 0;
+  let gameOver = false;
+  let usedQuestions = [];
+  let pendingEffect = null; // { playerIndex, delta } to apply after modal closes
+
+  function buildBoardGrid(){
+    const grid = [];
+    for(let rowFromBottom = 4; rowFromBottom >= 0; rowFromBottom--){
+      const base = rowFromBottom * 8;
+      let rowNums;
+      if(rowFromBottom % 2 === 0){
+        rowNums = Array.from({length:8}, (_, i) => base + i + 1);
+      } else {
+        rowNums = Array.from({length:8}, (_, i) => base + 8 - i);
+      }
+      grid.push(rowNums);
+    }
+    return grid; // grid[0] = top row (33-40), grid[4] = bottom row (1-8)
+  }
+
+  function cellIcon(n){
+    if(LADDERS[n]) return '🪜';
+    if(SNAKES[n]) return '🔻';
+    if(QUEST_CELLS.has(n)) return '❓';
+    if(n === BOARD_SIZE) return '🏁';
+    return '';
+  }
+
+  function cellClass(n){
+    if(LADDERS[n]) return 'ladder';
+    if(SNAKES[n]) return 'snake';
+    if(QUEST_CELLS.has(n)) return 'quest';
+    if(n === BOARD_SIZE) return 'goal';
+    return '';
+  }
+
+  function renderBoard(){
+    const boardEl = document.getElementById('board');
+    boardEl.innerHTML = '';
+    const grid = buildBoardGrid();
+    grid.forEach(row => {
+      row.forEach(n => {
+        const cellEl = document.createElement('div');
+        cellEl.className = 'cell ' + cellClass(n);
+        cellEl.dataset.cell = n;
+        const icon = cellIcon(n);
+        cellEl.innerHTML = `
+          ${n}
+          ${icon ? `<span class="cell-icon">${icon}</span>` : ''}
+          <div class="tokens" id="tokens-${n}"></div>
+        `;
+        boardEl.appendChild(cellEl);
+      });
+    });
+    renderTokens();
+  }
+
+  function renderTokens(){
+    document.querySelectorAll('.tokens').forEach(t => t.innerHTML = '');
+    players.forEach((p, idx) => {
+      const container = document.getElementById('tokens-' + p.pos);
+      if(container){
+        const tok = document.createElement('div');
+        tok.className = 'token ' + p.colorClass;
+        container.appendChild(tok);
+      }
+      document.getElementById('pos-' + idx).textContent = p.pos;
+    });
+  }
+
+  function updateChips(){
+    document.getElementById('chip-0').classList.toggle('active', currentPlayer === 0 && !gameOver);
+    document.getElementById('chip-1').classList.toggle('active', currentPlayer === 1 && !gameOver);
+  }
+
+  function setTurnMsg(html){
+    document.getElementById('turnMsg').innerHTML = html;
+  }
+
+  function rollDice(){
+    if(gameOver) return;
+    document.getElementById('rollBtn').disabled = true;
+    const roll = Math.floor(Math.random() * 6) + 1;
+    document.getElementById('diceVal').textContent = roll;
+
+    const p = players[currentPlayer];
+    const target = p.pos + roll;
+
+    if(target > BOARD_SIZE){
+      setTurnMsg(`<b>${p.name}</b> הטיל ${roll} — אין מספיק משבצות עד הסוף, התור עובר.`);
+      setTimeout(nextTurn, 1200);
+      return;
+    }
+
+    p.pos = target;
+    renderTokens();
+
+    // בדיקת סולם/נחש
+    let bonusMsg = '';
+    if(LADDERS[p.pos]){
+      const dest = LADDERS[p.pos];
+      bonusMsg = ` נחתת על סולם! עולים ל-${dest}.`;
+      p.pos = dest;
+    } else if(SNAKES[p.pos]){
+      const dest = SNAKES[p.pos];
+      bonusMsg = ` נחתת על נחש! יורדים ל-${dest}.`;
+      p.pos = dest;
+    }
+    renderTokens();
+
+    if(p.pos === BOARD_SIZE){
+      finishGame(p);
+      return;
+    }
+
+    if(QUEST_CELLS.has(p.pos)){
+      setTurnMsg(`<b>${p.name}</b> הטיל ${roll}.${bonusMsg} נחיתה על משבצת שאלה!`);
+      setTimeout(() => openQuestion(currentPlayer), 700);
+      return;
+    }
+
+    setTurnMsg(`<b>${p.name}</b> הטיל ${roll}.${bonusMsg}`);
+    setTimeout(nextTurn, 1000);
+  }
+
+  function openQuestion(playerIndex){
+    const available = QUESTIONS.filter(q => !usedQuestions.includes(q));
+    const pool = available.length > 0 ? available : QUESTIONS;
+    const question = pool[Math.floor(Math.random() * pool.length)];
+    usedQuestions.push(question);
+    if(usedQuestions.length >= QUESTIONS.length) usedQuestions = [];
+
+    document.getElementById('modalTag').textContent = players[playerIndex].name + ' — משבצת שאלה';
+    document.getElementById('modalQ').textContent = question.q;
+    document.getElementById('modalFeedback').textContent = '';
+    document.getElementById('modalContinue').classList.remove('show');
+
+    const optsEl = document.getElementById('modalOpts');
+    optsEl.innerHTML = '';
+    question.opts.forEach((opt, i) => {
+      const btn = document.createElement('button');
+      btn.className = 'opt-btn';
+      btn.textContent = opt;
+      btn.onclick = () => answerQuestion(i, question, playerIndex);
+      optsEl.appendChild(btn);
+    });
+
+    document.getElementById('modalOverlay').classList.add('show');
+  }
+
+  function answerQuestion(chosenIndex, question, playerIndex){
+    const btns = document.querySelectorAll('#modalOpts .opt-btn');
+    btns.forEach((b, i) => {
+      b.disabled = true;
+      if(i === question.correct) b.classList.add('correct');
+      else if(i === chosenIndex) b.classList.add('wrong');
+    });
+
+    const isCorrect = chosenIndex === question.correct;
+    const feedbackEl = document.getElementById('modalFeedback');
+    if(isCorrect){
+      feedbackEl.textContent = 'תשובה נכונה! מתקדמים 2 משבצות קדימה.';
+      pendingEffect = { playerIndex, delta: 2 };
+    } else {
+      feedbackEl.textContent = `לא מדויק — התשובה הנכונה: "${question.opts[question.correct]}". חוזרים 2 משבצות אחורה.`;
+      pendingEffect = { playerIndex, delta: -2 };
+    }
+    document.getElementById('modalContinue').classList.add('show');
+  }
+
+  function closeModal(){
+    document.getElementById('modalOverlay').classList.remove('show');
+    if(pendingEffect){
+      const p = players[pendingEffect.playerIndex];
+      let newPos = p.pos + pendingEffect.delta;
+      newPos = Math.max(1, Math.min(BOARD_SIZE, newPos));
+      p.pos = newPos;
+      pendingEffect = null;
+      renderTokens();
+      if(p.pos === BOARD_SIZE){
+        finishGame(p);
+        return;
+      }
+    }
+    nextTurn();
+  }
+
+  function nextTurn(){
+    if(gameOver) return;
+    currentPlayer = 1 - currentPlayer;
+    updateChips();
+    setTurnMsg(`תור <b>${players[currentPlayer].name}</b> — לחצו על "הטילו קובייה"`);
+    document.getElementById('rollBtn').disabled = false;
+  }
+
+  function finishGame(winner){
+    gameOver = true;
+    document.getElementById('rollBtn').disabled = true;
+    document.getElementById('winTitle').textContent = `🎉 ${winner.name} ניצח!`;
+    document.getElementById('winPanel').classList.add('show');
+    setTurnMsg(`המשחק הסתיים — <b>${winner.name}</b> ניצח!`);
+  }
+
+  function resetGame(){
+    players = [
+      { name: "שחקן 1", pos: 1, colorClass: "p1-dot" },
+      { name: "שחקן 2", pos: 1, colorClass: "p2-dot" },
+    ];
+    currentPlayer = 0;
+    gameOver = false;
+    usedQuestions = [];
+    pendingEffect = null;
+    document.getElementById('winPanel').classList.remove('show');
+    document.getElementById('diceVal').textContent = '?';
+    document.getElementById('rollBtn').disabled = false;
+    updateChips();
+    setTurnMsg('תור <b>שחקן 1</b> — לחצו על "הטילו קובייה"');
+    renderBoard();
+  }
+
+  renderBoard();
+  updateChips();
+</script>
+</body>
+</html>
