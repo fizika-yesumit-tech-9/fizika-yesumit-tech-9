@@ -133,137 +133,100 @@
 #craneGame footer{margin-top:28px;color:var(--muted);font-size:12px;text-align:center;line-height:1.8;}
 @media(max-width:820px){#craneGame .layout{grid-template-columns:1fr;}}
 
-  /* --- סרגל מתיחה --- */
-  #rulerGame .wrap{max-width:940px;margin:0 auto;}
-#rulerGame .eyebrow{font-family:'Roboto Mono',monospace;color:var(--teal);font-size:12px;letter-spacing:2px;text-transform:uppercase;}
-#rulerGame h1{font-family:'Rubik',sans-serif;font-weight:900;font-size:clamp(24px,4.5vw,34px);margin:6px 0 4px;}
-#rulerGame h1 span{color:var(--amber);}
-#rulerGame .subtitle{color:var(--muted);font-size:14px;margin-bottom:20px;line-height:1.6;max-width:760px;}
-#rulerGame .layout{display:grid;grid-template-columns:1fr 320px;gap:20px;align-items:start;}
-#rulerGame .panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px;margin-bottom:16px;}
-#rulerGame .panel h2{font-family:'Rubik',sans-serif;font-size:14px;margin:0 0 12px;color:var(--muted);letter-spacing:.5px;}
-#rulerGame .rig-stage{
-    background:linear-gradient(#161c26,#10141b);border:1px solid var(--line);border-radius:14px;
-    padding:16px;display:flex;justify-content:center;
-  }
-#rulerGame .rig-stage svg{width:100%;max-width:340px;height:auto;}
-#rulerGame .opt-btns{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px;}
-#rulerGame .opt-btn{
-    flex:1;min-width:70px;padding:9px 6px;border-radius:8px;border:1.5px solid var(--line);
-    background:var(--panel-2);color:var(--text);cursor:pointer;text-align:center;font-size:12.5px;
-  }
-#rulerGame .opt-btn.selected{border-color:var(--amber);background:rgba(255,176,32,.12);color:var(--amber);font-weight:700;}
-#rulerGame .weight-controls{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:8px;}
-#rulerGame .wbtn{
-    width:40px;height:40px;border-radius:50%;border:1.5px solid var(--line);background:var(--panel-2);
-    color:var(--text);cursor:pointer;font-size:20px;font-weight:700;
-  }
-#rulerGame .wbtn:disabled{opacity:.35;cursor:not-allowed;}
-#rulerGame .wcount{font-family:'Roboto Mono',monospace;font-size:15px;min-width:110px;text-align:center;}
-#rulerGame .readout{
-    background:var(--panel-2);border:1px solid var(--line);border-radius:10px;padding:12px 14px;
-    font-family:'Roboto Mono',monospace;font-size:13px;line-height:2;margin-top:12px;
-  }
-#rulerGame .readout b{color:var(--teal);}
-#rulerGame .btn{
-    width:100%;padding:11px;border-radius:8px;border:none;font-weight:700;cursor:pointer;
-    background:var(--amber);color:#241705;font-family:'Heebo',sans-serif;font-size:14px;margin-top:8px;
-  }
-#rulerGame .btn.ghost{background:transparent;border:1px solid var(--line);color:var(--muted);}
-#rulerGame .quiz-box{margin-top:16px;}
-#rulerGame .quiz-box.hidden{display:none;}
-#rulerGame .input-row{display:flex;gap:8px;margin-bottom:8px;}
-#rulerGame .input-row input{
-    flex:1;padding:9px;border-radius:8px;border:1px solid var(--line);background:var(--panel-2);
-    color:var(--text);font-family:'Roboto Mono',monospace;font-size:14px;
-  }
-#rulerGame .feedback{margin-top:10px;padding:11px;border-radius:8px;font-size:13px;line-height:1.6;display:none;}
-#rulerGame .feedback.show{display:block;}
-#rulerGame .feedback.ok{background:rgba(111,207,111,.12);border:1px solid var(--green);color:var(--green);}
-#rulerGame .feedback.bad{background:rgba(255,90,95,.1);border:1px solid var(--red);color:#ff9a9d;}
-#rulerGame footer{margin-top:28px;color:var(--muted);font-size:12px;text-align:center;line-height:1.8;}
-@media(max-width:820px){#rulerGame .layout{grid-template-columns:1fr;}}
 
-  /* --- מעבדת חומרי הקפיצים --- */
-  #materialsGame .wrap{max-width:1000px;margin:0 auto;}
-#materialsGame .eyebrow{font-family:'Roboto Mono',monospace;color:var(--teal);font-size:12px;letter-spacing:2px;text-transform:uppercase;}
-#materialsGame h1{font-family:'Rubik',sans-serif;font-weight:900;font-size:clamp(24px,4.5vw,34px);margin:6px 0 4px;}
-#materialsGame h1 span{color:var(--amber);}
-#materialsGame .subtitle{color:var(--muted);font-size:14px;margin-bottom:20px;line-height:1.6;max-width:760px;}
-#materialsGame .panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px;margin-bottom:16px;}
-#materialsGame .panel h2{font-family:'Rubik',sans-serif;font-size:14px;margin:0 0 12px;color:var(--muted);letter-spacing:.5px;}
-#materialsGame .mat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:14px;}
-#materialsGame .mat-btn{
-    padding:9px 6px;border-radius:8px;border:1.5px solid var(--line);background:var(--panel-2);
-    color:var(--text);cursor:pointer;text-align:center;font-size:12px;
-  }
-#materialsGame .mat-btn.metal{border-right:3px solid #9db4c0;}
-#materialsGame .mat-btn.nonmetal{border-right:3px solid #b98cff;}
-#materialsGame .mat-btn.selected{border-color:var(--amber);background:rgba(255,176,32,.12);color:var(--amber);font-weight:700;}
-#materialsGame .mat-legend{display:flex;gap:16px;font-size:11.5px;color:var(--muted);margin-bottom:12px;}
-#materialsGame .mat-legend span{display:inline-flex;align-items:center;gap:5px;}
-#materialsGame .leg-dot{width:10px;height:10px;border-radius:2px;}
-#materialsGame .mode-row{display:flex;gap:8px;margin-bottom:12px;}
-#materialsGame .mode-btn{
-    flex:1;padding:10px;border-radius:8px;border:1.5px solid var(--line);background:var(--panel-2);
-    color:var(--text);cursor:pointer;text-align:center;font-size:13px;
-  }
-#materialsGame .mode-btn.selected{border-color:var(--teal);background:rgba(51,214,192,.12);color:var(--teal);font-weight:700;}
-#materialsGame .btn{
-    width:100%;padding:12px;border-radius:8px;border:none;font-weight:700;cursor:pointer;
-    background:var(--amber);color:#241705;font-family:'Heebo',sans-serif;font-size:14px;margin-top:6px;
-  }
-#materialsGame .btn:disabled{opacity:.4;cursor:not-allowed;}
-#materialsGame .btn.ghost{background:transparent;border:1px solid var(--line);color:var(--muted);}
-#materialsGame .level-strip{display:flex;gap:8px;margin-bottom:16px;}
-#materialsGame .lv-chip{
-    flex:1;text-align:center;padding:8px;border-radius:8px;border:1.5px solid var(--line);
-    font-family:'Roboto Mono',monospace;font-size:12px;color:var(--muted);
-  }
-#materialsGame .lv-chip.current{border-color:var(--amber);color:var(--amber);font-weight:700;}
-#materialsGame .lv-chip.done{border-color:var(--green);color:var(--green);}
-#materialsGame .rig-stage{
-    background:linear-gradient(#161c26,#10141b);border:1px solid var(--line);border-radius:14px;
-    padding:14px;display:flex;justify-content:center;margin-bottom:16px;
-  }
-#materialsGame .rig-stage svg{width:100%;max-width:380px;height:auto;}
-#materialsGame .given-list{font-family:'Roboto Mono',monospace;font-size:13px;line-height:2;color:var(--text);margin-bottom:12px;}
-#materialsGame .given-list b{color:var(--teal);}
-#materialsGame .formula-box{
-    background:var(--panel-2);border:1px solid var(--violet);border-radius:8px;
-    padding:10px 14px;margin-bottom:12px;font-family:'Roboto Mono',monospace;font-size:15px;
-    color:var(--violet);text-align:center;letter-spacing:.5px;
-  }
-#materialsGame .ask-title{font-family:'Rubik',sans-serif;font-weight:700;font-size:14px;color:var(--amber);margin-bottom:8px;}
-#materialsGame .input-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px;}
-#materialsGame .input-group{flex:1;min-width:130px;}
-#materialsGame .input-group label{display:block;font-size:11.5px;color:var(--muted);margin-bottom:4px;}
-#materialsGame .input-group input{
-    width:100%;padding:9px;border-radius:8px;border:1px solid var(--line);background:var(--panel-2);
-    color:var(--text);font-family:'Roboto Mono',monospace;font-size:14px;
-  }
-#materialsGame .feedback{margin-top:10px;padding:12px;border-radius:8px;font-size:13px;line-height:1.6;display:none;}
-#materialsGame .feedback.show{display:block;}
-#materialsGame .feedback.ok{background:rgba(111,207,111,.12);border:1px solid var(--green);color:var(--green);}
-#materialsGame .feedback.bad{background:rgba(255,90,95,.1);border:1px solid var(--red);color:#ff9a9d;}
-#materialsGame .level-up{
-    display:none;background:rgba(111,207,111,.1);border:1.5px solid var(--green);border-radius:10px;
-    padding:14px;text-align:center;margin-top:12px;
-  }
-#materialsGame .level-up.show{display:block;}
-#materialsGame .level-up strong{color:var(--green);}
-#materialsGame .help-link{
-    display:block;text-align:center;margin-top:10px;font-size:12.5px;color:var(--muted);
-  }
-#materialsGame .help-link a{color:var(--amber);}
-#materialsGame .complete-banner{
-    display:none;background:var(--panel);border:1.5px solid var(--green);border-radius:14px;
-    padding:22px;text-align:center;
-  }
-#materialsGame .complete-banner.show{display:block;}
-#materialsGame .complete-banner h2{font-family:'Rubik',sans-serif;font-size:20px;color:var(--green);margin:0 0 8px;}
-#materialsGame footer{margin-top:28px;color:var(--muted);font-size:12px;text-align:center;line-height:1.8;}
-@media(min-width:640px){#materialsGame .mat-grid{grid-template-columns:repeat(4,1fr);}}
+  /* --- מעבדת הקפיצים המאוחדת --- */
+  #unifiedSpringLab .wrap{max-width:1000px;margin:0 auto;}
+#unifiedSpringLab .eyebrow{font-family:'Roboto Mono',monospace;color:var(--teal);font-size:12px;letter-spacing:2px;text-transform:uppercase;}
+#unifiedSpringLab h1{font-family:'Rubik',sans-serif;font-weight:900;font-size:clamp(24px,4.5vw,34px);margin:6px 0 4px;}
+#unifiedSpringLab h1 span{color:var(--amber);}
+#unifiedSpringLab .subtitle{color:var(--muted);font-size:14px;margin-bottom:20px;line-height:1.6;max-width:760px;}
+#unifiedSpringLab .panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px;margin-bottom:16px;}
+#unifiedSpringLab .panel h2{font-family:'Rubik',sans-serif;font-size:14px;margin:0 0 12px;color:var(--muted);letter-spacing:.5px;}
+#unifiedSpringLab .mat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:14px;}
+#unifiedSpringLab .mat-btn{padding:9px 6px;border-radius:8px;border:1.5px solid var(--line);background:var(--panel-2);color:var(--text);cursor:pointer;text-align:center;font-size:12px;}
+#unifiedSpringLab .mat-btn.metal{border-right:3px solid #9db4c0;}
+#unifiedSpringLab .mat-btn.nonmetal{border-right:3px solid #b98cff;}
+#unifiedSpringLab .mat-btn.selected{border-color:var(--amber);background:rgba(255,176,32,.12);color:var(--amber);font-weight:700;}
+#unifiedSpringLab .mat-legend{display:flex;gap:16px;font-size:11.5px;color:var(--muted);margin-bottom:12px;}
+#unifiedSpringLab .mat-legend span{display:inline-flex;align-items:center;gap:5px;}
+#unifiedSpringLab .leg-dot{width:10px;height:10px;border-radius:2px;display:inline-block;}
+#unifiedSpringLab .mode-row{display:flex;gap:8px;margin-bottom:12px;}
+#unifiedSpringLab .mode-btn{flex:1;padding:10px;border-radius:8px;border:1.5px solid var(--line);background:var(--panel-2);color:var(--text);cursor:pointer;text-align:center;font-size:13px;}
+#unifiedSpringLab .mode-btn.selected{border-color:var(--teal);background:rgba(51,214,192,.12);color:var(--teal);font-weight:700;}
+#unifiedSpringLab .btn{width:100%;padding:12px;border-radius:8px;border:none;font-weight:700;cursor:pointer;background:var(--amber);color:#241705;font-family:'Heebo',sans-serif;font-size:14px;margin-top:6px;}
+#unifiedSpringLab .btn:disabled{opacity:.4;cursor:not-allowed;}
+#unifiedSpringLab .btn.ghost{background:transparent;border:1px solid var(--line);color:var(--muted);}
+#unifiedSpringLab .layout2{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start;}
+#unifiedSpringLab .level-strip{display:flex;gap:8px;margin-bottom:16px;}
+#unifiedSpringLab .lv-chip{flex:1;text-align:center;padding:8px;border-radius:8px;border:1.5px solid var(--line);font-family:'Roboto Mono',monospace;font-size:12px;color:var(--muted);}
+#unifiedSpringLab .lv-chip.current{border-color:var(--amber);color:var(--amber);font-weight:700;}
+#unifiedSpringLab .lv-chip.done{border-color:var(--green);color:var(--green);}
+#unifiedSpringLab .rig-stage{background:linear-gradient(#161c26,#10141b);border:1px solid var(--line);border-radius:14px;padding:14px;display:flex;justify-content:center;margin-bottom:16px;}
+#unifiedSpringLab .rig-stage svg{width:100%;max-width:280px;height:auto;}
+#unifiedSpringLab .formula-box{background:var(--panel-2);border:1px solid var(--violet);border-radius:8px;padding:10px 14px;margin-bottom:12px;font-family:'Roboto Mono',monospace;font-size:15px;color:var(--violet);text-align:center;letter-spacing:.5px;}
+#unifiedSpringLab .given-list{font-family:'Roboto Mono',monospace;font-size:13px;line-height:2;color:var(--text);margin-bottom:12px;}
+#unifiedSpringLab .given-list b{color:var(--teal);}
+#unifiedSpringLab .ask-title{font-family:'Rubik',sans-serif;font-weight:700;font-size:14px;color:var(--amber);margin-bottom:8px;}
+#unifiedSpringLab .input-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px;}
+#unifiedSpringLab .input-group{flex:1;min-width:130px;}
+#unifiedSpringLab .input-group label{display:block;font-size:11.5px;color:var(--muted);margin-bottom:4px;}
+#unifiedSpringLab .input-group input{width:100%;padding:9px;border-radius:8px;border:1px solid var(--line);background:var(--panel-2);color:var(--text);font-family:'Roboto Mono',monospace;font-size:14px;}
+#unifiedSpringLab .feedback{margin-top:10px;padding:12px;border-radius:8px;font-size:13px;line-height:1.6;display:none;}
+#unifiedSpringLab .feedback.show{display:block;}
+#unifiedSpringLab .feedback.ok{background:rgba(111,207,111,.12);border:1px solid var(--green);color:var(--green);}
+#unifiedSpringLab .feedback.bad{background:rgba(255,90,95,.1);border:1px solid var(--red);color:#ff9a9d;}
+#unifiedSpringLab .level-up{display:none;background:rgba(111,207,111,.1);border:1.5px solid var(--green);border-radius:10px;padding:14px;text-align:center;margin-top:12px;}
+#unifiedSpringLab .level-up.show{display:block;}
+#unifiedSpringLab .level-up strong{color:var(--green);}
+#unifiedSpringLab .locked-note{color:var(--muted);font-size:12.5px;text-align:center;padding:18px;}
+#unifiedSpringLab .complete-banner{display:none;background:var(--panel);border:1.5px solid var(--green);border-radius:14px;padding:22px;text-align:center;}
+#unifiedSpringLab .complete-banner.show{display:block;}
+#unifiedSpringLab .complete-banner h2{font-family:'Rubik',sans-serif;font-size:20px;color:var(--green);margin:0 0 8px;}
+#unifiedSpringLab footer{margin-top:28px;color:var(--muted);font-size:12px;text-align:center;line-height:1.8;}
+@media(min-width:640px){#unifiedSpringLab .mat-grid{grid-template-columns:repeat(4,1fr);}}
+@media(max-width:820px){#unifiedSpringLab .layout2{grid-template-columns:1fr;}}
+
+
+  /* --- גלגל החזרה יחידה 3 --- */
+  #wheelGame .wrap{max-width:900px;margin:0 auto;}
+#wheelGame .eyebrow{font-family:'Roboto Mono',monospace;color:var(--teal);font-size:12px;letter-spacing:2px;text-transform:uppercase;}
+#wheelGame h1{font-family:'Rubik',sans-serif;font-weight:900;font-size:clamp(24px,4.5vw,34px);margin:6px 0 4px;}
+#wheelGame h1 span{color:var(--amber);}
+#wheelGame .subtitle{color:var(--muted);font-size:14px;margin-bottom:20px;line-height:1.6;max-width:720px;}
+#wheelGame .layout{display:grid;grid-template-columns:1fr 260px;gap:20px;align-items:start;}
+#wheelGame .wheel-stage{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:26px 20px;text-align:center;}
+#wheelGame .wheel-outer{position:relative;width:260px;height:260px;margin:0 auto 16px;}
+#wheelGame .wheel{width:100%;height:100%;border-radius:50%;position:relative;border:4px solid var(--panel-2);box-shadow:0 0 0 2px var(--line);transition:transform 3.2s cubic-bezier(.15,.85,.25,1);}
+#wheelGame .wheel-label{position:absolute;top:50%;left:50%;width:90px;height:16px;line-height:16px;margin-top:-8px;margin-left:-45px;text-align:center;white-space:nowrap;overflow:hidden;font-family:'Rubik',sans-serif;font-size:10px;font-weight:700;color:#fff;text-shadow:0 0 3px #000,0 0 3px #000,1px 1px 1px #000;transform-origin:50% 50%;pointer-events:none;}
+#wheelGame .wheel-center{position:absolute;top:50%;left:50%;width:24px;height:24px;margin:-12px;border-radius:50%;background:var(--bg);border:2px solid var(--amber);z-index:3;}
+#wheelGame .wheel-pointer{position:absolute;top:-16px;left:50%;transform:translateX(50%);width:0;height:0;border-left:13px solid transparent;border-right:13px solid transparent;border-top:20px solid var(--amber);z-index:4;}
+#wheelGame .btn{padding:12px 20px;border-radius:8px;border:none;font-weight:700;cursor:pointer;background:var(--amber);color:#241705;font-family:'Heebo',sans-serif;font-size:14px;}
+#wheelGame .btn:disabled{opacity:.4;cursor:not-allowed;}
+#wheelGame .btn.ghost{background:transparent;border:1px solid var(--line);color:var(--muted);margin-top:8px;}
+#wheelGame .panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;}
+#wheelGame .panel h2{font-family:'Rubik',sans-serif;font-size:13px;margin:0 0 10px;color:var(--muted);letter-spacing:.5px;}
+#wheelGame .score-line{font-family:'Roboto Mono',monospace;font-size:13px;color:var(--text);margin-bottom:8px;}
+#wheelGame .legend{font-size:11.5px;color:var(--muted);line-height:1.8;}
+#wheelGame .legend b{color:var(--text);}
+#wheelGame .qmodal-overlay{display:none;position:fixed;inset:0;background:rgba(8,10,14,.75);z-index:50;align-items:center;justify-content:center;padding:20px;}
+#wheelGame .qmodal-overlay.show{display:flex;}
+#wheelGame .qmodal{background:var(--panel);border:1px solid var(--amber);border-radius:16px;padding:26px;max-width:520px;width:100%;}
+#wheelGame .qmodal-cat{font-family:'Roboto Mono',monospace;font-size:11px;color:var(--teal);letter-spacing:1px;margin-bottom:8px;}
+#wheelGame .qmodal-type{display:inline-block;font-size:10px;padding:2px 8px;border-radius:10px;margin-right:6px;}
+#wheelGame .qmodal-type.knowledge{background:rgba(51,214,192,.15);color:var(--teal);}
+#wheelGame .qmodal-type.calc{background:rgba(255,176,32,.15);color:var(--amber);}
+#wheelGame .qmodal-q{font-family:'Rubik',sans-serif;font-weight:700;font-size:17px;line-height:1.5;margin:10px 0 16px;}
+#wheelGame .opt{display:block;width:100%;text-align:right;background:var(--panel-2);border:1.5px solid var(--line);border-radius:8px;padding:11px 14px;margin-bottom:8px;color:var(--text);cursor:pointer;font-size:14px;font-family:'Heebo',sans-serif;}
+#wheelGame .opt:hover{border-color:var(--amber);}
+#wheelGame .opt.correct{border-color:var(--green);background:rgba(111,207,111,.12);}
+#wheelGame .opt.wrong{border-color:var(--red);background:rgba(255,90,95,.12);}
+#wheelGame .calc-input-row{display:flex;gap:10px;margin-bottom:10px;}
+#wheelGame .calc-input-row input{flex:1;padding:11px;border-radius:8px;border:1px solid var(--line);background:var(--panel-2);color:var(--text);font-family:'Roboto Mono',monospace;font-size:15px;}
+#wheelGame .qmodal-feedback{font-size:13px;line-height:1.6;margin:12px 0;min-height:20px;}
+#wheelGame .qmodal-feedback.ok{color:var(--green);}
+#wheelGame .qmodal-feedback.bad{color:var(--red);}
+#wheelGame footer{margin-top:28px;color:var(--muted);font-size:12px;text-align:center;line-height:1.8;}
+@media(max-width:760px){#wheelGame .layout{grid-template-columns:1fr;}}
 
 </style>
 </head>
@@ -620,204 +583,21 @@ drawCrane();
 </script>
 </div>
 
-  <div class="section-title" style="margin-top:34px;">מתיחת קפיץ מול סרגל</div>
-<div id="rulerGame">
+
+  <div class="section-title" style="margin-top:34px;">מעבדת הקפיצים — חומרים, סרגל ו-4 רמות</div>
+<div id="unifiedSpringLab">
 <div class="wrap">
 
-  <div class="eyebrow">משחק תרגול · נושא 3 אלסטיות</div>
-  <h1>מתיחת <span>קפיץ מול סרגל</span></h1>
+  <div class="eyebrow">מעבדה · נושא 3 אלסטיות</div>
+  <h1>מעבדת <span>הקפיצים</span></h1>
   <div class="subtitle">
-    הוסיפו משקולות לקפיץ ותצפו בו נמתח בפועל מול סרגל מדידה מסומן. קראו את האורך
-    ישירות מהסרגל, ותרגלו את חוק הוק על סמך המדידה החזותית.
-  </div>
-
-  <div class="layout">
-    <div class="rig-stage">
-      <svg id="rulerSvg" viewBox="0 0 240 440" xmlns="http://www.w3.org/2000/svg"></svg>
-    </div>
-
-    <div>
-      <div class="panel">
-        <h2>בחרו קפיץ</h2>
-        <div class="opt-btns" id="springBtns"></div>
-
-        <h2>הוסיפו משקולות (כל אחת 20 גרם)</h2>
-        <div class="weight-controls">
-          <button class="wbtn" id="minusBtn" onclick="changeWeights(-1)">−</button>
-          <div class="wcount" id="wcount">0 משקולות</div>
-          <button class="wbtn" id="plusBtn" onclick="changeWeights(1)">+</button>
-        </div>
-
-        <div class="readout" id="readout"></div>
-
-        <button class="btn ghost" onclick="startQuiz()">עברו לשאלת חישוב</button>
-      </div>
-
-      <div class="panel quiz-box hidden" id="quizBox">
-        <h2>מה קבוע הקפיץ (k)?</h2>
-        <div style="font-size:12.5px;color:var(--muted);margin-bottom:10px;">
-          לפי המדידה שקראתם מהסרגל: אורך במנוחה, אורך נוכחי, ומשקל המשקולות שהוספתם.
-        </div>
-        <div class="input-row">
-          <input type="number" step="any" id="kInput" placeholder="k (ניוטון/ס&quot;מ)">
-        </div>
-        <button class="btn" onclick="checkK()">בדוק תשובה</button>
-        <div class="feedback" id="quizFeedback"></div>
-      </div>
-    </div>
-  </div>
-
-  
-
-</div>
-
-<script>
-const SPRINGS = [
-  { label:'רך', k:2 },
-  { label:'בינוני', k:4 },
-  { label:'קשיח', k:8 }
-];
-const REST_LENGTH = 10; // ס"מ
-const WEIGHT_UNIT_N = 0.2; // כל משקולת = 20 גרם = 0.2 ניוטון (g=10)
-const MAX_WEIGHTS = 8;
-
-let selectedSpring = SPRINGS[1];
-let weightCount = 0;
-
-function buildSpringButtons(){
-  const wrap = document.getElementById('springBtns');
-  wrap.innerHTML = '';
-  SPRINGS.forEach(s => {
-    const b = document.createElement('div');
-    b.className = 'opt-btn' + (s.k === selectedSpring.k ? ' selected' : '');
-    b.textContent = s.label + ' (k=' + s.k + ')';
-    b.onclick = () => { selectedSpring = s; buildSpringButtons(); render(); };
-    wrap.appendChild(b);
-  });
-}
-
-function currentExtension(){
-  const F = weightCount * WEIGHT_UNIT_N;
-  return +(F / selectedSpring.k).toFixed(2);
-}
-
-function currentLength(){
-  return +(REST_LENGTH + currentExtension()).toFixed(2);
-}
-
-function changeWeights(delta){
-  const next = weightCount + delta;
-  if (next < 0 || next > MAX_WEIGHTS) return;
-  weightCount = next;
-  document.getElementById('quizBox').classList.add('hidden');
-  render();
-}
-
-function drawRig(){
-  const svg = document.getElementById('rulerSvg');
-  const rulerX = 40, rulerTop = 40, rulerBottom = 400, rulerLen = rulerBottom - rulerTop;
-  const pxPerCm = rulerLen / 30; // סרגל מוצג עד 30 ס"מ
-
-  let ticks = '';
-  for (let cm = 0; cm <= 30; cm++){
-    const y = rulerTop + cm * pxPerCm;
-    const major = cm % 5 === 0;
-    ticks += `<line x1="${rulerX}" y1="${y}" x2="${rulerX + (major?14:8)}" y2="${y}" stroke="#8b93a1" stroke-width="1"/>`;
-    if (major) ticks += `<text x="${rulerX+18}" y="${y+4}" font-size="9" fill="#8b93a1" font-family="Roboto Mono, monospace">${cm}</text>`;
-  }
-
-  const springTopY = rulerTop + 4;
-  const len = currentLength();
-  const springBottomY = springTopY + len * pxPerCm;
-  const anchorX = 140;
-
-  let zig = '';
-  const steps = 10;
-  let path = `M ${anchorX} ${springTopY}`;
-  for (let i = 1; i <= steps; i++){
-    const y = springTopY + ((springBottomY - springTopY) / steps) * i;
-    const x = anchorX + (i % 2 === 0 ? 10 : -10);
-    path += ` L ${x} ${y}`;
-  }
-  zig = `<path d="${path}" stroke="#7ecbd6" stroke-width="3" fill="none"/>`;
-
-  let weightsSvg = '';
-  for (let i = 0; i < weightCount; i++){
-    const wy = springBottomY + 6 + i * 3;
-    weightsSvg += `<rect x="${anchorX-14}" y="${wy}" width="28" height="8" rx="2" fill="#4a3222" stroke="#7a5a3a"/>`;
-  }
-  const hookY = springBottomY + weightCount*3 + (weightCount>0? 14 : 4);
-
-  const currentTickY = rulerTop + len * pxPerCm;
-
-  svg.innerHTML = `
-    <rect x="${anchorX-30}" y="10" width="60" height="14" fill="#3a4456"/>
-    <line x1="${rulerX-4}" y1="${rulerTop}" x2="${rulerX-4}" y2="${rulerBottom}" stroke="#2c3646" stroke-width="3"/>
-    ${ticks}
-    <line x1="${rulerX-10}" y1="${currentTickY}" x2="${anchorX+20}" y2="${currentTickY}" stroke="#ffb020" stroke-width="1.5" stroke-dasharray="3 3"/>
-    ${zig}
-    ${weightsSvg}
-    <circle cx="${anchorX}" cy="${springBottomY+2}" r="4" fill="#7ecbd6"/>
-  `;
-}
-
-function render(){
-  drawRig();
-  document.getElementById('wcount').textContent = weightCount + ' משקולות (' + (weightCount*20) + ' גרם)';
-  document.getElementById('minusBtn').disabled = weightCount === 0;
-  document.getElementById('plusBtn').disabled = weightCount === MAX_WEIGHTS;
-  const F = +(weightCount * WEIGHT_UNIT_N).toFixed(2);
-  document.getElementById('readout').innerHTML =
-    `אורך במנוחה (L0): <b>${REST_LENGTH} ס"מ</b><br>` +
-    `אורך נוכחי (קריאה מהסרגל): <b>${currentLength()} ס"מ</b><br>` +
-    `הכוח הפועל (ממשקל המשקולות): <b>${F} ניוטון</b>`;
-}
-
-function startQuiz(){
-  document.getElementById('quizBox').classList.remove('hidden');
-  document.getElementById('kInput').value = '';
-  document.getElementById('quizFeedback').classList.remove('show');
-}
-
-function checkK(){
-  const val = parseFloat(document.getElementById('kInput').value);
-  const fb = document.getElementById('quizFeedback');
-  fb.classList.add('show');
-  if (weightCount === 0){
-    fb.className = 'feedback show bad';
-    fb.textContent = 'הוסיפו לפחות משקולת אחת קודם, אחרת אין התארכות למדוד.';
-    return;
-  }
-  const ok = Math.abs(val - selectedSpring.k) <= 0.3;
-  const F = +(weightCount * WEIGHT_UNIT_N).toFixed(2);
-  const x = currentExtension();
-  if (ok){
-    fb.className = 'feedback show ok';
-    fb.textContent = `נכון! k = F ÷ x = ${F} ÷ ${x} = ${selectedSpring.k} ניוטון/ס"מ.`;
-  } else {
-    fb.className = 'feedback show bad';
-    fb.textContent = `לא מדויק. F = ${F} ניוטון (ממשקל המשקולות), x = ${currentLength()} − ${REST_LENGTH} = ${x} ס"מ (התארכות). k = F ÷ x. נסו שוב.`;
-  }
-}
-
-buildSpringButtons();
-render();
-</script>
-</div>
-
-  <div class="section-title" style="margin-top:34px;">מעבדת חומרי הקפיצים — 4 רמות</div>
-<div id="materialsGame">
-<div class="wrap">
-
-  <div class="eyebrow">משחק תרגול · נושא 3 אלסטיות</div>
-  <h1>מעבדת <span>חומרי הקפיצים</span></h1>
-  <div class="subtitle">
-    בחרו קפיץ מתוך 12 חומרים שונים (מתכתיים ולא-מתכתיים), מצב אנכי (תלוי, עם משקולת) או
-    אופקי (כוח ישיר, מתיחה או כיווץ), והתקדמו דרך 4 רמות תרגול חישובי.
+    מעבדה אחת מאוחדת: בחרו קפיץ מתוך 12 חומרים (מתכתיים ולא-מתכתיים), מצב אנכי (עם
+    משקולות אמיתיות מול סרגל מדידה) או אופקי (כוח ישיר, מתיחה או כיווץ), והתקדמו
+    דרך 4 רמות תרגול חישובי.
   </div>
 
   <div class="panel">
-    <h2>בחרו חומר לקפיץ (לפחות 10 סוגים זמינים)</h2>
+    <h2>בחרו חומר לקפיץ (12 סוגים זמינים)</h2>
     <div class="mat-legend">
       <span><span class="leg-dot" style="background:#9db4c0;"></span> מתכת</span>
       <span><span class="leg-dot" style="background:#b98cff;"></span> לא-מתכת</span>
@@ -828,31 +608,37 @@ render();
     <div class="mode-row" id="modeRow"></div>
     <div class="mode-row" id="actionRow" style="display:none;"></div>
 
-    <button class="btn" onclick="startGame()">התחילו תרגול</button>
+    <button class="btn" onclick="startGame()">הרכיבו והתחילו תרגול</button>
     <button class="btn ghost" onclick="resetAll()">איפוס מלא</button>
   </div>
 
   <div id="gameArea" style="display:none;">
     <div class="level-strip" id="levelStrip"></div>
-    <div class="rig-stage"><svg id="materialsSvg" viewBox="0 0 260 300" xmlns="http://www.w3.org/2000/svg"></svg></div>
 
-    <div class="panel">
-      <div class="formula-box" id="formulaBox"></div>
-      <div class="given-list" id="givenList"></div>
-      <div class="ask-title" id="askTitle"></div>
-      <div class="input-row" id="inputRow"></div>
-      <button class="btn" onclick="checkLevel()">בדוק תשובה</button>
-      <div class="feedback" id="feedback"></div>
-      <div class="level-up" id="levelUp"></div>
-      <div class="help-link" id="helpLink"></div>
+    <div class="layout2">
+      <div class="rig-stage"><svg id="rigSvg" viewBox="0 0 200 340" xmlns="http://www.w3.org/2000/svg"></svg></div>
+
+      <div class="panel">
+        <div class="formula-box" id="formulaBox"></div>
+        <div class="given-list" id="givenList"></div>
+        <div class="ask-title" id="askTitle"></div>
+        <div class="input-row" id="inputRow"></div>
+        <button class="btn" onclick="checkLevel()">בדוק תשובה</button>
+        <div class="feedback" id="feedback"></div>
+        <div class="level-up" id="levelUp"></div>
+      </div>
     </div>
   </div>
 
-  <div class="complete-banner" id="materialsComplete">
-    <h2>כל הכבוד! עברת בהצלחה את כל 4 הרמות 🏆</h2>
-    <p style="color:var(--muted);font-size:13px;margin-bottom:14px;">תרגלת אורך מנוחה, התארכות/כיווץ, כוח, משקל וקבוע קפיץ — על קפיץ אמיתי מתוך מגוון חומרים.</p>
-    <button class="btn" onclick="startGame()">סבב חדש (אותן הגדרות)</button>
-    <button class="btn ghost" onclick="resetAll()">בחר קפיץ/מצב אחר</button>
+  <div class="panel" id="unifiedLockedPanel">
+    <div class="locked-note">בחרו חומר קפיץ ומצב למעלה, ולחצו "הרכיבו והתחילו תרגול".</div>
+  </div>
+
+  <div class="complete-banner" id="completeBanner">
+    <h2>כל הכבוד! עברתם בהצלחה את כל 4 הרמות 🏆</h2>
+    <p style="color:var(--muted);font-size:13px;margin-bottom:14px;">תרגלתם אורך מנוחה, התארכות/כיווץ, כוח, משקל וקבוע קפיץ — על קפיץ אמיתי, מדוד מול סרגל.</p>
+    <button class="btn" onclick="startGame()">סבב נתונים חדש (אותו קפיץ ומצב)</button>
+    <button class="btn ghost" onclick="resetAll()">בחרו קפיץ/מצב אחר</button>
   </div>
 
   
@@ -868,18 +654,18 @@ const SPRINGS = [
   { id:'brass',    name:'פליז',        type:'metal',    k:7,  color:'#d4b26a' },
   { id:'copper',   name:'נחושת',       type:'metal',    k:6,  color:'#c47a4e' },
   { id:'aluminum', name:'אלומיניום',   type:'metal',    k:5,  color:'#c8ccd0' },
-  { id:'carbon',   name:'סיבי פחמן',   type:'nonmetal', k:8,  color:'#3a3f47' },
+  { id:'carbon',   name:'סיבי פחמן',   type:'nonmetal', k:8,  color:'#8a8fa0' },
   { id:'fiberglass',name:'סיבי זכוכית',type:'nonmetal', k:4,  color:'#dfe8ea' },
   { id:'bamboo',   name:'במבוק גמיש',  type:'nonmetal', k:3.5,color:'#a8c26a' },
   { id:'nylon',    name:'ניילון',      type:'nonmetal', k:3,  color:'#e8d9a0' },
   { id:'plastic',  name:'פלסטיק גמיש', type:'nonmetal', k:2.5,color:'#7ecbd6' },
-  { id:'rubber',   name:'גומי',        type:'nonmetal', k:2,  color:'#4a3222' },
+  { id:'rubber',   name:'גומי',        type:'nonmetal', k:2,  color:'#c47a4e' },
   { id:'silicone', name:'סיליקון',     type:'nonmetal', k:1.5,color:'#e0a0c0' }
 ];
 
 let selectedSpring = SPRINGS[0];
-let orientation = 'vertical'; // vertical | horizontal
-let action = 'stretch'; // stretch | compress (רלוונטי בעיקר לאופקי)
+let orientation = 'vertical';
+let action = 'stretch';
 let level = 1;
 let roundData = null;
 let awaitingLevelUp = false;
@@ -887,11 +673,11 @@ let awaitingLevelUp = false;
 function buildMaterialGrid(){
   const grid = document.getElementById('matGrid');
   grid.innerHTML = '';
-  SPRINGS.forEach(s => {
+  SPRINGS.forEach(function(s){
     const b = document.createElement('div');
     b.className = 'mat-btn ' + s.type + (s.id === selectedSpring.id ? ' selected' : '');
     b.textContent = s.name + ' (k=' + s.k + ')';
-    b.onclick = () => { selectedSpring = s; buildMaterialGrid(); };
+    b.onclick = function(){ selectedSpring = s; buildMaterialGrid(); };
     grid.appendChild(b);
   });
 }
@@ -899,11 +685,12 @@ function buildMaterialGrid(){
 function buildModeRow(){
   const row = document.getElementById('modeRow');
   row.innerHTML = '';
-  [['vertical','אנכי (תלוי, עם משקולת)'], ['horizontal','אופקי (כוח ישיר)']].forEach(([id,label]) => {
+  [['vertical','אנכי (סרגל + משקולות)'], ['horizontal','אופקי (כוח ישיר)']].forEach(function(pair){
+    const id = pair[0], label = pair[1];
     const b = document.createElement('div');
     b.className = 'mode-btn' + (orientation === id ? ' selected' : '');
     b.textContent = label;
-    b.onclick = () => { orientation = id; buildModeRow(); toggleActionRow(); };
+    b.onclick = function(){ orientation = id; buildModeRow(); toggleActionRow(); };
     row.appendChild(b);
   });
 }
@@ -922,11 +709,12 @@ function toggleActionRow(){
 function buildActionRow(){
   const row = document.getElementById('actionRow');
   row.innerHTML = '';
-  [['stretch','מתיחה'], ['compress','כיווץ']].forEach(([id,label]) => {
+  [['stretch','מתיחה'], ['compress','כיווץ']].forEach(function(pair){
+    const id = pair[0], label = pair[1];
     const b = document.createElement('div');
     b.className = 'mode-btn' + (action === id ? ' selected' : '');
     b.textContent = label;
-    b.onclick = () => { action = id; buildActionRow(); };
+    b.onclick = function(){ action = id; buildActionRow(); };
     row.appendChild(b);
   });
 }
@@ -958,58 +746,58 @@ function generateRound(){
   const x = +(F / k).toFixed(2);
   const L1 = +(isStretch ? L0 + x : L0 - x).toFixed(2);
 
-  return { k, L0, L1, x, F, mass, isVertical, isStretch };
+  return { k:k, L0:L0, L1:L1, x:x, F:F, mass:mass, isVertical:isVertical, isStretch:isStretch };
 }
 
-function drawRig(){
-  const svg = document.getElementById('materialsSvg');
+function drawRuler(){
+  const svg = document.getElementById('rigSvg');
   const r = roundData;
-  if (!r){ svg.innerHTML=''; return; }
+  const rulerX = 40, rulerTop = 20, rulerBottom = 320, rulerLen = rulerBottom - rulerTop;
+  const pxPerCm = rulerLen / 22;
 
-  if (r.isVertical){
-    const topY = 30, baseLen = 30, pxPerCm = 12;
-    const springLen = baseLen + r.x * pxPerCm;
-    const anchorX = 130;
-    let path = `M ${anchorX} ${topY}`;
-    const steps = 8;
-    for (let i=1;i<=steps;i++){
-      const y = topY + (springLen/steps)*i;
-      const x = anchorX + (i%2===0?10:-10);
-      path += ` L ${x} ${y}`;
-    }
-    const bottomY = topY + springLen;
-    svg.innerHTML = `
-      <rect x="${anchorX-30}" y="10" width="60" height="14" fill="#3a4456"/>
-      <path d="${path}" stroke="${selectedSpring.color}" stroke-width="3" fill="none"/>
-      <rect x="${anchorX-18}" y="${bottomY}" width="36" height="16" rx="3" fill="#4a3222" stroke="#7a5a3a"/>
-      <text x="${anchorX}" y="${bottomY+30}" text-anchor="middle" font-size="11" fill="#8b93a1" font-family="Roboto Mono, monospace">${r.mass} ק"ג</text>
-    `;
-  } else {
-    const leftX = 30, rightBase = 230, midY = 150, pxPerCm = 10;
-    const springLen = 40 + r.x * pxPerCm;
-    const springStartX = leftX + 20;
-    const springEndX = r.isStretch ? springStartX + springLen : springStartX + (40 - r.x*pxPerCm*0.3);
-    let path = `M ${springStartX} ${midY}`;
-    const steps = 8;
-    const totalLen = springEndX - springStartX;
-    for (let i=1;i<=steps;i++){
-      const x = springStartX + (totalLen/steps)*i;
-      const y = midY + (i%2===0?10:-10);
-      path += ` L ${x} ${y}`;
-    }
-    svg.innerHTML = `
-      <rect x="10" y="${midY-40}" width="20" height="80" fill="#3a4456"/>
-      <path d="${path}" stroke="${selectedSpring.color}" stroke-width="3" fill="none"/>
-      <circle cx="${springEndX+10}" cy="${midY}" r="10" fill="#7ecbd6"/>
-      <text x="${springEndX+10}" y="${midY+28}" text-anchor="middle" font-size="11" fill="#8b93a1" font-family="Roboto Mono, monospace">F=${r.F}N</text>
-    `;
+  let ticks = '';
+  for (let cm = 0; cm <= 22; cm++){
+    const y = rulerTop + cm * pxPerCm;
+    const major = cm % 2 === 0;
+    ticks += '<line x1="'+rulerX+'" y1="'+y+'" x2="'+(rulerX+(major?12:7))+'" y2="'+y+'" stroke="#8b93a1" stroke-width="1"/>';
+    if (major) ticks += '<text x="'+(rulerX+16)+'" y="'+(y+3)+'" font-size="8" fill="#8b93a1" font-family="Roboto Mono, monospace">'+cm+'</text>';
   }
+
+  const springTopY = rulerTop + 4;
+  const len = r ? (r.isVertical ? r.L1 : r.L0) : 8;
+  const springBottomY = springTopY + len * pxPerCm;
+  const anchorX = 130;
+
+  let path = 'M '+anchorX+' '+springTopY;
+  const steps = 9;
+  for (let i=1;i<=steps;i++){
+    const y = springTopY + ((springBottomY-springTopY)/steps)*i;
+    const x = anchorX + (i%2===0?9:-9);
+    path += ' L '+x+' '+y;
+  }
+
+  const currentTickY = rulerTop + len * pxPerCm;
+
+  let weightSvg = '';
+  if (r && r.isVertical){
+    weightSvg = '<rect x="'+(anchorX-16)+'" y="'+springBottomY+'" width="32" height="16" rx="3" fill="#4a3222" stroke="#7a5a3a"/>' +
+      '<text x="'+anchorX+'" y="'+(springBottomY+30)+'" text-anchor="middle" font-size="9" fill="#8b93a1" font-family="Roboto Mono, monospace">'+r.mass+' ק"ג</text>';
+  }
+
+  svg.innerHTML =
+    '<rect x="'+(anchorX-30)+'" y="6" width="60" height="12" fill="#3a4456"/>' +
+    '<line x1="'+(rulerX-4)+'" y1="'+rulerTop+'" x2="'+(rulerX-4)+'" y2="'+rulerBottom+'" stroke="#2c3646" stroke-width="3"/>' +
+    ticks +
+    '<line x1="'+(rulerX-10)+'" y1="'+currentTickY+'" x2="'+(anchorX+20)+'" y2="'+currentTickY+'" stroke="#ffb020" stroke-width="1.5" stroke-dasharray="3 3"/>' +
+    '<path d="'+path+'" stroke="'+selectedSpring.color+'" stroke-width="2.5" fill="none"/>' +
+    weightSvg;
 }
 
 function startGame(){
   level = 1;
+  document.getElementById('unifiedLockedPanel').style.display = 'none';
   document.getElementById('gameArea').style.display = 'block';
-  document.getElementById('materialsComplete').classList.remove('show');
+  document.getElementById('completeBanner').classList.remove('show');
   renderLevel();
 }
 
@@ -1017,7 +805,6 @@ function renderLevel(){
   awaitingLevelUp = false;
   buildLevelStrip();
   roundData = generateRound();
-  drawRig();
 
   const r = roundData;
   const givenEl = document.getElementById('givenList');
@@ -1026,11 +813,9 @@ function renderLevel(){
   const fb = document.getElementById('feedback');
   fb.classList.remove('show');
   document.getElementById('levelUp').classList.remove('show');
-  document.getElementById('helpLink').innerHTML =
-    `לא הבנת? אפשר לפתוח את <a href="${GEM_LINK}" target="_blank" rel="noopener">"המורה שלי לפיזיקת הקפיץ"</a> לעזרה.`;
 
   const modeTxt = r.isVertical ? 'מצב אנכי' : ('מצב אופקי — ' + (r.isStretch ? 'מתיחה' : 'כיווץ'));
-  const springTxt = `קפיץ: ${selectedSpring.name} (${selectedSpring.type==='metal'?'מתכת':'לא-מתכת'})`;
+  const springTxt = 'קפיץ: ' + selectedSpring.name + ' (' + (selectedSpring.type==='metal'?'מתכת':'לא-מתכת') + ')';
   const formulaEl = document.getElementById('formulaBox');
   const sign = r.isStretch ? '+' : '−';
 
@@ -1038,43 +823,45 @@ function renderLevel(){
 
   if (level === 1){
     formulaEl.textContent = 'x = |L1 − L0|';
-    givenEl.innerHTML = `${springTxt} · ${modeTxt}<br>אורך במנוחה (L0): <b>${r.L0} ס"מ</b><br>אורך לאחר ${r.isStretch?'מתיחה':'כיווץ'} (L1): <b>${r.L1} ס"מ</b>`;
-    askEl.textContent = `רמה 1: מה ה${r.isStretch?'התארכות':'כיווץ'} (x) של הקפיץ?`;
-    inputRow.innerHTML = `<div class="input-group"><label>x (ס"מ)</label><input type="number" step="any" id="ans_x"></div>`;
+    givenEl.innerHTML = springTxt+' · '+modeTxt+'<br>אורך במנוחה (L0): <b>'+r.L0+' ס"מ</b><br>אורך לאחר '+(r.isStretch?'מתיחה':'כיווץ')+' (L1): <b>'+r.L1+' ס"מ</b>';
+    askEl.textContent = 'רמה 1: מה ה'+(r.isStretch?'התארכות':'כיווץ')+' (x) של הקפיץ?';
+    inputRow.innerHTML = '<div class="input-group"><label>x (ס"מ)</label><input type="number" step="any" id="ans_x"></div>';
   } else if (level === 2){
     if (r.isVertical){
       formulaEl.textContent = 'F = m × g';
-      givenEl.innerHTML = `${springTxt} · ${modeTxt}<br>מסת המשקולת: <b>${r.mass} ק"ג</b> (g=10 מ'/ש²)`;
-      askEl.textContent = `רמה 2: מה הכוח F שהמשקולת מפעילה על הקפיץ?`;
-      inputRow.innerHTML = `<div class="input-group"><label>F (ניוטון)</label><input type="number" step="any" id="ans_F"></div>`;
+      givenEl.innerHTML = springTxt+' · '+modeTxt+'<br>מסת המשקולת: <b>'+r.mass+' ק"ג</b> (g=10 מ\'/ש²)';
+      askEl.textContent = 'רמה 2: מה הכוח F שהמשקולת מפעילה על הקפיץ?';
+      inputRow.innerHTML = '<div class="input-group"><label>F (ניוטון)</label><input type="number" step="any" id="ans_F"></div>';
     } else {
       formulaEl.textContent = 'x = F ÷ k';
-      givenEl.innerHTML = `${springTxt} · ${modeTxt}<br>הכוח המופעל: <b>${r.F} ניוטון</b><br>קבוע הקפיץ: <b>k = ${r.k} ניוטון/ס"מ</b>`;
-      askEl.textContent = `רמה 2: מה ה${r.isStretch?'התארכות':'כיווץ'} (x) של הקפיץ?`;
-      inputRow.innerHTML = `<div class="input-group"><label>x (ס"מ)</label><input type="number" step="any" id="ans_x"></div>`;
+      givenEl.innerHTML = springTxt+' · '+modeTxt+'<br>הכוח המופעל: <b>'+r.F+' ניוטון</b><br>קבוע הקפיץ: <b>k = '+r.k+' ניוטון/ס"מ</b>';
+      askEl.textContent = 'רמה 2: מה ה'+(r.isStretch?'התארכות':'כיווץ')+' (x) של הקפיץ?';
+      inputRow.innerHTML = '<div class="input-group"><label>x (ס"מ)</label><input type="number" step="any" id="ans_x"></div>';
     }
   } else if (level === 3){
     if (r.isVertical){
       formulaEl.textContent = 'F = m × g      k = F ÷ x';
-      givenEl.innerHTML = `${springTxt} · ${modeTxt}<br>מסת המשקולת: <b>${r.mass} ק"ג</b><br>ה${r.isStretch?'התארכות':'כיווץ'} שנמדדה: <b>${r.x} ס"מ</b>`;
-      askEl.textContent = `רמה 3: מה הכוח F, ומה קבוע הקפיץ k?`;
-      inputRow.innerHTML = `<div class="input-group"><label>F (ניוטון)</label><input type="number" step="any" id="ans_F"></div><div class="input-group"><label>k (ניוטון/ס"מ)</label><input type="number" step="any" id="ans_k"></div>`;
+      givenEl.innerHTML = springTxt+' · '+modeTxt+'<br>מסת המשקולת: <b>'+r.mass+' ק"ג</b><br>ה'+(r.isStretch?'התארכות':'כיווץ')+' שנמדדה: <b>'+r.x+' ס"מ</b>';
+      askEl.textContent = 'רמה 3: מה הכוח F, ומה קבוע הקפיץ k?';
+      inputRow.innerHTML = '<div class="input-group"><label>F (ניוטון)</label><input type="number" step="any" id="ans_F"></div><div class="input-group"><label>k (ניוטון/ס"מ)</label><input type="number" step="any" id="ans_k"></div>';
     } else {
       formulaEl.textContent = 'k = F ÷ x';
-      givenEl.innerHTML = `${springTxt} · ${modeTxt}<br>הכוח המופעל: <b>${r.F} ניוטון</b><br>ה${r.isStretch?'התארכות':'כיווץ'} שנמדדה: <b>${r.x} ס"מ</b>`;
-      askEl.textContent = `רמה 3: מה קבוע הקפיץ k?`;
-      inputRow.innerHTML = `<div class="input-group"><label>k (ניוטון/ס"מ)</label><input type="number" step="any" id="ans_k"></div>`;
+      givenEl.innerHTML = springTxt+' · '+modeTxt+'<br>הכוח המופעל: <b>'+r.F+' ניוטון</b><br>ה'+(r.isStretch?'התארכות':'כיווץ')+' שנמדדה: <b>'+r.x+' ס"מ</b>';
+      askEl.textContent = 'רמה 3: מה קבוע הקפיץ k?';
+      inputRow.innerHTML = '<div class="input-group"><label>k (ניוטון/ס"מ)</label><input type="number" step="any" id="ans_k"></div>';
     }
   } else if (level === 4){
-    formulaEl.textContent = `x = F ÷ k      L1 = L0 ${sign} x`;
+    formulaEl.textContent = 'x = F ÷ k      L1 = L0 ' + sign + ' x';
     if (r.isVertical){
-      givenEl.innerHTML = `${springTxt} · ${modeTxt}<br>מסת המשקולת: <b>${r.mass} ק"ג</b><br>קבוע הקפיץ: <b>k = ${r.k} ניוטון/ס"מ</b><br>אורך במנוחה (L0): <b>${r.L0} ס"מ</b>`;
+      givenEl.innerHTML = springTxt+' · '+modeTxt+'<br>מסת המשקולת: <b>'+r.mass+' ק"ג</b><br>קבוע הקפיץ: <b>k = '+r.k+' ניוטון/ס"מ</b><br>אורך במנוחה (L0): <b>'+r.L0+' ס"מ</b>';
     } else {
-      givenEl.innerHTML = `${springTxt} · ${modeTxt}<br>הכוח המופעל: <b>${r.F} ניוטון</b><br>קבוע הקפיץ: <b>k = ${r.k} ניוטון/ס"מ</b><br>אורך במנוחה (L0): <b>${r.L0} ס"מ</b>`;
+      givenEl.innerHTML = springTxt+' · '+modeTxt+'<br>הכוח המופעל: <b>'+r.F+' ניוטון</b><br>קבוע הקפיץ: <b>k = '+r.k+' ניוטון/ס"מ</b><br>אורך במנוחה (L0): <b>'+r.L0+' ס"מ</b>';
     }
-    askEl.textContent = `רמה 4 (הכי מאתגרת): מה יהיה האורך הסופי (L1) של הקפיץ?`;
-    inputRow.innerHTML = `<div class="input-group"><label>L1 (ס"מ)</label><input type="number" step="any" id="ans_L1"></div>`;
+    askEl.textContent = 'רמה 4 (הכי מאתגרת): מה יהיה האורך הסופי (L1) של הקפיץ?';
+    inputRow.innerHTML = '<div class="input-group"><label>L1 (ס"מ)</label><input type="number" step="any" id="ans_L1"></div>';
   }
+
+  drawRuler();
 }
 
 function checkLevel(){
@@ -1089,16 +876,16 @@ function checkLevel(){
   if (level === 1){
     const v = parseFloat(document.getElementById('ans_x').value);
     ok = near(v, r.x, 0.15);
-    explain = `x = |L1 − L0| = |${r.L1} − ${r.L0}| = ${r.x} ס"מ.`;
+    explain = 'x = |L1 − L0| = |'+r.L1+' − '+r.L0+'| = '+r.x+' ס"מ.';
   } else if (level === 2){
     if (r.isVertical){
       const v = parseFloat(document.getElementById('ans_F').value);
       ok = near(v, r.F, 0.05);
-      explain = `F = מסה × g = ${r.mass} × 10 = ${r.F} ניוטון.`;
+      explain = 'F = מסה × g = '+r.mass+' × 10 = '+r.F+' ניוטון.';
     } else {
       const v = parseFloat(document.getElementById('ans_x').value);
       ok = near(v, r.x, 0.15);
-      explain = `x = F ÷ k = ${r.F} ÷ ${r.k} = ${r.x} ס"מ.`;
+      explain = 'x = F ÷ k = '+r.F+' ÷ '+r.k+' = '+r.x+' ס"מ.';
     }
   } else if (level === 3){
     if (r.isVertical){
@@ -1107,17 +894,16 @@ function checkLevel(){
       const fOk = near(vF, r.F, 0.05);
       const kOk = near(vK, r.k, 0.3);
       ok = fOk && kOk;
-      explain = `F = מסה × g = ${r.mass} × 10 = ${r.F} ניוטון. ואז k = F ÷ x = ${r.F} ÷ ${r.x} = ${r.k} ניוטון/ס"מ.`;
+      explain = 'F = מסה × g = '+r.mass+' × 10 = '+r.F+' ניוטון. ואז k = F ÷ x = '+r.F+' ÷ '+r.x+' = '+r.k+' ניוטון/ס"מ.';
     } else {
       const v = parseFloat(document.getElementById('ans_k').value);
       ok = near(v, r.k, 0.3);
-      explain = `k = F ÷ x = ${r.F} ÷ ${r.x} = ${r.k} ניוטון/ס"מ.`;
+      explain = 'k = F ÷ x = '+r.F+' ÷ '+r.x+' = '+r.k+' ניוטון/ס"מ.';
     }
   } else if (level === 4){
     const v = parseFloat(document.getElementById('ans_L1').value);
     ok = near(v, r.L1, 0.2);
-    const F = r.isVertical ? r.F : r.F;
-    explain = `x = F ÷ k = ${r.F} ÷ ${r.k} = ${r.x} ס"מ. L1 = L0 ${r.isStretch?'+':'−'} x = ${r.L0} ${r.isStretch?'+':'−'} ${r.x} = ${r.L1} ס"מ.`;
+    explain = 'x = F ÷ k = '+r.F+' ÷ '+r.k+' = '+r.x+' ס"מ. L1 = L0 '+(r.isStretch?'+':'−')+' x = '+r.L0+' '+(r.isStretch?'+':'−')+' '+r.x+' = '+r.L1+' ס"מ.';
   }
 
   if (ok){
@@ -1126,18 +912,18 @@ function checkLevel(){
     const up = document.getElementById('levelUp');
     up.classList.add('show');
     if (level < 4){
-      up.innerHTML = `<strong>כל הכבוד, ${selectedSpring.name} כבר לא מפחיד אותך! 🌟</strong><br>מוכנים לעלות לרמה ${level+1}?<br><button class="btn" style="margin-top:8px;" onclick="nextLevel()">לרמה הבאה →</button>`;
+      up.innerHTML = '<strong>כל הכבוד, '+selectedSpring.name+' כבר לא מפחיד אתכם! 🌟</strong><br>מוכנים לעלות לרמה '+(level+1)+'?<br><button class="btn" style="margin-top:8px;" onclick="nextLevel()">לרמה הבאה →</button>';
     } else {
-      up.innerHTML = `<strong>מדהים — סיימת את כל 4 הרמות! 🏆</strong>`;
-      setTimeout(() => {
+      up.innerHTML = '<strong>מדהים — סיימתם את כל 4 הרמות! 🏆</strong>';
+      setTimeout(function(){
         document.getElementById('gameArea').style.display = 'none';
-        document.getElementById('materialsComplete').classList.add('show');
+        document.getElementById('completeBanner').classList.add('show');
       }, 1200);
     }
     awaitingLevelUp = true;
   } else {
     fb.className = 'feedback show bad';
-    fb.textContent = 'לא מדויק עדיין. ' + explain + ' נסה שוב עם הנוסחה הזו.';
+    fb.textContent = 'לא מדויק עדיין. ' + explain + ' נסו שוב עם הנוסחה הזו. (לא הבנתם? אפשר לפתוח את "המורה שלי לפיזיקת הקפיץ": ' + GEM_LINK + ')';
   }
 }
 
@@ -1155,12 +941,277 @@ function resetAll(){
   buildModeRow();
   toggleActionRow();
   document.getElementById('gameArea').style.display = 'none';
-  document.getElementById('materialsComplete').classList.remove('show');
+  document.getElementById('unifiedLockedPanel').style.display = 'block';
+  document.getElementById('completeBanner').classList.remove('show');
+  drawRuler();
 }
 
 buildMaterialGrid();
 buildModeRow();
 toggleActionRow();
+drawRuler();
+</script>
+</div>
+
+
+  <div class="section-title" style="margin-top:34px;">גלגל החזרה — יחידה 3</div>
+<div id="wheelGame">
+<div class="wrap">
+  <div class="eyebrow">משחק חזרה · יחידה 3 — אלסטיות</div>
+  <h1>גלגל <span>החזרה</span></h1>
+  <div class="subtitle">
+    סובבו את הגלגל וענו על שאלות חזרה מכל יחידה 3 — חצי שאלות ידע, חצי שאלות חישוב,
+    ברמת קושי בינונית לכיתה ט'. לכל קטגוריה יש 3 רמות קושי — כל תשובה נכונה מעלה אתכם
+    לרמה הבאה באותה קטגוריה.
+  </div>
+  <div class="layout">
+    <div class="wheel-stage">
+      <div class="wheel-outer">
+        <div class="wheel-pointer"></div>
+        <div class="wheel" id="wheel"></div>
+        <div class="wheel-center"></div>
+      </div>
+      <button class="btn" id="spinBtn" onclick="spinWheel()">סובב את הגלגל</button>
+      <button class="btn ghost" onclick="resetGame()">איפוס</button>
+    </div>
+    <div class="panel">
+      <h2>התקדמות</h2>
+      <div class="score-line" id="scoreLine">0 תשובות נכונות מתוך 0</div>
+      <div class="legend">
+        <b>קטגוריות ידע:</b> מהי אלסטיות, חומרים אלסטיים, בולמי זעזועים, קפיץ עמוס<br><br>
+        <b>קטגוריות חישוב:</b> חישוב כוח, חישוב קבוע קפיץ, חישוב אורך
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+<div class="qmodal-overlay" id="qmodalOverlay">
+  <div class="qmodal">
+    <div class="qmodal-cat" id="qmodalCat"></div>
+    <div class="qmodal-q" id="qmodalQ"></div>
+    <div id="qmodalBody"></div>
+    <div class="qmodal-feedback" id="qmodalFeedback"></div>
+  </div>
+</div>
+
+<script>
+const CATEGORIES = [
+  { id:'whatIsElastic', label:'מהי אלסטיות', type:'knowledge', color:'#33d6c0' },
+  { id:'materials',      label:'חומרים אלסטיים', type:'knowledge', color:'#4fb3ff' },
+  { id:'shockAbsorb',    label:'בולמי זעזועים', type:'knowledge', color:'#b98cff' },
+  { id:'loadedSpring',   label:'קפיץ עמוס', type:'knowledge', color:'#6fcf6f' },
+  { id:'forceCalc',      label:'חישוב כוח', type:'calc', color:'#ffb020' },
+  { id:'kCalc',          label:'חישוב קבוע קפיץ', type:'calc', color:'#ff8a5f' },
+  { id:'lengthCalc',     label:'חישוב אורך', type:'calc', color:'#ff5a8f' },
+  { id:'moreCalc',       label:'עוד חישוב', type:'calc', color:'#e0a878' }
+];
+
+const QUESTIONS = {
+  whatIsElastic: [
+    { q:"מהי אלסטיות?", opts:["התכונה של חומר להישאר מעוות לצמיתות","התכונה של חומר לחזור לצורתו המקורית אחרי שהכוח מפסיק לפעול","סוג של כוח חיכוך","יחידת מידה לכוח"], a:1 },
+    { q:"מה ההבדל בין דפורמציה הפיכה לבלתי-הפיכה?", opts:["אין הבדל, זה אותו דבר","הפיכה = החומר חוזר לצורתו; בלתי-הפיכה = החומר נשאר מעוות","הפיכה קורית רק במתכות","בלתי-הפיכה קורית רק בגומי"], a:1 },
+    { q:"סוודר צמר שנמתח מעט וחוזר לצורתו, מול שקית ניילון שנשארת מתוחה לצמיתות - איזה מהם מפגין אלסטיות, ולמה?", opts:["הסוודר - כי הוא חוזר לצורתו המקורית אחרי שהכוח מפסיק לפעול","השקית - כי היא נמתחת יותר מהסוודר","שניהם מפגינים אלסטיות באותה מידה","אף אחד מהם לא אלסטי"], a:0 }
+  ],
+  materials: [
+    { q:"איזה מהבאים הוא דוגמה לחומר לא-אלסטי (פלסטי במובן הפיזיקלי)?", opts:["גומייה","קפיץ פלדה","פלסטלינה","רצועת גומי"], a:2 },
+    { q:"אילו סוגי חומרים אלסטיים נלמדו, מלבד מתכת?", opts:["רק מתכת","גומי, סיבים אלסטיים בטקסטיל, ורקמות ביולוגיות (כמו גידים)","רק פלסטיק","רק זכוכית"], a:1 },
+    { q:"מדוע רקמות ביולוגיות כמו גידים ורצועות בגוף נחשבות חומר אלסטי?", opts:["כי הן קשות כמו מתכת ולא זזות בכלל","כי הן חוזרות לצורתן ומאפשרות לגוף לספוג זעזועים בתנועה","כי הן שקופות","כי הן לא מגיבות לשום כוח"], a:1 }
+  ],
+  shockAbsorb: [
+    { q:"למה בולם זעזועים אמיתי הוא קפיץ + רכיב ריסון, לא רק קפיץ?", opts:["כדי שיהיה יקר יותר","כדי שהתנודות ייעצרו מהר ובעדינות, במקום להמשיך 'לקפוץ'","כדי שהקפיץ יישבר פחות","אין סיבה מיוחדת"], a:1 },
+    { q:"מה קורה לאנרגיה כשקפיץ נדחס?", opts:["היא נעלמת","היא נאגרת בקפיץ, ומשתחררת כשהוא חוזר לצורתו","היא הופכת מיד לחום בלבד","שום דבר לא קורה"], a:1 },
+    { q:"מה ההבדל בין מתלה עם בולם זעזועים תקין למתלה עם בולם מקולקל, אחרי מעבר על מהמורה?", opts:["אין הבדל בין השניים","עם בולם תקין הרכב מתייצב מהר; עם בולם מקולקל הוא ממשיך 'לקפוץ' כמה פעמים","בולם מקולקל עוצר את הרכב לגמרי במקום","בולם תקין גורם לרכב לקפוץ יותר מבולם מקולקל"], a:1 }
+  ],
+  loadedSpring: [
+    { q:"מהו מצב 'קפיץ עמוס'?", opts:["קפיץ שנשבר","קפיץ תחת כוח קבוע, שהגיע לשיווי משקל חדש","קפיץ שמעולם לא נגעו בו","קפיץ מחומר מיוחד"], a:1 },
+    { q:"מהו 'מצב מנוחה' של קפיץ?", opts:["האורך הטבעי שלו כשאין עליו שום כוח חיצוני","האורך שלו כשהוא נמתח למקסימום","מצב שבו הקפיץ מסתובב","מצב שקיים רק בקפיצי מתכת"], a:0 },
+    { q:"קפיץ נושא משקולת קבועה ונשאר תלוי באותו אורך בלי להמשיך לזוז - למה?", opts:["הוא הגיע לשיווי משקל בין כוח הכבידה על המשקולת לכוח האלסטי של הקפיץ","הקפיץ נשבר בלי שרואים","הכוח שפועל עליו נעלם","המשקולת קלה מדי כדי להשפיע"], a:0 }
+  ],
+  forceCalc: [
+    { q:'מסת גוף התלוי בקפיץ היא 0.05 ק"ג. מה הכוח שהוא מפעיל (g=10)?', type:'calc', answer:0.5, unit:'ניוטון', explain:'F = מסה × g = 0.05 × 10 = 0.5 ניוטון.' },
+    { q:'מסת גוף היא 0.08 ק"ג. מה משקלו בניוטון (g=10)?', type:'calc', answer:0.8, unit:'ניוטון', explain:'F = מסה × g = 0.08 × 10 = 0.8 ניוטון.' },
+    { q:'מסת גוף על קפיץ היא 120 גרם. מה הכוח שהוא מפעיל בניוטון (g=10)?', type:'calc', answer:1.2, unit:'ניוטון', explain:'קודם ממירים: 120 גרם = 0.12 ק"ג. F = 0.12 × 10 = 1.2 ניוטון.' }
+  ],
+  kCalc: [
+    { q:'קפיץ שנמתח ב-2 ס"מ תחת כוח של 6 ניוטון. מה קבוע הקפיץ k?', type:'calc', answer:3, unit:'ניוטון/ס"מ', explain:'k = F ÷ x = 6 ÷ 2 = 3 ניוטון/ס"מ.' },
+    { q:'קפיץ שנמתח ב-4 ס"מ תחת כוח של 8 ניוטון. מה קבוע הקפיץ k?', type:'calc', answer:2, unit:'ניוטון/ס"מ', explain:'k = F ÷ x = 8 ÷ 4 = 2 ניוטון/ס"מ.' },
+    { q:'קפיץ באורך מנוחה 10 ס"מ, ואחרי תלייה משקולת של 0.06 ק"ג (g=10) אורכו הפך ל-13 ס"מ. מה קבוע הקפיץ?', type:'calc', answer:0.2, unit:'ניוטון/ס"מ', explain:'F = 0.06 × 10 = 0.6 ניוטון. x = 13 − 10 = 3 ס"מ. k = F ÷ x = 0.6 ÷ 3 = 0.2 ניוטון/ס"מ.' }
+  ],
+  lengthCalc: [
+    { q:'קפיץ באורך מנוחה 10 ס"מ נמתח ב-2 ס"מ. מה האורך הסופי?', type:'calc', answer:12, unit:'ס"מ', explain:'L1 = L0 + x = 10 + 2 = 12 ס"מ.' },
+    { q:'קפיץ באורך מנוחה 8 ס"מ מתכווץ ב-3 ס"מ. מה האורך הסופי?', type:'calc', answer:5, unit:'ס"מ', explain:'L1 = L0 - x = 8 - 3 = 5 ס"מ.' },
+    { q:'קפיץ עם k=4 ניוטון/ס"מ ואורך מנוחה 9 ס"מ. תולים עליו משקולת של 0.08 ק"ג (g=10). מה יהיה אורכו הסופי?', type:'calc', answer:9.2, unit:'ס"מ', explain:'F = 0.08 × 10 = 0.8 ניוטון. x = F ÷ k = 0.8 ÷ 4 = 0.2 ס"מ. L1 = L0 + x = 9 + 0.2 = 9.2 ס"מ.' }
+  ],
+  moreCalc: [
+    { q:'קפיץ עם קבוע k=5 ניוטון/ס"מ נמתח ב-3 ס"מ. איזה כוח פעל עליו?', type:'calc', answer:15, unit:'ניוטון', explain:'F = k * x = 5 * 3 = 15 ניוטון.' },
+    { q:'קפיץ שאורכו הסופי 12 ס"מ, ואורך המנוחה שלו 9 ס"מ. כמה הוא התארך?', type:'calc', answer:3, unit:'ס"מ', explain:'x = L1 - L0 = 12 - 9 = 3 ס"מ.' },
+    { q:'קפיץ עם k=6 ניוטון/ס"מ מתכווץ מאורך מנוחה 10 ס"מ לאורך 7 ס"מ. איזה כוח פעל עליו?', type:'calc', answer:18, unit:'ניוטון', explain:'x = L0 − L1 = 10 − 7 = 3 ס"מ. F = k × x = 6 × 3 = 18 ניוטון.' }
+  ]
+};
+
+const LEVELS_PER_CAT = 3;
+const catLevel = {};
+CATEGORIES.forEach(function(c){ catLevel[c.id] = 1; });
+
+const usedIdx = {};
+CATEGORIES.forEach(function(c){ usedIdx[c.id] = new Set(); });
+
+var correctCount = 0, totalCount = 0;
+var wheelRotation = 0;
+var currentCalcItem = null;
+var currentCat = null;
+
+function buildWheel(){
+  var wheel = document.getElementById('wheel');
+  var n = CATEGORIES.length;
+  var seg = 360 / n;
+  var stops = CATEGORIES.map(function(c,i){ return c.color + ' ' + (i*seg) + 'deg ' + ((i+1)*seg) + 'deg'; }).join(',');
+  wheel.style.background = 'conic-gradient(' + stops + ')';
+  wheel.innerHTML = '';
+  CATEGORIES.forEach(function(c,i){
+    var angle = i*seg + seg/2;
+    var label = document.createElement('div');
+    label.className = 'wheel-label';
+    label.style.transform = 'rotate(' + (angle-90) + 'deg) translateX(72px)';
+    label.textContent = c.label;
+    wheel.appendChild(label);
+  });
+}
+
+function angleForCat(id){
+  var i = -1;
+  CATEGORIES.forEach(function(c,idx){ if (c.id === id) i = idx; });
+  var seg = 360 / CATEGORIES.length;
+  return i*seg + seg/2;
+}
+
+function pickQuestion(catId){
+  var pool = QUESTIONS[catId];
+  var lvl = catLevel[catId] || 1;
+  var idx = Math.min(lvl, pool.length) - 1;
+  return pool[idx];
+}
+
+function spinWheel(){
+  document.getElementById('spinBtn').disabled = true;
+  var targetCat = CATEGORIES[Math.floor(Math.random()*CATEGORIES.length)];
+  var targetAngle = angleForCat(targetCat.id);
+  var fullSpins = 5;
+  wheelRotation = wheelRotation + fullSpins*360 + (360 - (targetAngle % 360));
+  document.getElementById('wheel').style.transform = 'rotate(' + wheelRotation + 'deg)';
+
+  setTimeout(function(){
+    askQuestion(targetCat);
+  }, 3300);
+}
+
+function askQuestion(cat){
+  currentCat = cat;
+  var item = pickQuestion(cat.id);
+  var overlay = document.getElementById('qmodalOverlay');
+  var catEl = document.getElementById('qmodalCat');
+  var qEl = document.getElementById('qmodalQ');
+  var bodyEl = document.getElementById('qmodalBody');
+  var fbEl = document.getElementById('qmodalFeedback');
+  fbEl.textContent = ''; fbEl.className = 'qmodal-feedback';
+
+  var typeTag = cat.type === 'knowledge'
+    ? '<span class="qmodal-type knowledge">שאלת ידע</span>'
+    : '<span class="qmodal-type calc">שאלת חישוב</span>';
+  var lvl = catLevel[cat.id] || 1;
+  catEl.innerHTML = typeTag + cat.label + ' · רמה ' + lvl + ' מתוך ' + LEVELS_PER_CAT;
+  qEl.textContent = item.q;
+  bodyEl.innerHTML = '';
+
+  if (cat.type === 'knowledge'){
+    item.opts.forEach(function(opt, i){
+      var b = document.createElement('button');
+      b.className = 'opt';
+      b.textContent = opt;
+      b.onclick = function(){ answerKnowledge(i, item, b, bodyEl); };
+      bodyEl.appendChild(b);
+    });
+  } else {
+    currentCalcItem = item;
+    var inputRow = document.createElement('div');
+    inputRow.className = 'calc-input-row';
+    var input = document.createElement('input');
+    input.type = 'number'; input.step = 'any'; input.id = 'calcInput';
+    input.placeholder = 'הקלד תשובה';
+    var unitSpan = document.createElement('span');
+    unitSpan.style.cssText = 'align-self:center;color:var(--muted);font-size:13px;';
+    unitSpan.textContent = item.unit;
+    inputRow.appendChild(input);
+    inputRow.appendChild(unitSpan);
+    bodyEl.appendChild(inputRow);
+    var checkBtn = document.createElement('button');
+    checkBtn.className = 'btn'; checkBtn.style.width = '100%';
+    checkBtn.textContent = 'בדוק תשובה';
+    checkBtn.onclick = function(){ answerCalc(); };
+    bodyEl.appendChild(checkBtn);
+  }
+
+  overlay.classList.add('show');
+}
+
+function closeModalAndContinue(){
+  document.getElementById('qmodalOverlay').classList.remove('show');
+  document.getElementById('spinBtn').disabled = false;
+  document.getElementById('scoreLine').textContent = correctCount + ' תשובות נכונות מתוך ' + totalCount;
+}
+
+function answerKnowledge(chosenIdx, item, btnEl, wrap){
+  var buttons = wrap.querySelectorAll('.opt');
+  buttons.forEach(function(b){ b.onclick = null; });
+  var fb = document.getElementById('qmodalFeedback');
+  totalCount++;
+  if (chosenIdx === item.a){
+    btnEl.classList.add('correct');
+    fb.textContent = 'תשובה נכונה!';
+    fb.className = 'qmodal-feedback ok';
+    correctCount++;
+    if (currentCat && catLevel[currentCat.id] < LEVELS_PER_CAT) catLevel[currentCat.id]++;
+  } else {
+    btnEl.classList.add('wrong');
+    buttons[item.a].classList.add('correct');
+    fb.textContent = 'לא מדויק - התשובה הנכונה מסומנת בירוק.';
+    fb.className = 'qmodal-feedback bad';
+  }
+  setTimeout(closeModalAndContinue, 1800);
+}
+
+function answerCalc(){
+  var item = currentCalcItem;
+  var val = parseFloat(document.getElementById('calcInput').value);
+  var fb = document.getElementById('qmodalFeedback');
+  totalCount++;
+  var tol = Math.max(0.1, item.answer*0.05);
+  var ok = Math.abs(val - item.answer) <= tol;
+  if (ok){
+    fb.textContent = 'נכון! ' + item.explain;
+    fb.className = 'qmodal-feedback ok';
+    correctCount++;
+    if (currentCat && catLevel[currentCat.id] < LEVELS_PER_CAT) catLevel[currentCat.id]++;
+  } else {
+    fb.textContent = 'לא מדויק. ' + item.explain;
+    fb.className = 'qmodal-feedback bad';
+  }
+  var els = document.querySelectorAll('#qmodalBody button, #qmodalBody input');
+  els.forEach(function(el){ el.disabled = true; });
+  setTimeout(closeModalAndContinue, 2200);
+}
+
+function resetGame(){
+  correctCount = 0; totalCount = 0;
+  wheelRotation = 0;
+  document.getElementById('wheel').style.transform = 'rotate(0deg)';
+  document.getElementById('scoreLine').textContent = '0 תשובות נכונות מתוך 0';
+  document.getElementById('spinBtn').disabled = false;
+  CATEGORIES.forEach(function(c){ usedIdx[c.id].clear(); catLevel[c.id] = 1; });
+}
+
+buildWheel();
 </script>
 </div>
 
