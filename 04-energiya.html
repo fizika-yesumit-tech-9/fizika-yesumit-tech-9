@@ -74,6 +74,21 @@
     font-family:'Roboto Mono',monospace;font-size:11px;color:var(--teal);margin-top:8px;
   }
 
+  .game-card{
+    display:flex;align-items:center;gap:16px;background:var(--panel);
+    border:1.5px solid #6fcf6f;border-radius:14px;padding:20px 22px;text-decoration:none;
+    color:var(--text);margin-top:28px;transition:transform .15s;
+  }
+  .game-card:hover{transform:translateY(-3px);}
+  .game-card .g-icon{
+    width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    background:rgba(111,207,111,.12);border:1px solid #6fcf6f;color:#6fcf6f;flex-shrink:0;
+  }
+  .game-card .g-icon svg{width:24px;height:24px;}
+  .game-card .g-title{font-family:'Rubik',sans-serif;font-weight:700;font-size:16px;margin-bottom:4px;}
+  .game-card .g-desc{font-size:13px;color:var(--muted);line-height:1.5;}
+  .game-card .g-arrow{margin-right:auto;font-family:'Roboto Mono',monospace;font-size:12px;color:#6fcf6f;white-space:nowrap;}
+
   footer{margin-top:40px;color:var(--muted);font-size:12px;text-align:center;line-height:1.8;}
   footer a{color:var(--teal);}
 </style>
@@ -104,11 +119,46 @@
       <div class="gem-slot-desc">חום כתוצר לוואי, מושג הנצילות המערכתית, ופתרונות קירור: מאווררים, צלעות קירור וקירור מים.</div>
       <div class="gem-slot-arrow">פתיחת שיחה ←</div>
     </a>
-    <div class="gem-slot">
+    <a class="gem-slot filled" href="https://gemini.google.com/gem/1rUJgkhwqiy6IyI9Q_tTEFY4MosDV4zrO?usp=sharing" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg>
-      <div class="gem-slot-title">Gem 3 · יתווסף בהמשך</div>
-    </div>
+      <div class="gem-slot-title">שגריר האנרגיות המתחדשות</div>
+      <div class="gem-slot-desc">מעבר מדלקים מאובנים לאנרגיה נקייה, פאנלים סולאריים, וטורבינות רוח ותחנות הידרואלקטריות.</div>
+      <div class="gem-slot-arrow">פתיחת שיחה ←</div>
+    </a>
+    <a class="gem-slot filled" href="https://gemini.google.com/gem/11FpuBUXPyfPzwGRGgznJj2bnCYZqeKm0?usp=sharing" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg>
+      <div class="gem-slot-title">מפקח האנרגיה הביתי</div>
+      <div class="gem-slot-desc">עבודת חקר על מכשירי החשמל בבית: הספק וצריכת אנרגיה, בניית פרופיל צריכה, והצעת חלופות לחיסכון.</div>
+      <div class="gem-slot-arrow">פתיחת שיחה ←</div>
+    </a>
+    <a class="gem-slot filled" href="https://gemini.google.com/gem/1weMIs633J5YCpeyP8xWXJeyC1y64HHGu?usp=sharing" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg>
+      <div class="gem-slot-title">מומחה אנרגיית הגובה</div>
+      <div class="gem-slot-desc">מדריך מעמיק לאנרגיית גובה (Ep=mgh) עם תרגול חישובי מדורג ברמה בינונית.</div>
+      <div class="gem-slot-arrow">פתיחת שיחה ←</div>
+    </a>
+    <a class="gem-slot filled" href="https://gemini.google.com/gem/1AE0Fk1YUobuCgKis4sFkgslEYwKIl0BW?usp=sharing" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg>
+      <div class="gem-slot-title">מומחה אנרגיית התנועה</div>
+      <div class="gem-slot-desc">מדריך מעמיק לאנרגיית תנועה (Ek=½mv²) עם תרגול חישובי מדורג ברמה בינונית.</div>
+      <div class="gem-slot-arrow">פתיחת שיחה ←</div>
+    </a>
+    <a class="gem-slot filled" href="https://gemini.google.com/gem/1gwC4YXcLraGafLXcGPURRNwCZ8BtjctY?usp=sharing" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg>
+      <div class="gem-slot-title">מומחה אנרגיית האלסטיות</div>
+      <div class="gem-slot-desc">מדריך מעמיק לאנרגיית אלסטיות (Eel=½kx²) עם תרגול חישובי מדורג ברמה בינונית.</div>
+      <div class="gem-slot-arrow">פתיחת שיחה ←</div>
+    </a>
   </div>
+
+  <a class="game-card" href="game-unit4-solitaire.html">
+    <div class="g-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
+    <div>
+      <div class="g-title">משחק חזרה: סוליטר האנרגיה</div>
+      <div class="g-desc">משחק התאמת קלפים לתרגול על 4 ה-Gems הראשונים: שימור אנרגיה, נצילות וחום, אנרגיות מתחדשות, ומיפוי אנרגטי ביתי.</div>
+    </div>
+    <div class="g-arrow">שחקו עכשיו ←</div>
+  </a>
 
   <footer>
     <a href="index.html">חזרה לדף הבית</a> · פיזיקה יישומית בשילוב טכנולוגיה, כיתה ט'
