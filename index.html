@@ -1,12 +1,9 @@
 <!--
-  פיזיקה יישומית בשילוב טכנולוגיה - כיתה ט' | דף בית
-  אתר לימוד דיגיטלי מלווה לתוכנית הלימודים השנתית, כיתה ט' - רמה בינונית
+  פיזיקה יישומית בשילוב טכנולוגיה - כיתה ט' | דף בית (עיצוב 2, בהשראת "לומדים בעצמי")
   ד"ר ישי מור, המכללה האקדמית בית ברל | מגיש: מוטי לרנר
-
-  הצהרת AI: דף זה נבנה בסיוע Claude (Anthropic) לפי מפרט מדויק שסיפק מוטי לרנר
-  (כותרת, טקסט הסבר קצר, שלושה איורים ממחישים, ורשת של 6 קוביות ניווט לעמודים
-  פנימיים). האיורים הם גרפיקת SVG מקורית שנוצרה עבור האתר (לא תמונות מצולמות),
-  כדי להימנע מבעיות זכויות יוצרים. יש לעדכן כאן את הפרומפטים המדויקים ששימשו.
+  הצהרת AI: דף זה עוצב מחדש בסיוע Claude (Anthropic) בהשראת דף הבית של "לומדים
+  בעצמי" (אתר השער הראשי של הפרויקטים). תמונת ההירו וכרטיסי הנושאים מיועדים
+  לקבל תמונות אמיתיות בהמשך; כרגע חלקם עם רקעי גרדיאנט זמניים וסמלי SVG.
 -->
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
@@ -15,205 +12,230 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>פיזיקה יישומית בשילוב טכנולוגיה — כיתה ט'</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500;700;900&family=Heebo:wght@300;400;600&family=Roboto+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700;900&family=Heebo:wght@300;400;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#10141b; --panel:#1a212c; --panel-2:#212a37; --line:#2c3646;
-    --amber:#ffb020; --amber-dim:#7a5a20; --teal:#33d6c0; --red:#ff5a5f;
-    --text:#edeff3; --muted:#8b93a1;
+    --bg:#f6f0e3;
+    --panel:#efe6d3;
+    --panel-line:#ddd0b4;
+    --amber:#c47a0e;
+    --teal:#0e8d81;
+    --chalk:#2b2418;
+    --muted:#736a56;
   }
   *{box-sizing:border-box;}
-  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:'Heebo',sans-serif;}
-  body{min-height:100vh;padding:36px 16px 60px;}
-  .wrap{max-width:1080px;margin:0 auto;}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--chalk);font-family:'Heebo',sans-serif;}
 
-  .eyebrow{font-family:'Roboto Mono',monospace;color:var(--teal);font-size:12px;letter-spacing:2px;text-transform:uppercase;text-align:center;}
-  h1{
-    font-family:'Rubik',sans-serif;font-weight:900;text-align:center;
-    font-size:clamp(28px,5vw,46px);margin:8px 0 18px;line-height:1.25;
+  /* ===== סרגל עליון ===== */
+  .topbar{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:16px 28px;border-bottom:1px solid var(--panel-line);
   }
-  h1 span{color:var(--amber);}
+  .brand{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:1px;color:var(--muted);}
+  .brand b{color:var(--chalk);}
+  .brand .dot{color:var(--amber);}
+  .topbar a.back{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--teal);text-decoration:none;}
+  .topbar a.back:hover{text-decoration:underline;}
 
-  .intro{
-    color:var(--text);font-size:15px;line-height:1.9;max-width:760px;margin:0 auto 34px;text-align:center;
+  /* ===== הירו ===== */
+  .hero{
+    position:relative;min-height:380px;display:flex;align-items:center;overflow:hidden;
   }
-  .intro b{color:var(--amber);}
+  .hero-bg{
+    position:absolute;inset:0;
+    background-image:url('images/2.jpeg');
+    background-size:cover;background-position:center;
+  }
+  .hero-scrim{
+    position:absolute;inset:0;
+    background:linear-gradient(90deg, rgba(20,15,8,.1) 0%, rgba(20,15,8,.5) 55%, rgba(20,15,8,.72) 100%);
+  }
+  .hero-inner{position:relative;z-index:1;max-width:1500px;margin:0 auto;padding:48px 28px;width:100%;}
+  .hero-eyebrow{
+    font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:2px;color:#33d6c0;
+    text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:9px;
+  }
+  .hero-eyebrow::before{content:"";width:8px;height:8px;border-radius:50%;background:#33d6c0;
+    box-shadow:0 0 0 3px rgba(51,214,192,.25);}
+  .hero h1{
+    font-family:'Frank Ruhl Libre',serif;font-weight:900;color:#f8f5ee;
+    font-size:clamp(30px,5.4vw,52px);line-height:1.25;margin:0 0 18px;max-width:18ch;
+    text-shadow:0 3px 18px rgba(0,0,0,.6);
+  }
+  .hero h1 .accent{color:#ffb020;}
+  .hero p{
+    font-size:15.5px;color:#e9e3d4;max-width:56ch;line-height:1.85;margin:0;
+    text-shadow:0 2px 12px rgba(0,0,0,.55);
+  }
+  .hero p b{color:#ffb020;}
 
-  .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:44px;}
-  @media(max-width:760px){ .gallery{grid-template-columns:1fr;} }
-  .gcard{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px;text-align:center;}
-  .gcard svg{width:100%;height:120px;margin-bottom:10px;}
-  .gcard-title{font-family:'Rubik',sans-serif;font-weight:700;font-size:14px;margin-bottom:4px;}
-  .gcard-desc{font-size:12px;color:var(--muted);line-height:1.5;}
+  /* ===== גוף הדף ===== */
+  .wrap{max-width:1500px;margin:0 auto;padding:52px 28px 80px;}
 
+  .section-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:26px;gap:12px;flex-wrap:wrap;}
   .section-title{
-    font-family:'Rubik',sans-serif;font-weight:700;font-size:19px;
-    text-align:center;margin:0 0 22px;
+    font-family:'Frank Ruhl Libre',serif;font-weight:700;font-size:24px;
+    display:flex;align-items:center;gap:12px;
+  }
+  .section-title::before{content:"";width:4px;height:24px;background:var(--teal);border-radius:2px;}
+  .result-count{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted);}
+
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  @media(max-width:1100px){ .cards{grid-template-columns:1fr 1fr;} }
+  @media(max-width:640px){ .cards{grid-template-columns:1fr;} }
+
+  .card{
+    background:var(--panel);border:1px solid var(--panel-line);border-radius:14px;overflow:hidden;
+    text-decoration:none;color:var(--chalk);transition:transform .18s, border-color .18s;
+    display:flex;flex-direction:column;
+  }
+  .card:hover{transform:translateY(-4px);border-color:var(--card-accent, var(--teal));}
+
+  .card-media{
+    position:relative;aspect-ratio:16/9;overflow:hidden;
+    display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(135deg, var(--card-accent, #666), var(--card-accent-dim, #333));
+  }
+  .card-media img{width:100%;height:100%;object-fit:cover;display:block;}
+  .card-media svg.icon{width:40px;height:40px;color:rgba(255,255,255,.95);}
+  .card-tag{
+    position:absolute;top:12px;right:12px;background:rgba(20,15,8,.6);
+    border:1px solid rgba(255,255,255,.2);backdrop-filter:blur(4px);
+    font-family:'JetBrains Mono',monospace;font-size:11px;color:#f5f2e9;
+    padding:5px 11px;border-radius:20px;
   }
 
-  .topic-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:30px;}
-  @media(max-width:900px){ .topic-grid{grid-template-columns:1fr 1fr;} }
-  @media(max-width:600px){ .topic-grid{grid-template-columns:1fr;} }
+  .card-body{padding:20px 22px 22px;display:flex;flex-direction:column;gap:10px;flex:1;}
+  .card-num{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);}
+  .card-title{font-family:'Frank Ruhl Libre',serif;font-weight:700;font-size:18px;line-height:1.4;}
+  .card-desc{font-size:13.5px;line-height:1.75;color:var(--muted);flex:1;}
+  .card-action{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--card-accent, var(--teal));margin-top:4px;}
 
-  .topic{
-    position:relative;display:flex;flex-direction:column;background:var(--panel);
-    border:1px solid var(--line);border-radius:14px;padding:22px 20px;text-decoration:none;
-    color:var(--text);transition:transform .15s, border-color .15s;min-height:190px;
+  .c1{--card-accent:#c47a0e;--card-accent-dim:#5c3a09;}
+  .c2{--card-accent:#2f8fd9;--card-accent-dim:#1a3f57;}
+  .c3{--card-accent:#8f6fd9;--card-accent-dim:#3c3157;}
+  .c4{--card-accent:#d9683f;--card-accent-dim:#5c3120;}
+  .c5{--card-accent:#0e8d81;--card-accent-dim:#0c3c37;}
+  .c6{--card-accent:#4f9b4f;--card-accent-dim:#274527;}
+
+  footer{
+    margin-top:64px;padding-top:22px;border-top:1px solid var(--panel-line);
+    color:var(--muted);font-size:12px;line-height:1.9;text-align:center;
   }
-  .topic:hover{transform:translateY(-3px);border-color:var(--amber);}
-  .topic.external{border-color:var(--teal);}
-  .topic.external:hover{border-color:var(--teal);}
-  .topic.complete{border-color:var(--amber);}
-  .topic.complete:hover{border-color:var(--amber);}
-
-  .topic.t2{border-color:#4fb3ff;}
-  .topic.t2:hover{border-color:#4fb3ff;}
-  .topic.t2 .t-icon{color:#4fb3ff;border-color:#4fb3ff;background:rgba(79,179,255,.1);}
-  .topic.t2 .t-action{color:#4fb3ff;}
-
-  .topic.t3{border-color:#b98cff;}
-  .topic.t3:hover{border-color:#b98cff;}
-  .topic.t3 .t-icon{color:#b98cff;border-color:#b98cff;background:rgba(185,140,255,.1);}
-  .topic.t3 .t-action{color:#b98cff;}
-
-  .topic.t4{border-color:#ff7a59;}
-  .topic.t4:hover{border-color:#ff7a59;}
-  .topic.t4 .t-icon{color:#ff7a59;border-color:#ff7a59;background:rgba(255,122,89,.1);}
-  .topic.t4 .t-action{color:#ff7a59;}
-
-  .topic.t6{border-color:#6fcf6f;}
-  .topic.t6:hover{border-color:#6fcf6f;}
-  .topic.t6 .t-icon{color:#6fcf6f;border-color:#6fcf6f;background:rgba(111,207,111,.1);}
-  .topic.t6 .t-action{color:#6fcf6f;}
-
-  .t-num{font-family:'Roboto Mono',monospace;font-size:11px;color:var(--muted);margin-bottom:10px;}
-  .t-icon{
-    width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;
-    background:var(--panel-2);border:1px solid var(--line);margin-bottom:12px;color:var(--amber);
-  }
-  .topic.external .t-icon{color:var(--teal);border-color:var(--teal);background:rgba(51,214,192,.1);}
-  .t-icon svg{width:22px;height:22px;}
-  .t-title{font-family:'Rubik',sans-serif;font-weight:700;font-size:16px;margin-bottom:8px;}
-  .t-desc{font-size:13px;color:var(--muted);line-height:1.6;flex:1;}
-  .t-action{margin-top:12px;font-size:13px;font-weight:600;color:var(--amber);}
-  .topic.external .t-action{color:var(--teal);}
-
-  footer{margin-top:20px;color:var(--muted);font-size:12px;text-align:center;line-height:1.8;}
   footer a{color:var(--teal);}
 </style>
 </head>
 <body>
-<div class="wrap">
 
-  <div class="eyebrow">כיתה ט' · תוכנית לימודים שנתית</div>
-  <h1>פיזיקה יישומית <span>בשילוב טכנולוגיה</span></h1>
-
-  <div class="intro">
-    פיזיקה יישומית היא הענף של המדע שמסביר <b>למה הטכנולוגיה שסביבנו עובדת</b> —
-    למה חגורת בטיחות מצילה חיים בתאונה, איך קפיץ בולם זעזוע, מאיפה מגיעה האנרגיה
-    שמדליקה את הבית, ואיך זורם חשמל במעגל. באתר הזה כל נושא מלווה על ידי
-    <b>"מורה" אישי מבוסס בינה מלאכותית (Gem)</b> שעוזר לך לחקור, לשאול שאלות
-    ולהבין לעומק — לא רק לשנן.
+  <div class="topbar">
+    <div class="brand"><b>פיזיקה יישומית</b> <span class="dot">·</span> בשילוב טכנולוגיה, כיתה ט׳</div>
+    <a class="back" href="https://moti-lerner-proyektim.github.io/">לומדים בעצמי — לכל הפרויקטים ←</a>
   </div>
 
-  <div class="gallery">
-    <div class="gcard">
-      <svg viewBox="0 0 200 120"><rect width="200" height="120" fill="#171e28" rx="10"/>
-        <rect x="35" y="60" width="130" height="35" rx="8" fill="#2c3646"/>
-        <rect x="50" y="40" width="80" height="28" rx="8" fill="#2c3646"/>
-        <circle cx="65" cy="95" r="12" fill="#0d1117"/><circle cx="65" cy="95" r="5" fill="#8b93a1"/>
-        <circle cx="140" cy="95" r="12" fill="#0d1117"/><circle cx="140" cy="95" r="5" fill="#8b93a1"/>
-        <line x1="55" y1="45" x2="120" y2="88" stroke="#ffb020" stroke-width="4" stroke-linecap="round"/>
-        <circle cx="120" cy="88" r="4" fill="#ffb020"/>
-      </svg>
-      <div class="gcard-title">בטיחות ברכב</div>
-      <div class="gcard-desc">חגורות בטיחות, חיכוך ומרחק בלימה — מכניקה שמצילה חיים.</div>
-    </div>
-
-    <div class="gcard">
-      <svg viewBox="0 0 200 120"><rect width="200" height="120" fill="#171e28" rx="10"/>
-        <rect x="70" y="90" width="60" height="10" rx="3" fill="#2c3646"/>
-        <path d="M100 90 V70 Q88 65 100 60 Q112 55 100 50 Q88 45 100 40 Q112 35 100 30 Q88 25 100 20"
-              stroke="#33d6c0" stroke-width="4" fill="none" stroke-linecap="round"/>
-        <rect x="75" y="12" width="50" height="10" rx="3" fill="#2c3646"/>
-      </svg>
-      <div class="gcard-title">קפיצים וחומרים</div>
-      <div class="gcard-desc">חוק הוק, בולמי זעזועים, ואלסטיות של חומרים יומיומיים.</div>
-    </div>
-
-    <div class="gcard">
-      <svg viewBox="0 0 200 120"><rect width="200" height="120" fill="#171e28" rx="10"/>
-        <rect x="55" y="30" width="90" height="55" rx="4" fill="#212a37" stroke="#2c3646"/>
-        <line x1="65" y1="40" x2="135" y2="40" stroke="#33d6c0" stroke-width="2"/>
-        <line x1="65" y1="52" x2="135" y2="52" stroke="#33d6c0" stroke-width="2"/>
-        <line x1="65" y1="64" x2="135" y2="64" stroke="#33d6c0" stroke-width="2"/>
-        <line x1="65" y1="76" x2="135" y2="76" stroke="#33d6c0" stroke-width="2"/>
-        <rect x="90" y="85" width="20" height="14" fill="#2c3646"/>
-        <path d="M96 99 l10 20 l-14 0 l10 20" stroke="#ffb020" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-      <div class="gcard-title">אנרגיה וחשמל</div>
-      <div class="gcard-desc">פאנלים סולריים, מעגלים חשמליים, ומעברי אנרגיה בבית.</div>
+  <div class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-scrim"></div>
+    <div class="hero-inner">
+      <div class="hero-eyebrow">כיתה ט׳ · תוכנית לימודים שנתית</div>
+      <h1>פיזיקה יישומית <span class="accent">בשילוב טכנולוגיה</span></h1>
+      <p>
+        למה חגורת בטיחות מצילה חיים בתאונה, איך קפיץ בולם זעזוע, מאיפה מגיעה האנרגיה
+        שמדליקה את הבית, ואיך זורם חשמל במעגל. בכל נושא מלווה אותך <b>"מורה" אישי
+        מבוסס בינה מלאכותית (Gem)</b> שעוזר לך לחקור, לשאול שאלות ולהבין לעומק —
+        לא רק לשנן.
+      </p>
     </div>
   </div>
 
-  <div class="section-title">בחר/י את הנושא שלך</div>
-  <div class="topic-grid">
+  <div class="wrap">
 
-    <a href="01-oryanut.html" class="topic complete">
-      <div class="t-num">נושא 1</div>
-      <div class="t-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a7 7 0 0 0-7 7c0 3 2 4 2 6v2h10v-2c0-2 2-3 2-6a7 7 0 0 0-7-7z"/><path d="M9 21h6"/></svg></div>
-      <div class="t-title">המורה שלי לאוריינות וכלי AI</div>
-      <div class="t-desc">שפת המכונות, מודלי שפה גדולים, ובניית עוזרי AI אישיים (Gems).</div>
-      <div class="t-action">כניסה לנושא ←</div>
-    </a>
+    <div class="section-head">
+      <div class="section-title">בחר/י את הנושא שלך</div>
+      <div class="result-count">6 נושאים</div>
+    </div>
 
-    <a href="02-mechanica.html" class="topic t2">
-      <div class="t-num">נושא 2</div>
-      <div class="t-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/><path d="M5 17h-1l1-8h10l3 4h2v4h-2"/><path d="M9 9V6h4v3"/></svg></div>
-      <div class="t-title">המורה שלי למכניקה וכוחות בחיי היום יום</div>
-      <div class="t-desc">מסה וכבידה, חיכוך, חוקי ניוטון ובטיחות בדרכים.</div>
-      <div class="t-action">כניסה לנושא ←</div>
-    </a>
+    <div class="cards">
 
-    <a href="03-elastiyut.html" class="topic t3">
-      <div class="t-num">נושא 3</div>
-      <div class="t-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 20V16 Q10 14 6 12 Q2 10 6 8 Q10 6 6 4"/></svg></div>
-      <div class="t-title">המורה שלי לאלסטיות</div>
-      <div class="t-desc">חוק הוק, קפיצים, בולמי זעזועים ומנגנונים אלסטיים.</div>
-      <div class="t-action">כניסה לנושא ←</div>
-    </a>
+      <a class="card c1" href="01-oryanut.html">
+        <div class="card-media">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2a7 7 0 0 0-7 7c0 3 2 4 2 6v2h10v-2c0-2 2-3 2-6a7 7 0 0 0-7-7z"/><path d="M9 21h6"/></svg>
+          <div class="card-tag">נושא 1</div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">המורה שלי לאוריינות וכלי AI</div>
+          <div class="card-desc">שפת המכונות, מודלי שפה גדולים, ובניית עוזרי AI אישיים (Gems).</div>
+          <div class="card-action">כניסה לנושא ←</div>
+        </div>
+      </a>
 
-    <a href="04-energiya.html" class="topic t4">
-      <div class="t-num">נושא 4</div>
-      <div class="t-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 4 14h6l-1 8 9-12h-6z"/></svg></div>
-      <div class="t-title">המורה שלי לאנרגיות</div>
-      <div class="t-desc">שימור אנרגיה, בזבוז חום, ואנרגיות מתחדשות.</div>
-      <div class="t-action">כניסה לנושא ←</div>
-    </a>
+      <a class="card c2" href="02-mechanica.html">
+        <div class="card-media">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/><path d="M5 17h-1l1-8h10l3 4h2v4h-2"/><path d="M9 9V6h4v3"/></svg>
+          <div class="card-tag">נושא 2</div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">המורה שלי למכניקה וכוחות בחיי היום יום</div>
+          <div class="card-desc">מסה וכבידה, חיכוך, חוקי ניוטון ובטיחות בדרכים.</div>
+          <div class="card-action">כניסה לנושא ←</div>
+        </div>
+      </a>
 
-    <a href="https://friends-pardeschna.github.io/hachashmalai-harashi/" class="topic external" target="_blank" rel="noopener">
-      <div class="t-num">נושא 5 · אתר חיצוני</div>
-      <div class="t-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 4 14h6l-1 8 9-12h-6z"/></svg></div>
-      <div class="t-title">המורה שלי לחשמל</div>
-      <div class="t-desc">"החשמלאי הראשי" — סביבת האבחון האינטראקטיבית שכבר בנינו.</div>
-      <div class="t-action">מעבר לאתר ↗</div>
-    </a>
+      <a class="card c3" href="03-elastiyut.html">
+        <div class="card-media">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 20V16 Q10 14 6 12 Q2 10 6 8 Q10 6 6 4"/></svg>
+          <div class="card-tag">נושא 3</div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">המורה שלי לאלסטיות</div>
+          <div class="card-desc">חוק הוק, קפיצים, בולמי זעזועים ומנגנונים אלסטיים.</div>
+          <div class="card-action">כניסה לנושא ←</div>
+        </div>
+      </a>
 
-    <a href="06-cheker.html" class="topic t6">
-      <div class="t-num">נושא 6</div>
-      <div class="t-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10" cy="10" r="6"/><line x1="21" y1="21" x2="15" y2="15"/></svg></div>
-      <div class="t-title">המורה שלי לפרויקט החקר</div>
-      <div class="t-desc">בניית תיק עבודות, יריד תוצרים, וסיכום שנתי.</div>
-      <div class="t-action">כניסה לנושא ←</div>
-    </a>
+      <a class="card c4" href="04-energiya.html">
+        <div class="card-media">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M13 2 4 14h6l-1 8 9-12h-6z"/></svg>
+          <div class="card-tag">נושא 4</div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">המורה שלי לאנרגיות</div>
+          <div class="card-desc">שימור אנרגיה, בזבוז חום, ואנרגיות מתחדשות.</div>
+          <div class="card-action">כניסה לנושא ←</div>
+        </div>
+      </a>
+
+      <a class="card c5" href="https://friends-pardeschna.github.io/hachashmalai-harashi/" target="_blank" rel="noopener">
+        <div class="card-media">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 2v4M16 2v4M8 18v4M16 18v4M2 8h4M2 16h4M18 8h4M18 16h4"/></svg>
+          <div class="card-tag">נושא 5 · אתר חיצוני</div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">המורה שלי לחשמל</div>
+          <div class="card-desc">"החשמלאי הראשי" — סביבת האבחון האינטראקטיבית שכבר בנינו.</div>
+          <div class="card-action">מעבר לאתר ↗</div>
+        </div>
+      </a>
+
+      <a class="card c6" href="06-cheker.html">
+        <div class="card-media">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="10" cy="10" r="6"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
+          <div class="card-tag">נושא 6</div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">המורה שלי לפרויקט החקר</div>
+          <div class="card-desc">בניית עבודת חקר עצמאית, משאלת מחקר ועד הגשה סופית.</div>
+          <div class="card-action">כניסה לנושא ←</div>
+        </div>
+      </a>
+
+    </div>
+
+    <footer>
+      פרויקט לימודי · פיזיקה יישומית בשילוב טכנולוגיה, כיתה ט' — ד"ר ישי מור, המכללה האקדמית בית ברל<br>
+      מגיש: מוטי לרנר
+    </footer>
 
   </div>
 
-  <footer>
-    פרויקט לימודי · פיזיקה יישומית בשילוב טכנולוגיה, כיתה ט' — ד"ר ישי מור, המכללה האקדמית בית ברל<br>
-    מגיש: מוטי לרנר
-  </footer>
-
-</div>
 </body>
 </html>
