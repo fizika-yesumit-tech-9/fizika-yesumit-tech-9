@@ -1,83 +1,179 @@
 <!--
-  המורה שלי לאלסטיות - עמוד נושא | פיזיקה יישומית בשילוב טכנולוגיה, כיתה ט'
-  הצהרת AI: עמוד זה נבנה בסיוע Claude (Anthropic) כשלד לעמוד נושא, לפי מפרט
-  שסיפק מוטי לרנר. ה-Gems הספציפיים לנושא זה יתווספו בהמשך. יש לעדכן כאן את
-  הפרומפטים המדויקים ששימשו.
+  נושא 3 — עמוד נושא | פיזיקה יישומית בשילוב טכנולוגיה, כיתה ט'
+  עודכן בסיוע Claude (Anthropic): מעבר לעיצוב הקרם/זהב של "תקשוב יישומי" (כמו בנושאים 1-2),
+  שלושה בלוקי Gem (מומחה החומרים, מהנדס בולמי הזעזועים, פיזיקת הקפיץ) עם כרטיסי
+  Gem/מצגת/סרטון/תרגול, ושלושת המשחקים האינטראקטיביים המקוריים (מעבדת המנוף, מעבדת
+  הקפיצים, גלגל החזרה) נשמרו במלואם ועטופים בכרטיס תואם לעיצוב החדש.
+  יש להחליף כל placeholder "בקרוב" (class="is-soon") בקישור האמיתי כשיתקבל.
 -->
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>המורה שלי לאלסטיות — פיזיקה יישומית בשילוב טכנולוגיה</title>
+<title>נושא 3 — פיזיקה יישומית בשילוב טכנולוגיה</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500;700;900&family=Heebo:wght@300;400;600&family=Roboto+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;500;700;900&family=Heebo:wght@300;400;500;600;700&family=Rubik:wght@500;700;900&family=Roboto+Mono:wght@500;700&display=swap" rel="stylesheet">
 <style>
   :root{
+    --cream:#f6f0e3;
+    --cream-2:#efe7d5;
+    --ink:#1e2634;
+    --ink-soft:#4a5468;
+    --gold:#c9971f;
+    --gold-dark:#a97c14;
+    --line:#e2d8c1;
+    --card-bg:#ffffff;
+    --shadow:0 10px 30px rgba(30,38,52,.08);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--cream);color:var(--ink);font-family:'Heebo',sans-serif;line-height:1.6;}
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+
+  .topbar{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 40px;border-bottom:1px solid var(--line);background:var(--cream);
+    flex-wrap:wrap;gap:10px;
+  }
+  .topbar .site-name{font-family:'Frank Ruhl Libre',serif;font-weight:700;font-size:18px;}
+  .topbar .crumbs{font-size:14px;color:var(--ink-soft);display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+  .topbar .crumbs a{color:var(--gold-dark);font-weight:600;}
+  .topbar .crumbs a:hover{text-decoration:underline;}
+
+  .page-hero{max-width:1180px;margin:0 auto;padding:44px 40px 10px;}
+  .page-hero .tag{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--card-bg);border:1px solid var(--line);
+    border-radius:999px;padding:6px 16px;font-size:13px;color:var(--ink-soft);
+    margin-bottom:18px;
+  }
+  .page-hero .tag .dot{width:7px;height:7px;border-radius:50%;background:var(--gold);}
+  .page-hero h1{
+    font-family:'Frank Ruhl Libre',serif;font-weight:900;
+    font-size:clamp(28px,4.4vw,44px);line-height:1.3;margin-bottom:16px;
+  }
+  .page-hero p{max-width:820px;color:var(--ink-soft);font-size:16px;line-height:1.8;}
+
+  .unit-wrap{max-width:1180px;margin:0 auto;padding:30px 40px 60px;}
+
+  .gem-group{margin-bottom:40px;}
+  .gem-group-title{
+    font-family:'Frank Ruhl Libre',serif;font-weight:700;font-size:20px;
+    margin:0 0 16px;padding-bottom:10px;border-bottom:1px solid var(--line);
+  }
+  .block-label{
+    font-size:13px;font-weight:700;color:var(--gold-dark);
+    text-transform:uppercase;letter-spacing:.5px;
+    margin:20px 0 10px;
+  }
+
+  /* Gem card - single, wide */
+  .gem-link-card-wide{
+    display:flex;align-items:center;gap:20px;
+    background:linear-gradient(135deg,#4a3418,#6b4a1f);
+    border:1px solid var(--line);border-radius:16px;
+    box-shadow:var(--shadow);padding:26px 28px;margin-bottom:8px;
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .gem-link-card-wide:not(.is-soon):hover{transform:translateY(-3px);box-shadow:0 16px 36px rgba(30,38,52,.2);}
+  .gem-link-card-wide.is-soon{opacity:.7;cursor:default;}
+  .gem-link-icon-wide{
+    flex-shrink:0;width:56px;height:56px;border-radius:14px;
+    background:rgba(224,182,84,.22);display:flex;align-items:center;justify-content:center;color:#e0b654;
+  }
+  .gem-link-icon-wide svg{width:28px;height:28px;}
+  .gem-link-body-wide{flex:1;}
+  .gem-link-title-wide{font-family:'Frank Ruhl Libre',serif;font-weight:700;font-size:19px;color:#f7f3e8;margin-bottom:5px;}
+  .gem-link-desc-wide{font-size:13.5px;color:#e4d9c3;line-height:1.6;}
+  .gem-link-arrow-wide{flex-shrink:0;width:22px;height:22px;color:#e0b654;}
+
+  /* Presentation link card */
+  .pres-link-card{
+    display:flex;align-items:center;gap:18px;
+    background:linear-gradient(135deg,#2e2a4d,#3d3766);
+    border:1px solid var(--line);border-radius:16px;
+    box-shadow:var(--shadow);padding:24px 26px;margin-bottom:18px;
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .pres-link-card:not(.is-soon):hover{transform:translateY(-3px);box-shadow:0 16px 36px rgba(30,38,52,.2);}
+  .pres-link-card.is-soon{opacity:.7;cursor:default;}
+  .pres-link-arrow{flex-shrink:0;width:24px;height:24px;color:#9f8cff;}
+  .pres-link-icon{
+    flex-shrink:0;width:52px;height:52px;border-radius:12px;
+    background:rgba(159,140,255,.2);display:flex;align-items:center;justify-content:center;color:#9f8cff;
+  }
+  .pres-link-icon svg{width:26px;height:26px;}
+  .pres-link-body{flex:1;}
+  .pres-link-title{font-family:'Frank Ruhl Libre',serif;font-weight:700;font-size:18px;color:#f7f3e8;margin-bottom:4px;}
+  .pres-link-desc{font-size:13.5px;color:#c3cad6;}
+  .soon-badge{
+    flex-shrink:0;font-size:12px;font-weight:700;color:#f3ead0;
+    background:rgba(255,255,255,.12);padding:5px 12px;border-radius:999px;
+  }
+
+  /* Video link card */
+  .video-link-card{
+    display:flex;align-items:center;gap:18px;
+    background:linear-gradient(135deg,#1e2a3d,#2c3d55);
+    border:1px solid var(--line);border-radius:16px;
+    box-shadow:var(--shadow);padding:24px 26px;margin-bottom:18px;
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .video-link-card:not(.is-soon):hover{transform:translateY(-3px);box-shadow:0 16px 36px rgba(30,38,52,.2);}
+  .video-link-card.is-soon{opacity:.7;cursor:default;}
+  .video-link-arrow{flex-shrink:0;width:24px;height:24px;color:var(--gold);}
+  .video-link-icon{
+    flex-shrink:0;width:52px;height:52px;border-radius:12px;
+    background:rgba(201,151,31,.18);display:flex;align-items:center;justify-content:center;color:var(--gold);
+  }
+  .video-link-icon svg{width:26px;height:26px;}
+  .video-link-body{flex:1;}
+  .video-link-title{font-family:'Frank Ruhl Libre',serif;font-weight:700;font-size:18px;color:#f7f3e8;margin-bottom:4px;}
+  .video-link-desc{font-size:13.5px;color:#c3cad6;}
+
+  /* Quiz / question-bank link card */
+  .quiz-link-card{
+    display:flex;align-items:center;gap:18px;
+    background:linear-gradient(135deg,#1f3a3d,#2a4d4f);
+    border:1px solid var(--line);border-radius:16px;
+    box-shadow:var(--shadow);padding:24px 26px;
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .quiz-link-card:not(.is-soon):hover{transform:translateY(-3px);box-shadow:0 16px 36px rgba(30,38,52,.2);}
+  .quiz-link-card.is-soon{opacity:.7;cursor:default;}
+  .quiz-link-arrow{flex-shrink:0;width:24px;height:24px;color:#5fd0c6;}
+  .quiz-link-icon{
+    flex-shrink:0;width:52px;height:52px;border-radius:12px;
+    background:rgba(95,208,198,.18);display:flex;align-items:center;justify-content:center;color:#5fd0c6;
+  }
+  .quiz-link-icon svg{width:26px;height:26px;}
+  .quiz-link-body{flex:1;}
+  .quiz-link-title{font-family:'Frank Ruhl Libre',serif;font-weight:700;font-size:18px;color:#f7f3e8;margin-bottom:4px;}
+  .quiz-link-desc{font-size:13.5px;color:#c3cad6;}
+
+  /* Embedded games — wrapped to sit inside the cream page */
+  .game-section-label{
+    font-family:'Frank Ruhl Libre',serif;font-weight:700;font-size:20px;
+    margin:8px 0 16px;padding-bottom:10px;border-bottom:1px solid var(--line);
+  }
+  .game-card-wrap{
+    background:#10141b;border:1px solid var(--line);border-radius:20px;
+    box-shadow:var(--shadow);padding:28px;margin-bottom:40px;
+  }
+
+  footer{border-top:1px solid var(--line);padding:26px 40px;text-align:center;font-size:13px;color:var(--ink-soft);}
+  footer a{color:var(--gold-dark);font-weight:600;}
+
+  #craneGame, #unifiedSpringLab, #wheelGame{
     --bg:#10141b; --panel:#1a212c; --panel-2:#212a37; --line:#2c3646;
     --amber:#ffb020; --amber-dim:#7a5a20; --teal:#33d6c0; --red:#ff5a5f;
     --green:#6fcf6f; --violet:#b98cff;
     --text:#edeff3; --muted:#8b93a1;
+    font-family:'Heebo',sans-serif; color:var(--text);
   }
-  *{box-sizing:border-box;}
-  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:'Heebo',sans-serif;}
-  body{min-height:100vh;padding:24px 16px 70px;}
-  .wrap{max-width:900px;margin:0 auto;}
-
-  .breadcrumb{font-family:'Roboto Mono',monospace;font-size:12px;color:var(--muted);margin-bottom:18px;}
-  .breadcrumb a{color:var(--teal);text-decoration:none;}
-  .breadcrumb a:hover{text-decoration:underline;}
-
-  .head{display:flex;align-items:center;gap:16px;margin-bottom:18px;flex-wrap:wrap;}
-  .head-icon{
-    width:56px;height:56px;border-radius:16px;display:flex;align-items:center;justify-content:center;
-    background:var(--panel);border:1px solid var(--line);color:var(--amber);flex-shrink:0;
-  }
-  .head-icon svg{width:28px;height:28px;}
-  h1{font-family:'Rubik',sans-serif;font-weight:900;font-size:clamp(24px,4.2vw,34px);margin:0;line-height:1.3;}
-
-  .desc{
-    background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--amber);
-    border-radius:10px;padding:16px 20px;margin-bottom:32px;font-size:14px;line-height:1.8;
-  }
-  .desc b{color:var(--amber);}
-
-  .section-title{
-    font-family:'Rubik',sans-serif;font-weight:700;font-size:16px;
-    margin:0 0 16px;color:var(--muted);letter-spacing:.3px;
-  }
-
-  .gem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
-  @media(max-width:760px){ .gem-grid{grid-template-columns:1fr;} }
-
-  .gem-slot{
-    background:transparent;border:1.5px dashed var(--line);border-radius:14px;
-    padding:22px 18px;min-height:150px;display:flex;flex-direction:column;
-    align-items:center;justify-content:center;text-align:center;color:var(--muted);
-  }
-  .gem-slot svg{width:26px;height:26px;margin-bottom:10px;opacity:.5;}
-  .gem-slot-title{font-family:'Roboto Mono',monospace;font-size:12px;letter-spacing:.5px;}
-
-  .gem-slot.filled{
-    border:1.5px solid var(--amber);color:var(--text);text-decoration:none;
-    transition:transform .15s, border-color .15s;
-  }
-  .gem-slot.filled:hover{transform:translateY(-3px);}
-  .gem-slot.filled svg{opacity:1;color:var(--amber);}
-  .gem-slot.filled .gem-slot-title{
-    font-family:'Rubik',sans-serif;font-size:15px;font-weight:700;letter-spacing:0;
-    margin-bottom:4px;
-  }
-  .gem-slot.filled .gem-slot-desc{
-    font-family:'Heebo',sans-serif;font-size:12px;color:var(--muted);line-height:1.5;
-  }
-  .gem-slot.filled .gem-slot-arrow{
-    font-family:'Roboto Mono',monospace;font-size:11px;color:var(--teal);margin-top:8px;
-  }
-
-  footer{margin-top:40px;color:var(--muted);font-size:12px;text-align:center;line-height:1.8;}
-  footer a{color:var(--teal);}
-
   /* --- מעבדת המנוף --- */
   #craneGame .wrap{max-width:1000px;margin:0 auto;}
 #craneGame .eyebrow{font-family:'Roboto Mono',monospace;color:var(--teal);font-size:12px;letter-spacing:2px;text-transform:uppercase;}
@@ -228,44 +324,164 @@
 #wheelGame footer{margin-top:28px;color:var(--muted);font-size:12px;text-align:center;line-height:1.8;}
 @media(max-width:760px){#wheelGame .layout{grid-template-columns:1fr;}}
 
+
+  @media(max-width:760px){ .unit-wrap{padding:24px 20px 50px;} .page-hero{padding:36px 20px 10px;} .topbar{padding:16px 20px;} }
 </style>
 </head>
 <body>
-<div class="wrap">
+  <div class="topbar">
+    <div class="crumbs">
+      <a href="index.html">← דף הבית</a> ‹ פיזיקה יישומית בשילוב טכנולוגיה ‹ נושא 3
+    </div>
+    <div class="site-name">פיזיקה יישומית · כיתה ט'</div>
+  </div>
 
-  <div class="breadcrumb"><a href="index.html">← דף הבית</a> · פיזיקה יישומית בשילוב טכנולוגיה · נושא 3</div>
-
-  <div class="head">
-    <div class="head-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 20V16 Q10 14 6 12 Q2 10 6 8 Q10 6 6 4"/></svg></div>
+  <div class="page-hero">
+    <div class="tag"><span class="dot"></span> נושא 3 · אלסטיות</div>
     <h1>המורה שלי לאלסטיות</h1>
+    <p>נושא זה עוסק בקפיצים ובחומרים אלסטיים: חוק הוק, בולמי זעזועים, ומנגנונים מכניים שסופגים אנרגיית פגיעה — כמו באתגר "הביצה הנופלת", שבו בונים מתקן שמגן על ביצה מנפילה בעזרת עקרונות אלסטיות. נתרגל הכול בשלוש מעבדות אינטראקטיביות. כל אחד משלושת ה-Gems למטה מלווה במצגת, בסרטון הסבר ובאוסף שאלות לחזרה עצמית.</p>
   </div>
 
-  <div class="desc">נושא זה עוסק בקפיצים ובחומרים אלסטיים: <b>חוק הוק</b>, בולמי זעזועים, ומנגנונים מכניים שסופגים אנרגיית פגיעה — כמו באתגר "הביצה הנופלת", שבו בונים מתקן שמגן על ביצה מנפילה בעזרת עקרונות אלסטיות.</div>
+  <div class="unit-wrap">
 
-  <div class="section-title">הגימים של הנושא הזה</div>
-  <div class="gem-grid">
-    <a class="gem-slot filled" href="https://gemini.google.com/gem/1w1cHMqNWcAs0X6zA_1QE__nKls3is3NW?usp=sharing" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg>
-      <div class="gem-slot-title">מומחה החומרים</div>
-      <div class="gem-slot-desc">מהי אלסטיות, סוגי חומרים אלסטיים שונים, דפורמציה, חוק הוק וגבול האלסטיות.</div>
-      <div class="gem-slot-arrow">פתיחת שיחה ←</div>
-    </a>
-    <a class="gem-slot filled" href="https://gemini.google.com/gem/1L8hC6KUhykyIXyhCIvCKnLwehGI5YPlw?usp=sharing" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg>
-      <div class="gem-slot-title">מהנדס בולמי הזעזועים</div>
-      <div class="gem-slot-desc">מתלים באופניים ומכוניות, מנגנוני החזרה במקלדת ובמזרן, אגירת אנרגיה אלסטית ופיזורה.</div>
-      <div class="gem-slot-arrow">פתיחת שיחה ←</div>
-    </a>
-    <a class="gem-slot filled" href="https://gemini.google.com/gem/1h1pf79bycyaCJHYIVoue7QLzTXvpXoHA?usp=sharing" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg>
-      <div class="gem-slot-title">המורה שלי לפיזיקת הקפיץ</div>
-      <div class="gem-slot-desc">כוח אלסטי, קבוע הקפיץ, מצב מנוחה, התארכות והתכווצות, ומצב קפיץ עמוס.</div>
-      <div class="gem-slot-arrow">פתיחת שיחה ←</div>
-    </a>
-  </div>
+    <!-- ===================== GEM 1 ===================== -->
+    <div class="gem-group">
+      <div class="gem-group-title">1. מומחה החומרים</div>
 
+      <div class="block-label">Gem</div>
+      <a class="gem-link-card-wide" href="https://gemini.google.com/gem/1w1cHMqNWcAs0X6zA_1QE__nKls3is3NW?usp=sharing" target="_blank" rel="noopener">
+        <div class="gem-link-icon-wide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l2.4 6.6L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.4L12 2z"/></svg></div>
+        <div class="gem-link-body-wide">
+          <div class="gem-link-title-wide">מומחה החומרים</div>
+          <div class="gem-link-desc-wide">מהי אלסטיות, סוגי חומרים אלסטיים שונים, דפורמציה, חוק הוק וגבול האלסטיות. נפתח בטאב חדש (Gemini)</div>
+        </div>
+        <div class="gem-link-arrow-wide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
+      </a>
 
-  <div class="section-title" style="margin-top:34px;">מעבדת המנוף — חוק הוק בפעולה</div>
+      <div class="block-label">מצגת — מומחה החומרים</div>
+      <a class="pres-link-card" href="https://notebook.google.com/notebook/d3b3bde3-cb83-4dad-a4eb-c7413dd99315/artifact/b19cf909-56b1-4125-b76a-c7d2f99d473a?utm_source=nlm_web_share&utm_medium=google_oo&utm_campaign=art_share_1&utm_content=&utm_smc=nlm_web_share_google_oo_art_share_1_" target="_blank" rel="noopener">
+        <div class="pres-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+        <div class="pres-link-body">
+          <div class="pres-link-title">מצגת — מומחה החומרים</div>
+          <div class="pres-link-desc">מהי אלסטיות, סוגי חומרים אלסטיים שונים, דפורמציה, חוק הוק וגבול האלסטיות. נפתחת בטאב חדש</div>
+        </div>
+        <div class="pres-link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
+      </a>
+
+      <div class="block-label">סרטון — מומחה החומרים</div>
+      <a class="video-link-card" href="https://notebook.google.com/notebook/d3b3bde3-cb83-4dad-a4eb-c7413dd99315/artifact/f4228b30-bf3c-4720-b676-404b3db85d25?utm_source=nlm_web_share&utm_medium=google_oo&utm_campaign=art_share_1&utm_content=&utm_smc=nlm_web_share_google_oo_art_share_1_" target="_blank" rel="noopener">
+        <div class="video-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 9l5 3-5 3V9z"/></svg></div>
+        <div class="video-link-body">
+          <div class="video-link-title">סרטון הסבר — מומחה החומרים</div>
+          <div class="video-link-desc">סרטון ההסבר על כל שלבי הנושא — נפתח בטאב חדש</div>
+        </div>
+        <div class="video-link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
+      </a>
+
+      <div class="block-label">אוסף שאלות לחזרה — מומחה החומרים</div>
+      <a class="quiz-link-card" href="https://notebook.google.com/notebook/d3b3bde3-cb83-4dad-a4eb-c7413dd99315/artifact/0e787b9a-cbf0-495b-83ea-fc202f6c7a7e?utm_source=nlm_web_share&utm_medium=google_oo&utm_campaign=art_share_1&utm_content=&utm_smc=nlm_web_share_google_oo_art_share_1_" target="_blank" rel="noopener">
+        <div class="quiz-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9.5 9a2.5 2.5 0 115 0c0 1.5-2.5 1.8-2.5 3.5"/><circle cx="12" cy="16.5" r="0.6" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="9"/></svg></div>
+        <div class="quiz-link-body">
+          <div class="quiz-link-title">אוסף שאלות לחזרה — מומחה החומרים</div>
+          <div class="quiz-link-desc">שאלות לבדיקה עצמית על כל שלבי הנושא — נפתח בטאב חדש</div>
+        </div>
+        <div class="quiz-link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
+      </a>
+    </div>
+
+    <!-- ===================== GEM 2 ===================== -->
+    <div class="gem-group">
+      <div class="gem-group-title">2. מהנדס בולמי הזעזועים</div>
+
+      <div class="block-label">Gem</div>
+      <a class="gem-link-card-wide" href="https://gemini.google.com/gem/1L8hC6KUhykyIXyhCIvCKnLwehGI5YPlw?usp=sharing" target="_blank" rel="noopener">
+        <div class="gem-link-icon-wide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l2.4 6.6L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.4L12 2z"/></svg></div>
+        <div class="gem-link-body-wide">
+          <div class="gem-link-title-wide">מהנדס בולמי הזעזועים</div>
+          <div class="gem-link-desc-wide">מתלים באופניים ומכוניות, מנגנוני החזרה במקלדת ובמזרן, אגירת אנרגיה אלסטית ופיזורה. נפתח בטאב חדש (Gemini)</div>
+        </div>
+        <div class="gem-link-arrow-wide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
+      </a>
+
+      <div class="block-label">מצגת — מהנדס בולמי הזעזועים</div>
+      <a class="pres-link-card" href="https://notebook.google.com/notebook/70d0909f-2bbc-4f72-86c0-fdb21f30a99e/artifact/f44a3932-e5cb-4f76-8c1d-9b40876cfc43?utm_source=nlm_web_share&utm_medium=google_oo&utm_campaign=art_share_1&utm_content=&utm_smc=nlm_web_share_google_oo_art_share_1_" target="_blank" rel="noopener">
+        <div class="pres-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+        <div class="pres-link-body">
+          <div class="pres-link-title">מצגת — מהנדס בולמי הזעזועים</div>
+          <div class="pres-link-desc">מתלים באופניים ומכוניות, מנגנוני החזרה במקלדת ובמזרן, אגירת אנרגיה אלסטית ופיזורה. נפתחת בטאב חדש</div>
+        </div>
+        <div class="pres-link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
+      </a>
+
+      <div class="block-label">סרטון — מהנדס בולמי הזעזועים</div>
+      <a class="video-link-card" href="https://notebook.google.com/notebook/70d0909f-2bbc-4f72-86c0-fdb21f30a99e/artifact/dc99db87-09bc-4c55-899c-2fe49914ffae?utm_source=nlm_web_share&utm_medium=google_oo&utm_campaign=art_share_1&utm_content=&utm_smc=nlm_web_share_google_oo_art_share_1_" target="_blank" rel="noopener">
+        <div class="video-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 9l5 3-5 3V9z"/></svg></div>
+        <div class="video-link-body">
+          <div class="video-link-title">סרטון הסבר — מהנדס בולמי הזעזועים</div>
+          <div class="video-link-desc">סרטון ההסבר על כל שלבי הנושא — נפתח בטאב חדש</div>
+        </div>
+        <div class="video-link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
+      </a>
+
+      <div class="block-label">אוסף שאלות לחזרה — מהנדס בולמי הזעזועים</div>
+      <a class="quiz-link-card" href="https://notebook.google.com/notebook/70d0909f-2bbc-4f72-86c0-fdb21f30a99e/artifact/e0a11e02-6804-4014-b3f1-909b1bcc09ce?utm_source=nlm_web_share&utm_medium=google_oo&utm_campaign=art_share_1&utm_content=&utm_smc=nlm_web_share_google_oo_art_share_1_" target="_blank" rel="noopener">
+        <div class="quiz-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9.5 9a2.5 2.5 0 115 0c0 1.5-2.5 1.8-2.5 3.5"/><circle cx="12" cy="16.5" r="0.6" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="9"/></svg></div>
+        <div class="quiz-link-body">
+          <div class="quiz-link-title">אוסף שאלות לחזרה — מהנדס בולמי הזעזועים</div>
+          <div class="quiz-link-desc">שאלות לבדיקה עצמית על כל שלבי הנושא — נפתח בטאב חדש</div>
+        </div>
+        <div class="quiz-link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
+      </a>
+    </div>
+
+    <!-- ===================== GEM 3 ===================== -->
+    <div class="gem-group">
+      <div class="gem-group-title">3. המורה שלי לפיזיקת הקפיץ</div>
+
+      <div class="block-label">Gem</div>
+      <a class="gem-link-card-wide" href="https://gemini.google.com/gem/1h1pf79bycyaCJHYIVoue7QLzTXvpXoHA?usp=sharing" target="_blank" rel="noopener">
+        <div class="gem-link-icon-wide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l2.4 6.6L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.4L12 2z"/></svg></div>
+        <div class="gem-link-body-wide">
+          <div class="gem-link-title-wide">המורה שלי לפיזיקת הקפיץ</div>
+          <div class="gem-link-desc-wide">כוח אלסטי, קבוע הקפיץ, מצב מנוחה, התארכות והתכווצות, ומצב קפיץ עמוס. נפתח בטאב חדש (Gemini)</div>
+        </div>
+        <div class="gem-link-arrow-wide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
+      </a>
+
+      <div class="block-label">מצגת — פיזיקת הקפיץ</div>
+      <a class="pres-link-card" href="https://notebook.google.com/notebook/4e39d603-c9ef-4ad0-aa48-008ed25c9b14/artifact/ab393231-d620-4887-bd99-7d1aed28d6e7?utm_source=nlm_web_share&utm_medium=google_oo&utm_campaign=art_share_1&utm_content=&utm_smc=nlm_web_share_google_oo_art_share_1_" target="_blank" rel="noopener">
+        <div class="pres-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+        <div class="pres-link-body">
+          <div class="pres-link-title">מצגת — פיזיקת הקפיץ</div>
+          <div class="pres-link-desc">כוח אלסטי, קבוע הקפיץ, מצב מנוחה, התארכות והתכווצות, ומצב קפיץ עמוס. נפתחת בטאב חדש</div>
+        </div>
+        <div class="pres-link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
+      </a>
+
+      <div class="block-label">סרטון — פיזיקת הקפיץ</div>
+      <a class="video-link-card" href="https://notebook.google.com/notebook/4e39d603-c9ef-4ad0-aa48-008ed25c9b14/artifact/fc76a338-de77-4e03-83ad-c34f14aacbb4?utm_source=nlm_web_share&utm_medium=google_oo&utm_campaign=art_share_1&utm_content=&utm_smc=nlm_web_share_google_oo_art_share_1_" target="_blank" rel="noopener">
+        <div class="video-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 9l5 3-5 3V9z"/></svg></div>
+        <div class="video-link-body">
+          <div class="video-link-title">סרטון הסבר — פיזיקת הקפיץ</div>
+          <div class="video-link-desc">סרטון ההסבר על כל שלבי הנושא — נפתח בטאב חדש</div>
+        </div>
+        <div class="video-link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
+      </a>
+
+      <div class="block-label">אוסף שאלות לחזרה — פיזיקת הקפיץ</div>
+      <a class="quiz-link-card" href="https://notebook.google.com/notebook/4e39d603-c9ef-4ad0-aa48-008ed25c9b14/artifact/9ee90878-102e-4496-bbb5-ead0607959d6?utm_source=nlm_web_share&utm_medium=google_oo&utm_campaign=art_share_1&utm_content=&utm_smc=nlm_web_share_google_oo_art_share_1_" target="_blank" rel="noopener">
+        <div class="quiz-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9.5 9a2.5 2.5 0 115 0c0 1.5-2.5 1.8-2.5 3.5"/><circle cx="12" cy="16.5" r="0.6" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="9"/></svg></div>
+        <div class="quiz-link-body">
+          <div class="quiz-link-title">אוסף שאלות לחזרה — פיזיקת הקפיץ</div>
+          <div class="quiz-link-desc">שאלות לבדיקה עצמית על כל שלבי הנושא — נפתח בטאב חדש</div>
+        </div>
+        <div class="quiz-link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
+      </a>
+    </div>
+
+    <!-- ===================== GAMES ===================== -->
+    <div class="game-card-wrap">
+<div class="game-section-label">מעבדת המנוף — חוק הוק בפעולה</div>
 <div id="craneGame">
 <div class="wrap">
 
@@ -584,7 +800,11 @@ drawCrane();
 </div>
 
 
-  <div class="section-title" style="margin-top:34px;">מעבדת הקפיצים — חומרים, סרגל ו-4 רמות</div>
+  
+    </div>
+
+    <div class="game-card-wrap">
+<div class="game-section-label">מעבדת הקפיצים — חומרים, סרגל ו-4 רמות</div>
 <div id="unifiedSpringLab">
 <div class="wrap">
 
@@ -954,7 +1174,11 @@ drawRuler();
 </div>
 
 
-  <div class="section-title" style="margin-top:34px;">גלגל החזרה — יחידה 3</div>
+  
+    </div>
+
+    <div class="game-card-wrap">
+<div class="game-section-label">גלגל החזרה — יחידה 3</div>
 <div id="wheelGame">
 <div class="wrap">
   <div class="eyebrow">משחק חזרה · יחידה 3 — אלסטיות</div>
@@ -1215,10 +1439,14 @@ buildWheel();
 </script>
 </div>
 
+  
+    </div>
+
+  </div>
+
   <footer>
     <a href="index.html">חזרה לדף הבית</a> · פיזיקה יישומית בשילוב טכנולוגיה, כיתה ט'
   </footer>
 
-</div>
 </body>
 </html>
