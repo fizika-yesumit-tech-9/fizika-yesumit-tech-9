@@ -1,184 +1,599 @@
 <!--
-  המורה שלי לאנרגיות - עמוד נושא | פיזיקה יישומית בשילוב טכנולוגיה, כיתה ט'
-  הצהרת AI: עמוד זה נבנה בסיוע Claude (Anthropic) כשלד לעמוד נושא, לפי מפרט
-  שסיפק מוטי לרנר. ה-Gems הספציפיים לנושא זה יתווספו בהמשך. יש לעדכן כאן את
-  הפרומפטים המדויקים ששימשו.
+  המורה שלי לאנרגיות — עמוד נושא 4 | פיזיקה יישומית בשילוב טכנולוגיה, כיתה ט'
+  הצהרת AI: עמוד זה נבנה בסיוע Claude (Anthropic) לפי מפרט שסיפק מוטי לרנר,
+  במערכת העיצוב קרם/זהב של האתר (זהה ל-topic-1/2/3).
+  קישורי ה-Gems פעילים. כרטיסי מצגת/סרטון/שאלון מסומנים "בקרוב" —
+  יש להחליף כל placeholder בקישור האמיתי כשיתקבל, ולהסיר את class="is-soon"
+  ואת ה-soon-badge, כפי שנעשה בנושאים 1–3.
 -->
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>המורה שלי לאנרגיות — פיזיקה יישומית בשילוב טכנולוגיה</title>
+<title>נושא 4 — פיזיקה יישומית בשילוב טכנולוגיה</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500;700;900&family=Heebo:wght@300;400;600&family=Roboto+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;500;700;900&family=Heebo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#10141b; --panel:#1a212c; --panel-2:#212a37; --line:#2c3646;
-    --amber:#ffb020; --amber-dim:#7a5a20; --teal:#33d6c0; --red:#ff5a5f;
-    --text:#edeff3; --muted:#8b93a1;
+    --cream:#f6f0e3;
+    --cream-2:#efe7d5;
+    --ink:#1e2634;
+    --ink-soft:#4a5468;
+    --gold:#c9971f;
+    --gold-dark:#a97c14;
+    --line:#e2d8c1;
+    --card-bg:#ffffff;
+    --shadow:0 10px 30px rgba(30,38,52,.08);
   }
-  *{box-sizing:border-box;}
-  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:'Heebo',sans-serif;}
-  body{min-height:100vh;padding:24px 16px 70px;}
-  .wrap{max-width:900px;margin:0 auto;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--cream);color:var(--ink);font-family:'Heebo',sans-serif;line-height:1.6;}
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
 
-  .breadcrumb{font-family:'Roboto Mono',monospace;font-size:12px;color:var(--muted);margin-bottom:18px;}
-  .breadcrumb a{color:var(--teal);text-decoration:none;}
-  .breadcrumb a:hover{text-decoration:underline;}
+  .topbar{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 40px;border-bottom:1px solid var(--line);background:var(--cream);
+    flex-wrap:wrap;gap:10px;
+  }
+  .topbar .site-name{font-family:'Frank Ruhl Libre',serif;font-weight:700;font-size:18px;}
+  .topbar .crumbs{font-size:14px;color:var(--ink-soft);display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+  .topbar .crumbs a{color:var(--gold-dark);font-weight:600;}
+  .topbar .crumbs a:hover{text-decoration:underline;}
 
-  .head{display:flex;align-items:center;gap:16px;margin-bottom:18px;flex-wrap:wrap;}
-  .head-icon{
-    width:56px;height:56px;border-radius:16px;display:flex;align-items:center;justify-content:center;
-    background:var(--panel);border:1px solid var(--line);color:var(--amber);flex-shrink:0;
+  .page-hero{max-width:1180px;margin:0 auto;padding:44px 40px 10px;}
+  .page-hero .tag{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--card-bg);border:1px solid var(--line);
+    border-radius:999px;padding:6px 16px;font-size:13px;color:var(--ink-soft);
+    margin-bottom:18px;
   }
-  .head-icon svg{width:28px;height:28px;}
-  h1{font-family:'Rubik',sans-serif;font-weight:900;font-size:clamp(24px,4.2vw,34px);margin:0;line-height:1.3;}
+  .page-hero .tag .dot{width:7px;height:7px;border-radius:50%;background:var(--gold);}
+  .page-hero h1{
+    font-family:'Frank Ruhl Libre',serif;font-weight:900;
+    font-size:clamp(28px,4.4vw,44px);line-height:1.3;margin-bottom:16px;
+  }
+  .page-hero p{max-width:820px;color:var(--ink-soft);font-size:16px;line-height:1.8;}
 
-  .desc{
-    background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--amber);
-    border-radius:10px;padding:16px 20px;margin-bottom:32px;font-size:14px;line-height:1.8;
-  }
-  .desc b{color:var(--amber);}
+  .unit-wrap{max-width:1180px;margin:0 auto;padding:30px 40px 60px;}
 
-  .section-title{
-    font-family:'Rubik',sans-serif;font-weight:700;font-size:16px;
-    margin:0 0 16px;color:var(--muted);letter-spacing:.3px;
+  .gem-group{margin-bottom:40px;}
+  .gem-group-title{
+    font-family:'Frank Ruhl Libre',serif;font-weight:700;font-size:20px;
+    margin:0 0 16px;padding-bottom:10px;border-bottom:1px solid var(--line);
   }
-
-  .gem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
-  @media(max-width:760px){ .gem-grid{grid-template-columns:1fr;} }
-
-  .gem-slot{
-    background:transparent;border:1.5px dashed var(--line);border-radius:14px;
-    padding:22px 18px;min-height:150px;display:flex;flex-direction:column;
-    align-items:center;justify-content:center;text-align:center;color:var(--muted);
-  }
-  .gem-slot svg{width:26px;height:26px;margin-bottom:10px;opacity:.5;}
-  .gem-slot-title{font-family:'Roboto Mono',monospace;font-size:12px;letter-spacing:.5px;}
-
-  .gem-slot.filled{
-    border:1.5px solid var(--amber);color:var(--text);text-decoration:none;
-    transition:transform .15s, border-color .15s;
-  }
-  .gem-slot.filled:hover{transform:translateY(-3px);}
-  .gem-slot.filled svg{opacity:1;color:var(--amber);}
-  .gem-slot.filled .gem-slot-title{
-    font-family:'Rubik',sans-serif;font-size:15px;font-weight:700;letter-spacing:0;
-    margin-bottom:4px;
-  }
-  .gem-slot.filled .gem-slot-desc{
-    font-family:'Heebo',sans-serif;font-size:12px;color:var(--muted);line-height:1.5;
-  }
-  .gem-slot.filled .gem-slot-arrow{
-    font-family:'Roboto Mono',monospace;font-size:11px;color:var(--teal);margin-top:8px;
+  .block-label{
+    font-size:13px;font-weight:700;color:var(--gold-dark);
+    text-transform:uppercase;letter-spacing:.5px;
+    margin:20px 0 10px;
   }
 
-  .game-card{
-    display:flex;align-items:center;gap:16px;background:var(--panel);
-    border:1.5px solid #6fcf6f;border-radius:14px;padding:20px 22px;text-decoration:none;
-    color:var(--text);margin-top:28px;transition:transform .15s;
+  /* Gem card - single, wide */
+  .gem-link-card-wide{
+    display:flex;align-items:center;gap:20px;
+    background:linear-gradient(135deg,#4a3418,#6b4a1f);
+    border:1px solid var(--line);border-radius:16px;
+    box-shadow:var(--shadow);padding:26px 28px;margin-bottom:8px;
+    transition:transform .18s ease, box-shadow .18s ease;
   }
-  .game-card:hover{transform:translateY(-3px);}
-  .game-card .g-icon{
-    width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;
-    background:rgba(111,207,111,.12);border:1px solid #6fcf6f;color:#6fcf6f;flex-shrink:0;
+  .gem-link-card-wide:not(.is-soon):hover{transform:translateY(-3px);box-shadow:0 16px 36px rgba(30,38,52,.2);}
+  .gem-link-card-wide.is-soon{opacity:.7;cursor:default;}
+  .gem-link-icon-wide{
+    flex-shrink:0;width:56px;height:56px;border-radius:14px;
+    background:rgba(224,182,84,.22);display:flex;align-items:center;justify-content:center;color:#e0b654;
   }
-  .game-card .g-icon svg{width:24px;height:24px;}
-  .game-card .g-title{font-family:'Rubik',sans-serif;font-weight:700;font-size:16px;margin-bottom:4px;}
-  .game-card .g-desc{font-size:13px;color:var(--muted);line-height:1.5;}
-  .game-card .g-arrow{margin-right:auto;font-family:'Roboto Mono',monospace;font-size:12px;color:#6fcf6f;white-space:nowrap;}
+  .gem-link-icon-wide svg{width:28px;height:28px;}
+  .gem-link-body-wide{flex:1;}
+  .gem-link-title-wide{font-family:'Frank Ruhl Libre',serif;font-weight:700;font-size:19px;color:#f7f3e8;margin-bottom:5px;}
+  .gem-link-desc-wide{font-size:13.5px;color:#e4d9c3;line-height:1.6;}
+  .gem-link-note-wide{font-size:12px;color:#cbb98f;margin-top:6px;}
+  .gem-link-arrow-wide{flex-shrink:0;width:22px;height:22px;color:#e0b654;}
 
-  footer{margin-top:40px;color:var(--muted);font-size:12px;text-align:center;line-height:1.8;}
-  footer a{color:var(--teal);}
+  /* Presentation link card */
+  .pres-link-card{
+    display:flex;align-items:center;gap:18px;
+    background:linear-gradient(135deg,#2e2a4d,#3d3766);
+    border:1px solid var(--line);border-radius:16px;
+    box-shadow:var(--shadow);padding:24px 26px;margin-bottom:18px;
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .pres-link-card:not(.is-soon):hover{transform:translateY(-3px);box-shadow:0 16px 36px rgba(30,38,52,.2);}
+  .pres-link-card.is-soon{opacity:.7;cursor:default;}
+  .pres-link-arrow{flex-shrink:0;width:24px;height:24px;color:#9f8cff;}
+  .pres-link-icon{
+    flex-shrink:0;width:52px;height:52px;border-radius:12px;
+    background:rgba(159,140,255,.2);display:flex;align-items:center;justify-content:center;color:#9f8cff;
+  }
+  .pres-link-icon svg{width:26px;height:26px;}
+  .pres-link-body{flex:1;}
+  .pres-link-title{font-family:'Frank Ruhl Libre',serif;font-weight:700;font-size:18px;color:#f7f3e8;margin-bottom:4px;}
+  .pres-link-desc{font-size:13.5px;color:#c3cad6;}
+  .soon-badge{
+    flex-shrink:0;font-size:12px;font-weight:700;color:#f3ead0;
+    background:rgba(255,255,255,.12);padding:5px 12px;border-radius:999px;
+  }
+
+  /* Video link card */
+  .video-link-card{
+    display:flex;align-items:center;gap:18px;
+    background:linear-gradient(135deg,#1d2b45,#27395c);
+    border:1px solid var(--line);border-radius:16px;
+    box-shadow:var(--shadow);padding:24px 26px;margin-bottom:18px;
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .video-link-card:not(.is-soon):hover{transform:translateY(-3px);box-shadow:0 16px 36px rgba(30,38,52,.2);}
+  .video-link-card.is-soon{opacity:.7;cursor:default;}
+  .video-link-arrow{flex-shrink:0;width:24px;height:24px;color:#e8c15a;}
+  .video-link-icon{
+    flex-shrink:0;width:52px;height:52px;border-radius:12px;
+    background:rgba(232,193,90,.2);display:flex;align-items:center;justify-content:center;color:#e8c15a;
+  }
+  .video-link-icon svg{width:26px;height:26px;}
+  .video-link-body{flex:1;}
+  .video-link-title{font-family:'Frank Ruhl Libre',serif;font-weight:700;font-size:18px;color:#f7f3e8;margin-bottom:4px;}
+  .video-link-desc{font-size:13.5px;color:#c3cad6;}
+
+  /* Quiz link card */
+  .quiz-link-card{
+    display:flex;align-items:center;gap:18px;
+    background:linear-gradient(135deg,#173b38,#1f4e49);
+    border:1px solid var(--line);border-radius:16px;
+    box-shadow:var(--shadow);padding:24px 26px;
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .quiz-link-card:not(.is-soon):hover{transform:translateY(-3px);box-shadow:0 16px 36px rgba(30,38,52,.2);}
+  .quiz-link-card.is-soon{opacity:.7;cursor:default;}
+  .quiz-link-arrow{flex-shrink:0;width:24px;height:24px;color:#5fd0c6;}
+  .quiz-link-icon{
+    flex-shrink:0;width:52px;height:52px;border-radius:12px;
+    background:rgba(95,208,198,.18);display:flex;align-items:center;justify-content:center;color:#5fd0c6;
+  }
+  .quiz-link-icon svg{width:26px;height:26px;}
+  .quiz-link-body{flex:1;}
+  .quiz-link-title{font-family:'Frank Ruhl Libre',serif;font-weight:700;font-size:18px;color:#f7f3e8;margin-bottom:4px;}
+  .quiz-link-desc{font-size:13.5px;color:#c3cad6;}
+
+  /* Game link cards (links to separate game pages) */
+  .game-section-label{
+    font-family:'Frank Ruhl Libre',serif;font-weight:700;font-size:20px;
+    margin:8px 0 16px;padding-bottom:10px;border-bottom:1px solid var(--line);
+  }
+  .game-link-card{
+    display:flex;align-items:center;gap:18px;
+    background:linear-gradient(135deg,#1d3a22,#27512e);
+    border:1px solid var(--line);border-radius:16px;
+    box-shadow:var(--shadow);padding:24px 26px;margin-bottom:18px;
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .game-link-card:hover{transform:translateY(-3px);box-shadow:0 16px 36px rgba(30,38,52,.2);}
+  .game-link-arrow{flex-shrink:0;width:24px;height:24px;color:#8ede8e;}
+  .game-link-icon{
+    flex-shrink:0;width:52px;height:52px;border-radius:12px;
+    background:rgba(142,222,142,.18);display:flex;align-items:center;justify-content:center;color:#8ede8e;
+  }
+  .game-link-icon svg{width:26px;height:26px;}
+  .game-link-body{flex:1;}
+  .game-link-title{font-family:'Frank Ruhl Libre',serif;font-weight:700;font-size:18px;color:#f7f3e8;margin-bottom:4px;}
+  .game-link-desc{font-size:13.5px;color:#c3cad6;}
+
+  footer{border-top:1px solid var(--line);padding:26px 40px;text-align:center;font-size:13px;color:var(--ink-soft);}
+  footer a{color:var(--gold-dark);font-weight:600;}
+
+  @media(max-width:760px){ .unit-wrap{padding:24px 20px 50px;} .page-hero{padding:36px 20px 10px;} .topbar{padding:16px 20px;} }
 </style>
 </head>
 <body>
-<div class="wrap">
+  <div class="topbar">
+    <div class="crumbs">
+      <a href="index.html">← דף הבית</a> ‹ פיזיקה יישומית בשילוב טכנולוגיה ‹ נושא 4
+    </div>
+    <div class="site-name">פיזיקה יישומית · כיתה ט'</div>
+  </div>
 
-  <div class="breadcrumb"><a href="index.html">← דף הבית</a> · פיזיקה יישומית בשילוב טכנולוגיה · נושא 4</div>
-
-  <div class="head">
-    <div class="head-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 4 14h6l-1 8 9-12h-6z"/></svg></div>
+  <div class="page-hero">
+    <div class="tag"><span class="dot"></span> נושא 4 · אנרגיות ומעברי אנרגיה</div>
     <h1>המורה שלי לאנרגיות</h1>
+    <p>נושא זה עוסק בשימור אנרגיה, בזבוז חום במערכות, ובמעבר לאנרגיות מתחדשות — פאנלים סולאריים וטורבינות רוח. נלמד למפות ולייעל את הצריכה האנרגטית של הבית ושל בית הספר, נצלול לעומק לשלוש צורות האנרגיה המכנית (גובה, תנועה ואלסטיות) עם הרבה תרגול חישובי, ונחבר הכול יחד בחוק שימור האנרגיה המכנית. כל אחד משמונת ה-Gems למטה ילווה במצגת, בסרטון הסבר ובאוסף שאלות לחזרה עצמית, ובסוף העמוד מחכים שני משחקי חזרה.</p>
   </div>
 
-  <div class="desc">נושא זה עוסק ב<b>שימור אנרגיה</b>, בזבוז חום במערכות, ובמעבר לאנרגיות מתחדשות (פאנלים סולאריים, טורבינות רוח). נלמד למפות ולייעל את הצריכה האנרגטית של הבית ושל בית הספר.</div>
+  <div class="unit-wrap">
 
-  <div class="section-title">הגימים של הנושא הזה</div>
-  <div class="gem-grid">
-    <a class="gem-slot filled" href="https://gemini.google.com/gem/1mjG9VLWGgahPa6iP6RiCWFAhikS8Dsnf?usp=sharing" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg>
-      <div class="gem-slot-title">מבקר האנרגיה הירוקה</div>
-      <div class="gem-slot-desc">חוק שימור האנרגיה, אנרגיה מכנית (גובה, תנועה, אלסטיות) והפסדי אנרגיה בחום ובחיכוך.</div>
-      <div class="gem-slot-arrow">פתיחת שיחה ←</div>
+    <!-- ===================== GEM 1 ===================== -->
+    <div class="gem-group">
+      <div class="gem-group-title">1. מבקר האנרגיה הירוקה</div>
+
+      <div class="block-label">Gem</div>
+      <a class="gem-link-card-wide" href="https://gemini.google.com/gem/1mjG9VLWGgahPa6iP6RiCWFAhikS8Dsnf?usp=sharing" target="_blank" rel="noopener">
+        <div class="gem-link-icon-wide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l2.4 6.6L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.4L12 2z"/></svg></div>
+        <div class="gem-link-body-wide">
+          <div class="gem-link-title-wide">מבקר האנרגיה הירוקה</div>
+          <div class="gem-link-desc-wide">חוק שימור האנרגיה, אנרגיה מכנית (גובה, תנועה, אלסטיות) והפסדי אנרגיה בחום ובחיכוך.</div>
+          <div class="gem-link-note-wide">נפתח בטאב חדש (Gemini)</div>
+        </div>
+        <div class="gem-link-arrow-wide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
+      </a>
+
+      <div class="block-label">מצגת — האנרגיה הירוקה</div>
+      <a class="pres-link-card" href="https://notebook.google.com/notebook/749f03f4-fabc-4695-bd2f-e848f6530ec2/artifact/56e4f8e0-5cde-443d-8cce-bedeb4307c63?utm_source=nlm_web_share&utm_medium=google_oo&utm_campaign=art_share_1&utm_content=&utm_smc=nlm_web_share_google_oo_art_share_1_" target="_blank" rel="noopener">
+        <div class="pres-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+        <div class="pres-link-body">
+          <div class="pres-link-title">מצגת — האנרגיה הירוקה</div>
+          <div class="pres-link-desc">חוק השימור, צורות האנרגיה המכנית והפסדי חום וחיכוך · נפתח בטאב חדש (NotebookLM)</div>
+        </div>
+        <div class="pres-link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
+      </a>
+
+      <div class="block-label">סרטון — האנרגיה הירוקה</div>
+      <a class="video-link-card" href="https://notebook.google.com/notebook/749f03f4-fabc-4695-bd2f-e848f6530ec2/artifact/7198713b-405f-4dbb-bc1f-8fa5449728b7?utm_source=nlm_web_share&utm_medium=google_oo&utm_campaign=art_share_1&utm_content=&utm_smc=nlm_web_share_google_oo_art_share_1_" target="_blank" rel="noopener">
+        <div class="video-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 9l5 3-5 3V9z"/></svg></div>
+        <div class="video-link-body">
+          <div class="video-link-title">סרטון הסבר — האנרגיה הירוקה</div>
+          <div class="video-link-desc">חוק השימור, צורות האנרגיה המכנית והפסדי חום וחיכוך · נפתח בטאב חדש (NotebookLM)</div>
+        </div>
+        <div class="video-link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
+      </a>
+
+      <div class="block-label">אוסף שאלות לחזרה — האנרגיה הירוקה</div>
+      <a class="quiz-link-card" href="https://notebook.google.com/notebook/749f03f4-fabc-4695-bd2f-e848f6530ec2/artifact/01802773-315a-4181-a7de-8bc6e22ecd3e?utm_source=nlm_web_share&utm_medium=google_oo&utm_campaign=art_share_1&utm_content=&utm_smc=nlm_web_share_google_oo_art_share_1_" target="_blank" rel="noopener">
+        <div class="quiz-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9.5 9a2.5 2.5 0 115 0c0 1.5-2.5 1.8-2.5 3.5"/><circle cx="12" cy="16.5" r="0.6" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="9"/></svg></div>
+        <div class="quiz-link-body">
+          <div class="quiz-link-title">אוסף שאלות לחזרה — האנרגיה הירוקה</div>
+          <div class="quiz-link-desc">שאלות לבדיקה עצמית על כל שלבי הנושא · נפתח בטאב חדש (NotebookLM)</div>
+        </div>
+        <div class="quiz-link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
+      </a>
+    </div>
+
+    <!-- ===================== GEM 2 ===================== -->
+    <div class="gem-group">
+      <div class="gem-group-title">2. מבקר הנצילות והחום</div>
+
+      <div class="block-label">Gem</div>
+      <a class="gem-link-card-wide" href="https://gemini.google.com/gem/1RHQBZ51vbAIO-AmINX0y_sSqujCx6kmi?usp=sharing" target="_blank" rel="noopener">
+        <div class="gem-link-icon-wide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l2.4 6.6L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.4L12 2z"/></svg></div>
+        <div class="gem-link-body-wide">
+          <div class="gem-link-title-wide">מבקר הנצילות והחום</div>
+          <div class="gem-link-desc-wide">חום כתוצר לוואי, מושג הנצילות המערכתית, ופתרונות קירור: מאווררים, צלעות קירור וקירור מים.</div>
+          <div class="gem-link-note-wide">נפתח בטאב חדש (Gemini)</div>
+        </div>
+        <div class="gem-link-arrow-wide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
+      </a>
+
+      <div class="block-label">מצגת — הנצילות והחום</div>
+      <a class="pres-link-card" href="https://notebook.google.com/notebook/6dba61ff-3b80-4f5e-9b75-4ba4d0bd0b81/artifact/90db0d7f-a844-479b-a25b-f1ecf5a91227?utm_source=nlm_web_share&utm_medium=google_oo&utm_campaign=art_share_1&utm_content=&utm_smc=nlm_web_share_google_oo_art_share_1_" target="_blank" rel="noopener">
+        <div class="pres-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+        <div class="pres-link-body">
+          <div class="pres-link-title">מצגת — הנצילות והחום</div>
+          <div class="pres-link-desc">נצילות מערכתית, חום כתוצר לוואי ופתרונות קירור · נפתח בטאב חדש (NotebookLM)</div>
+        </div>
+        <div class="pres-link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
+      </a>
+
+      <div class="block-label">סרטון — הנצילות והחום</div>
+      <a class="video-link-card" href="https://notebook.google.com/notebook/6dba61ff-3b80-4f5e-9b75-4ba4d0bd0b81/artifact/039957a1-210f-4f3c-a792-7e2a7fdd66cc?utm_source=nlm_web_share&utm_medium=google_oo&utm_campaign=art_share_1&utm_content=&utm_smc=nlm_web_share_google_oo_art_share_1_" target="_blank" rel="noopener">
+        <div class="video-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 9l5 3-5 3V9z"/></svg></div>
+        <div class="video-link-body">
+          <div class="video-link-title">סרטון הסבר — הנצילות והחום</div>
+          <div class="video-link-desc">נצילות מערכתית, חום כתוצר לוואי ופתרונות קירור · נפתח בטאב חדש (NotebookLM)</div>
+        </div>
+        <div class="video-link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
+      </a>
+
+      <div class="block-label">אוסף שאלות לחזרה — הנצילות והחום</div>
+      <a class="quiz-link-card" href="https://notebook.google.com/notebook/6dba61ff-3b80-4f5e-9b75-4ba4d0bd0b81/artifact/d80428cb-9fd2-4a19-bc30-05cba6a5a9c0?utm_source=nlm_web_share&utm_medium=google_oo&utm_campaign=art_share_1&utm_content=&utm_smc=nlm_web_share_google_oo_art_share_1_" target="_blank" rel="noopener">
+        <div class="quiz-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9.5 9a2.5 2.5 0 115 0c0 1.5-2.5 1.8-2.5 3.5"/><circle cx="12" cy="16.5" r="0.6" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="9"/></svg></div>
+        <div class="quiz-link-body">
+          <div class="quiz-link-title">אוסף שאלות לחזרה — הנצילות והחום</div>
+          <div class="quiz-link-desc">שאלות לבדיקה עצמית על כל שלבי הנושא · נפתח בטאב חדש (NotebookLM)</div>
+        </div>
+        <div class="quiz-link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
+      </a>
+    </div>
+
+    <!-- ===================== GEM 3 ===================== -->
+    <div class="gem-group">
+      <div class="gem-group-title">3. שגריר האנרגיות המתחדשות</div>
+
+      <div class="block-label">Gem</div>
+      <a class="gem-link-card-wide" href="https://gemini.google.com/gem/1rUJgkhwqiy6IyI9Q_tTEFY4MosDV4zrO?usp=sharing" target="_blank" rel="noopener">
+        <div class="gem-link-icon-wide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l2.4 6.6L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.4L12 2z"/></svg></div>
+        <div class="gem-link-body-wide">
+          <div class="gem-link-title-wide">שגריר האנרגיות המתחדשות</div>
+          <div class="gem-link-desc-wide">מעבר מדלקים מאובנים לאנרגיה נקייה, פאנלים סולאריים, וטורבינות רוח ותחנות הידרואלקטריות.</div>
+          <div class="gem-link-note-wide">נפתח בטאב חדש (Gemini)</div>
+        </div>
+        <div class="gem-link-arrow-wide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
+      </a>
+
+      <div class="block-label">מצגת — האנרגיות המתחדשות</div>
+      <a class="pres-link-card" href="https://notebook.google.com/notebook/ac215faa-c22e-404a-9b43-a6b210167256/artifact/008ef035-49f6-4b4b-9fdd-f0be57c0f244?utm_source=nlm_web_share&utm_medium=google_oo&utm_campaign=art_share_1&utm_content=&utm_smc=nlm_web_share_google_oo_art_share_1_" target="_blank" rel="noopener">
+        <div class="pres-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+        <div class="pres-link-body">
+          <div class="pres-link-title">מצגת — האנרגיות המתחדשות</div>
+          <div class="pres-link-desc">מעבר לאנרגיה נקייה: סולארי, רוח והידרואלקטרי · נפתח בטאב חדש (NotebookLM)</div>
+        </div>
+        <div class="pres-link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
+      </a>
+
+      <div class="block-label">סרטון — האנרגיות המתחדשות</div>
+      <a class="video-link-card" href="https://notebook.google.com/notebook/ac215faa-c22e-404a-9b43-a6b210167256/artifact/6a0dd383-f2d7-4d64-8ea8-a4ae18cc369e?utm_source=nlm_web_share&utm_medium=google_oo&utm_campaign=art_share_1&utm_content=&utm_smc=nlm_web_share_google_oo_art_share_1_" target="_blank" rel="noopener">
+        <div class="video-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 9l5 3-5 3V9z"/></svg></div>
+        <div class="video-link-body">
+          <div class="video-link-title">סרטון הסבר — האנרגיות המתחדשות</div>
+          <div class="video-link-desc">מעבר לאנרגיה נקייה: סולארי, רוח והידרואלקטרי · נפתח בטאב חדש (NotebookLM)</div>
+        </div>
+        <div class="video-link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
+      </a>
+
+      <div class="block-label">אוסף שאלות לחזרה — האנרגיות המתחדשות</div>
+      <a class="quiz-link-card" href="https://notebook.google.com/notebook/ac215faa-c22e-404a-9b43-a6b210167256/artifact/c5935f76-3185-4171-a844-3ea81bf43ef3?utm_source=nlm_web_share&utm_medium=google_oo&utm_campaign=art_share_1&utm_content=&utm_smc=nlm_web_share_google_oo_art_share_1_" target="_blank" rel="noopener">
+        <div class="quiz-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9.5 9a2.5 2.5 0 115 0c0 1.5-2.5 1.8-2.5 3.5"/><circle cx="12" cy="16.5" r="0.6" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="9"/></svg></div>
+        <div class="quiz-link-body">
+          <div class="quiz-link-title">אוסף שאלות לחזרה — האנרגיות המתחדשות</div>
+          <div class="quiz-link-desc">שאלות לבדיקה עצמית על כל שלבי הנושא · נפתח בטאב חדש (NotebookLM)</div>
+        </div>
+        <div class="quiz-link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
+      </a>
+    </div>
+
+    <!-- ===================== GEM 4 ===================== -->
+    <div class="gem-group">
+      <div class="gem-group-title">4. מפקח האנרגיה הביתי</div>
+
+      <div class="block-label">Gem</div>
+      <a class="gem-link-card-wide" href="https://gemini.google.com/gem/11FpuBUXPyfPzwGRGgznJj2bnCYZqeKm0?usp=sharing" target="_blank" rel="noopener">
+        <div class="gem-link-icon-wide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l2.4 6.6L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.4L12 2z"/></svg></div>
+        <div class="gem-link-body-wide">
+          <div class="gem-link-title-wide">מפקח האנרגיה הביתי</div>
+          <div class="gem-link-desc-wide">עבודת חקר על מכשירי החשמל בבית: הספק וצריכת אנרגיה, בניית פרופיל צריכה, והצעת חלופות לחיסכון.</div>
+          <div class="gem-link-note-wide">נפתח בטאב חדש (Gemini)</div>
+        </div>
+        <div class="gem-link-arrow-wide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
+      </a>
+
+      <div class="block-label">מצגת — האנרגיה הביתית</div>
+      <a class="pres-link-card" href="https://notebook.google.com/notebook/e26eb4bc-aa48-4859-8f0b-3e178180f293/artifact/0e0e5e8b-3f66-470a-847a-ce2cffab3c4b?utm_source=nlm_web_share&utm_medium=google_oo&utm_campaign=art_share_1&utm_content=&utm_smc=nlm_web_share_google_oo_art_share_1_" target="_blank" rel="noopener">
+        <div class="pres-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+        <div class="pres-link-body">
+          <div class="pres-link-title">מצגת — האנרגיה הביתית</div>
+          <div class="pres-link-desc">הספק מול קוט"ש, ביקורת האנרגיה הביתית ו"צרכני הענק" · נפתח בטאב חדש (NotebookLM)</div>
+        </div>
+        <div class="pres-link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
+      </a>
+
+      <div class="block-label">סרטון — האנרגיה הביתית</div>
+      <a class="video-link-card" href="https://notebook.google.com/notebook/e26eb4bc-aa48-4859-8f0b-3e178180f293/artifact/89bcbcf8-fafc-47fa-bb29-c2cd5360078b?utm_source=nlm_web_share&utm_medium=google_oo&utm_campaign=art_share_1&utm_content=&utm_smc=nlm_web_share_google_oo_art_share_1_" target="_blank" rel="noopener">
+        <div class="video-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 9l5 3-5 3V9z"/></svg></div>
+        <div class="video-link-body">
+          <div class="video-link-title">סרטון הסבר — האנרגיה הביתית</div>
+          <div class="video-link-desc">הספק מול קוט"ש, ביקורת האנרגיה הביתית ו"צרכני הענק" · נפתח בטאב חדש (NotebookLM)</div>
+        </div>
+        <div class="video-link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
+      </a>
+
+      <div class="block-label">אוסף שאלות לחזרה — האנרגיה הביתית</div>
+      <a class="quiz-link-card" href="https://notebook.google.com/notebook/e26eb4bc-aa48-4859-8f0b-3e178180f293/artifact/32de4050-59e9-4241-8775-d51561194e5c?utm_source=nlm_web_share&utm_medium=google_oo&utm_campaign=art_share_1&utm_content=&utm_smc=nlm_web_share_google_oo_art_share_1_" target="_blank" rel="noopener">
+        <div class="quiz-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9.5 9a2.5 2.5 0 115 0c0 1.5-2.5 1.8-2.5 3.5"/><circle cx="12" cy="16.5" r="0.6" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="9"/></svg></div>
+        <div class="quiz-link-body">
+          <div class="quiz-link-title">אוסף שאלות לחזרה — האנרגיה הביתית</div>
+          <div class="quiz-link-desc">שאלות לבדיקה עצמית על כל שלבי הנושא · נפתח בטאב חדש (NotebookLM)</div>
+        </div>
+        <div class="quiz-link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
+      </a>
+    </div>
+
+    <!-- ===================== GEM 5 ===================== -->
+    <div class="gem-group">
+      <div class="gem-group-title">5. מומחה אנרגיית הגובה</div>
+
+      <div class="block-label">Gem</div>
+      <a class="gem-link-card-wide" href="https://gemini.google.com/gem/1weMIs633J5YCpeyP8xWXJeyC1y64HHGu?usp=sharing" target="_blank" rel="noopener">
+        <div class="gem-link-icon-wide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l2.4 6.6L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.4L12 2z"/></svg></div>
+        <div class="gem-link-body-wide">
+          <div class="gem-link-title-wide">מומחה אנרגיית הגובה</div>
+          <div class="gem-link-desc-wide">מדריך מעמיק לאנרגיית גובה (Ep=mgh) עם תרגול חישובי מדורג ברמה בינונית.</div>
+          <div class="gem-link-note-wide">נפתח בטאב חדש (Gemini)</div>
+        </div>
+        <div class="gem-link-arrow-wide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
+      </a>
+
+      <div class="block-label">מצגת — אנרגיית הגובה</div>
+      <a class="pres-link-card" href="https://notebook.google.com/notebook/91b62d8d-585b-4622-ae95-77af5293362e/artifact/42f590b2-1bec-4f9c-945e-dde4d1b61943?utm_source=nlm_web_share&utm_medium=google_oo&utm_campaign=art_share_1&utm_content=&utm_smc=nlm_web_share_google_oo_art_share_1_" target="_blank" rel="noopener">
+        <div class="pres-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+        <div class="pres-link-body">
+          <div class="pres-link-title">מצגת — אנרגיית הגובה</div>
+          <div class="pres-link-desc">שלושת הגורמים, נקודת הייחוס והנוסחה — עם דוגמאות מלאות · נפתח בטאב חדש (NotebookLM)</div>
+        </div>
+        <div class="pres-link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
+      </a>
+
+      <div class="block-label">סרטון — אנרגיית הגובה</div>
+      <a class="video-link-card" href="https://notebook.google.com/notebook/91b62d8d-585b-4622-ae95-77af5293362e/artifact/a14bd0c3-c95c-4508-96f7-51e8594ad1bf?utm_source=nlm_web_share&utm_medium=google_oo&utm_campaign=art_share_1&utm_content=&utm_smc=nlm_web_share_google_oo_art_share_1_" target="_blank" rel="noopener">
+        <div class="video-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 9l5 3-5 3V9z"/></svg></div>
+        <div class="video-link-body">
+          <div class="video-link-title">סרטון הסבר — אנרגיית הגובה</div>
+          <div class="video-link-desc">שלושת הגורמים, נקודת הייחוס והנוסחה — עם דוגמאות מלאות · נפתח בטאב חדש (NotebookLM)</div>
+        </div>
+        <div class="video-link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
+      </a>
+
+      <div class="block-label">אוסף שאלות לחזרה — אנרגיית הגובה</div>
+      <a class="quiz-link-card" href="https://notebook.google.com/notebook/91b62d8d-585b-4622-ae95-77af5293362e/artifact/bab594b6-4786-4bfe-96f3-72c886d0d72a?utm_source=nlm_web_share&utm_medium=google_oo&utm_campaign=art_share_1&utm_content=&utm_smc=nlm_web_share_google_oo_art_share_1_" target="_blank" rel="noopener">
+        <div class="quiz-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9.5 9a2.5 2.5 0 115 0c0 1.5-2.5 1.8-2.5 3.5"/><circle cx="12" cy="16.5" r="0.6" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="9"/></svg></div>
+        <div class="quiz-link-body">
+          <div class="quiz-link-title">אוסף שאלות לחזרה — אנרגיית הגובה</div>
+          <div class="quiz-link-desc">שאלות לבדיקה עצמית על כל שלבי הנושא · נפתח בטאב חדש (NotebookLM)</div>
+        </div>
+        <div class="quiz-link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
+      </a>
+    </div>
+
+    <!-- ===================== GEM 6 ===================== -->
+    <div class="gem-group">
+      <div class="gem-group-title">6. מומחה אנרגיית התנועה</div>
+
+      <div class="block-label">Gem</div>
+      <a class="gem-link-card-wide" href="https://gemini.google.com/gem/1AE0Fk1YUobuCgKis4sFkgslEYwKIl0BW?usp=sharing" target="_blank" rel="noopener">
+        <div class="gem-link-icon-wide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l2.4 6.6L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.4L12 2z"/></svg></div>
+        <div class="gem-link-body-wide">
+          <div class="gem-link-title-wide">מומחה אנרגיית התנועה</div>
+          <div class="gem-link-desc-wide">מדריך מעמיק לאנרגיית תנועה (Ek=½mv²) עם תרגול חישובי מדורג ברמה בינונית.</div>
+          <div class="gem-link-note-wide">נפתח בטאב חדש (Gemini)</div>
+        </div>
+        <div class="gem-link-arrow-wide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
+      </a>
+
+      <div class="block-label">מצגת — אנרגיית התנועה</div>
+      <a class="pres-link-card" href="https://notebook.google.com/notebook/15194119-d465-4ceb-a7a0-ab0191847bc1/artifact/b83a302a-40b3-4fdd-b9c2-568fbd133a5b?utm_source=nlm_web_share&utm_medium=google_oo&utm_campaign=art_share_1&utm_content=&utm_smc=nlm_web_share_google_oo_art_share_1_" target="_blank" rel="noopener">
+        <div class="pres-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+        <div class="pres-link-body">
+          <div class="pres-link-title">מצגת — אנרגיית התנועה</div>
+          <div class="pres-link-desc">מסה מול מהירות בריבוע, המרה מקמ"ש והקשר לבטיחות בדרכים · נפתח בטאב חדש (NotebookLM)</div>
+        </div>
+        <div class="pres-link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
+      </a>
+
+      <div class="block-label">סרטון — אנרגיית התנועה</div>
+      <a class="video-link-card" href="https://notebook.google.com/notebook/15194119-d465-4ceb-a7a0-ab0191847bc1/artifact/e219bc70-e794-48dd-a0f5-67128c5c6b92?utm_source=nlm_web_share&utm_medium=google_oo&utm_campaign=art_share_1&utm_content=&utm_smc=nlm_web_share_google_oo_art_share_1_" target="_blank" rel="noopener">
+        <div class="video-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 9l5 3-5 3V9z"/></svg></div>
+        <div class="video-link-body">
+          <div class="video-link-title">סרטון הסבר — אנרגיית התנועה</div>
+          <div class="video-link-desc">מסה מול מהירות בריבוע, המרה מקמ"ש והקשר לבטיחות בדרכים · נפתח בטאב חדש (NotebookLM)</div>
+        </div>
+        <div class="video-link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
+      </a>
+
+      <div class="block-label">אוסף שאלות לחזרה — אנרגיית התנועה</div>
+      <a class="quiz-link-card" href="https://notebook.google.com/notebook/15194119-d465-4ceb-a7a0-ab0191847bc1/artifact/69c70b7a-3dff-4c76-b2a4-e4f9a5d2a100?utm_source=nlm_web_share&utm_medium=google_oo&utm_campaign=art_share_1&utm_content=&utm_smc=nlm_web_share_google_oo_art_share_1_" target="_blank" rel="noopener">
+        <div class="quiz-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9.5 9a2.5 2.5 0 115 0c0 1.5-2.5 1.8-2.5 3.5"/><circle cx="12" cy="16.5" r="0.6" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="9"/></svg></div>
+        <div class="quiz-link-body">
+          <div class="quiz-link-title">אוסף שאלות לחזרה — אנרגיית התנועה</div>
+          <div class="quiz-link-desc">שאלות לבדיקה עצמית על כל שלבי הנושא · נפתח בטאב חדש (NotebookLM)</div>
+        </div>
+        <div class="quiz-link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
+      </a>
+    </div>
+
+    <!-- ===================== GEM 7 ===================== -->
+    <div class="gem-group">
+      <div class="gem-group-title">7. מומחה אנרגיית האלסטיות</div>
+
+      <div class="block-label">Gem</div>
+      <a class="gem-link-card-wide" href="https://gemini.google.com/gem/1gwC4YXcLraGafLXcGPURRNwCZ8BtjctY?usp=sharing" target="_blank" rel="noopener">
+        <div class="gem-link-icon-wide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l2.4 6.6L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.4L12 2z"/></svg></div>
+        <div class="gem-link-body-wide">
+          <div class="gem-link-title-wide">מומחה אנרגיית האלסטיות</div>
+          <div class="gem-link-desc-wide">מדריך מעמיק לאנרגיית אלסטיות (Eel=½kx²) עם תרגול חישובי מדורג ברמה בינונית.</div>
+          <div class="gem-link-note-wide">נפתח בטאב חדש (Gemini)</div>
+        </div>
+        <div class="gem-link-arrow-wide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
+      </a>
+
+      <div class="block-label">מצגת — אנרגיית האלסטיות</div>
+      <a class="pres-link-card" href="https://notebook.google.com/notebook/274b7ef4-515e-42f7-b2a5-7b31b2ee20b1/artifact/e256ef7f-2873-4df9-96fb-beac3ecc5eb2?utm_source=nlm_web_share&utm_medium=google_oo&utm_campaign=art_share_1&utm_content=&utm_smc=nlm_web_share_google_oo_art_share_1_" target="_blank" rel="noopener">
+        <div class="pres-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+        <div class="pres-link-body">
+          <div class="pres-link-title">מצגת — אנרגיית האלסטיות</div>
+          <div class="pres-link-desc">קבוע הקפיץ, מרחק העיוות בריבוע, ומתיחה מול דחיסה · נפתח בטאב חדש (NotebookLM)</div>
+        </div>
+        <div class="pres-link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
+      </a>
+
+      <div class="block-label">סרטון — אנרגיית האלסטיות</div>
+      <a class="video-link-card" href="https://notebook.google.com/notebook/274b7ef4-515e-42f7-b2a5-7b31b2ee20b1/artifact/f1cb3d89-f51b-4764-ba05-dd455a28aa3f?utm_source=nlm_web_share&utm_medium=google_oo&utm_campaign=art_share_1&utm_content=&utm_smc=nlm_web_share_google_oo_art_share_1_" target="_blank" rel="noopener">
+        <div class="video-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 9l5 3-5 3V9z"/></svg></div>
+        <div class="video-link-body">
+          <div class="video-link-title">סרטון הסבר — אנרגיית האלסטיות</div>
+          <div class="video-link-desc">קבוע הקפיץ, מרחק העיוות בריבוע, ומתיחה מול דחיסה · נפתח בטאב חדש (NotebookLM)</div>
+        </div>
+        <div class="video-link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
+      </a>
+
+      <div class="block-label">אוסף שאלות לחזרה — אנרגיית האלסטיות</div>
+      <a class="quiz-link-card" href="https://notebook.google.com/notebook/274b7ef4-515e-42f7-b2a5-7b31b2ee20b1/artifact/32995919-52ad-42cf-915e-f2dc53716910?utm_source=nlm_web_share&utm_medium=google_oo&utm_campaign=art_share_1&utm_content=&utm_smc=nlm_web_share_google_oo_art_share_1_" target="_blank" rel="noopener">
+        <div class="quiz-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9.5 9a2.5 2.5 0 115 0c0 1.5-2.5 1.8-2.5 3.5"/><circle cx="12" cy="16.5" r="0.6" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="9"/></svg></div>
+        <div class="quiz-link-body">
+          <div class="quiz-link-title">אוסף שאלות לחזרה — אנרגיית האלסטיות</div>
+          <div class="quiz-link-desc">שאלות לבדיקה עצמית על כל שלבי הנושא · נפתח בטאב חדש (NotebookLM)</div>
+        </div>
+        <div class="quiz-link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
+      </a>
+    </div>
+
+    <!-- ===================== GEM 8 ===================== -->
+    <div class="gem-group">
+      <div class="gem-group-title">8. שומר האנרגיה המכנית</div>
+
+      <div class="block-label">Gem</div>
+      <a class="gem-link-card-wide" href="https://gemini.google.com/gem/1r7jDR0E5D5iy-F96sFpn1cmSqpRqsp5H?usp=sharing" target="_blank" rel="noopener">
+        <div class="gem-link-icon-wide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l2.4 6.6L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.4L12 2z"/></svg></div>
+        <div class="gem-link-body-wide">
+          <div class="gem-link-title-wide">שומר האנרגיה המכנית</div>
+          <div class="gem-link-desc-wide">חישוב שימור אנרגיה מכנית (גובה+תנועה+אלסטיות יחד) במצב תיאורטי אידיאלי ללא הפסדים.</div>
+          <div class="gem-link-note-wide">נפתח בטאב חדש (Gemini)</div>
+        </div>
+        <div class="gem-link-arrow-wide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
+      </a>
+
+      <div class="block-label">מצגת — שימור האנרגיה המכנית</div>
+      <a class="pres-link-card" href="https://notebook.google.com/notebook/e9ec3847-4671-4957-a367-7e34cbaa3c7c/artifact/cba04aba-33b7-4fe4-8f79-ac56928a3005?utm_source=nlm_web_share&utm_medium=google_oo&utm_campaign=art_share_1&utm_content=&utm_smc=nlm_web_share_google_oo_art_share_1_" target="_blank" rel="noopener">
+        <div class="pres-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+        <div class="pres-link-body">
+          <div class="pres-link-title">מצגת — שימור האנרגיה המכנית</div>
+          <div class="pres-link-desc">הסכום שלא משתנה: גובה, תנועה ואלסטיות מתחלפים זה בזה · נפתח בטאב חדש (NotebookLM)</div>
+        </div>
+        <div class="pres-link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
+      </a>
+
+      <div class="block-label">סרטון — שימור האנרגיה המכנית</div>
+      <a class="video-link-card" href="https://notebook.google.com/notebook/e9ec3847-4671-4957-a367-7e34cbaa3c7c/artifact/89b26269-498c-4ac2-8fe8-773bfd089b94?utm_source=nlm_web_share&utm_medium=google_oo&utm_campaign=art_share_1&utm_content=&utm_smc=nlm_web_share_google_oo_art_share_1_" target="_blank" rel="noopener">
+        <div class="video-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 9l5 3-5 3V9z"/></svg></div>
+        <div class="video-link-body">
+          <div class="video-link-title">סרטון הסבר — שימור האנרגיה המכנית</div>
+          <div class="video-link-desc">הסכום שלא משתנה: גובה, תנועה ואלסטיות מתחלפים זה בזה · נפתח בטאב חדש (NotebookLM)</div>
+        </div>
+        <div class="video-link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
+      </a>
+
+      <div class="block-label">אוסף שאלות לחזרה — שימור האנרגיה המכנית</div>
+      <a class="quiz-link-card" href="https://notebook.google.com/notebook/e9ec3847-4671-4957-a367-7e34cbaa3c7c/artifact/ba968b5d-998c-42d6-8c81-8cfa25892acf?utm_source=nlm_web_share&utm_medium=google_oo&utm_campaign=art_share_1&utm_content=&utm_smc=nlm_web_share_google_oo_art_share_1_" target="_blank" rel="noopener">
+        <div class="quiz-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9.5 9a2.5 2.5 0 115 0c0 1.5-2.5 1.8-2.5 3.5"/><circle cx="12" cy="16.5" r="0.6" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="9"/></svg></div>
+        <div class="quiz-link-body">
+          <div class="quiz-link-title">אוסף שאלות לחזרה — שימור האנרגיה המכנית</div>
+          <div class="quiz-link-desc">שאלות לבדיקה עצמית על כל שלבי הנושא · נפתח בטאב חדש (NotebookLM)</div>
+        </div>
+        <div class="quiz-link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
+      </a>
+    </div>
+
+    <!-- ===================== GAMES ===================== -->
+    <div class="game-section-label">משחקי חזרה</div>
+
+    <a class="game-link-card" href="game-unit4-solitaire.html">
+      <div class="game-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
+      <div class="game-link-body">
+        <div class="game-link-title">סוליטר האנרגיה</div>
+        <div class="game-link-desc">משחק התאמת קלפים לתרגול על 4 ה-Gems הראשונים: שימור אנרגיה, נצילות וחום, אנרגיות מתחדשות, ומיפוי אנרגטי ביתי.</div>
+      </div>
+      <div class="game-link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
     </a>
-    <a class="gem-slot filled" href="https://gemini.google.com/gem/1RHQBZ51vbAIO-AmINX0y_sSqujCx6kmi?usp=sharing" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg>
-      <div class="gem-slot-title">מבקר הנצילות והחום</div>
-      <div class="gem-slot-desc">חום כתוצר לוואי, מושג הנצילות המערכתית, ופתרונות קירור: מאווררים, צלעות קירור וקירור מים.</div>
-      <div class="gem-slot-arrow">פתיחת שיחה ←</div>
+
+    <a class="game-link-card" href="game-unit4-ladders-5-8.html">
+      <div class="game-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M13 2 4 14h6l-1 8 9-12h-6z"/></svg></div>
+      <div class="game-link-body">
+        <div class="game-link-title">סולמות וחבלים — אנרגיה מכנית</div>
+        <div class="game-link-desc">משחק לוח לזוגות לתרגול על 4 ה-Gems האחרונים: אנרגיית גובה, תנועה, אלסטיות ושימור אנרגיה מכנית. שאלות תיאורטיות וחישוביות, רמה בינונית-גבוהה.</div>
+      </div>
+      <div class="game-link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
     </a>
-    <a class="gem-slot filled" href="https://gemini.google.com/gem/1rUJgkhwqiy6IyI9Q_tTEFY4MosDV4zrO?usp=sharing" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg>
-      <div class="gem-slot-title">שגריר האנרגיות המתחדשות</div>
-      <div class="gem-slot-desc">מעבר מדלקים מאובנים לאנרגיה נקייה, פאנלים סולאריים, וטורבינות רוח ותחנות הידרואלקטריות.</div>
-      <div class="gem-slot-arrow">פתיחת שיחה ←</div>
-    </a>
-    <a class="gem-slot filled" href="https://gemini.google.com/gem/11FpuBUXPyfPzwGRGgznJj2bnCYZqeKm0?usp=sharing" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg>
-      <div class="gem-slot-title">מפקח האנרגיה הביתי</div>
-      <div class="gem-slot-desc">עבודת חקר על מכשירי החשמל בבית: הספק וצריכת אנרגיה, בניית פרופיל צריכה, והצעת חלופות לחיסכון.</div>
-      <div class="gem-slot-arrow">פתיחת שיחה ←</div>
-    </a>
-    <a class="gem-slot filled" href="https://gemini.google.com/gem/1weMIs633J5YCpeyP8xWXJeyC1y64HHGu?usp=sharing" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg>
-      <div class="gem-slot-title">מומחה אנרגיית הגובה</div>
-      <div class="gem-slot-desc">מדריך מעמיק לאנרגיית גובה (Ep=mgh) עם תרגול חישובי מדורג ברמה בינונית.</div>
-      <div class="gem-slot-arrow">פתיחת שיחה ←</div>
-    </a>
-    <a class="gem-slot filled" href="https://gemini.google.com/gem/1AE0Fk1YUobuCgKis4sFkgslEYwKIl0BW?usp=sharing" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg>
-      <div class="gem-slot-title">מומחה אנרגיית התנועה</div>
-      <div class="gem-slot-desc">מדריך מעמיק לאנרגיית תנועה (Ek=½mv²) עם תרגול חישובי מדורג ברמה בינונית.</div>
-      <div class="gem-slot-arrow">פתיחת שיחה ←</div>
-    </a>
-    <a class="gem-slot filled" href="https://gemini.google.com/gem/1gwC4YXcLraGafLXcGPURRNwCZ8BtjctY?usp=sharing" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg>
-      <div class="gem-slot-title">מומחה אנרגיית האלסטיות</div>
-      <div class="gem-slot-desc">מדריך מעמיק לאנרגיית אלסטיות (Eel=½kx²) עם תרגול חישובי מדורג ברמה בינונית.</div>
-      <div class="gem-slot-arrow">פתיחת שיחה ←</div>
-    </a>
-    <a class="gem-slot filled" href="https://gemini.google.com/gem/1r7jDR0E5D5iy-F96sFpn1cmSqpRqsp5H?usp=sharing" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg>
-      <div class="gem-slot-title">שומר האנרגיה המכנית</div>
-      <div class="gem-slot-desc">חישוב שימור אנרגיה מכנית (גובה+תנועה+אלסטיות יחד) במצב תיאורטי אידיאלי ללא הפסדים.</div>
-      <div class="gem-slot-arrow">פתיחת שיחה ←</div>
-    </a>
+
   </div>
-
-  <a class="game-card" href="game-unit4-solitaire.html">
-    <div class="g-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
-    <div>
-      <div class="g-title">משחק חזרה: סוליטר האנרגיה</div>
-      <div class="g-desc">משחק התאמת קלפים לתרגול על 4 ה-Gems הראשונים: שימור אנרגיה, נצילות וחום, אנרגיות מתחדשות, ומיפוי אנרגטי ביתי.</div>
-    </div>
-    <div class="g-arrow">שחקו עכשיו ←</div>
-  </a>
-
-  <a class="game-card" href="game-unit4-ladders-5-8.html">
-    <div class="g-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 4 14h6l-1 8 9-12h-6z"/></svg></div>
-    <div>
-      <div class="g-title">משחק חזרה: סולמות וחבלים — אנרגיה מכנית</div>
-      <div class="g-desc">משחק לוח לזוגות לתרגול על 4 ה-Gems האחרונים: אנרגיית גובה, תנועה, אלסטיות ושימור אנרגיה מכנית. שאלות תיאורטיות וחישוביות, רמה בינונית-גבוהה.</div>
-    </div>
-    <div class="g-arrow">שחקו עכשיו ←</div>
-  </a>
 
   <footer>
     <a href="index.html">חזרה לדף הבית</a> · פיזיקה יישומית בשילוב טכנולוגיה, כיתה ט'
   </footer>
 
-</div>
 </body>
 </html>
