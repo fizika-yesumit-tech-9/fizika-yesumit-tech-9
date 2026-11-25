@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>מומחה אנרגיית האלסטיות — Eel = ½kx² — מדריך לימוד · פיזיקה יישומית כיתה ט׳</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;700;900&family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="madrich-engine.css">
+</head>
+<body>
+  <div class="topbar">
+    <div class="crumbs">
+      <a href="index.html" id="mdCrHub">דף הבית</a> ‹
+      <a href="index.html" id="mdCrCourse">פיזיקה יישומית</a> ‹
+      <a href="04-energiya.html" id="mdCrUnit">אנרגיות ומעברי אנרגיה</a> ‹ <span id="mdCrHere">מומחה אנרגיית האלסטיות — Eel = ½kx²</span>
+    </div>
+    <div class="site-name" id="mdSite">פיזיקה יישומית · כיתה ט׳</div>
+  </div>
+
+  <main class="md-shell">
+    <header class="md-hero">
+      <div class="av" aria-hidden="true"><svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.8"><rect x="4" y="4" width="5" height="7" rx="2"/><path d="M15 4v7M5 14v7M17 14h-2v7"/><rect x="15" y="14" width="5" height="7" rx="2"/></svg></div>
+      <div>
+        <div class="num" id="mdNum">מדריך 7 מתוך 8 · מדריך לימוד אינטראקטיבי</div>
+        <h1 id="mdTitle">מומחה אנרגיית האלסטיות — Eel = ½kx²</h1>
+        <p id="mdDesc">הגדרה וקשר לחוק הוק, k ו-x בריבוע, הנוסחה והמרת ס״מ, מתיחה מול דחיסה, ותרגול מדורג.</p>
+      </div>
+    </header>
+
+    <div class="md-progress" id="mdProgress" aria-hidden="true"></div>
+    <div class="md-progress-label"><span id="mdProgressText"></span><span class="md-tts-wrap"><span id="mdTtsBox" class="md-tts-wrap"></span><button id="mdRestart" type="button">להתחיל מחדש</button></span></div>
+
+    <div class="md-log" id="mdLog" aria-live="polite"></div>
+
+    <div class="md-cmds" id="mdCmds" aria-label="פקודות"></div>
+    <div class="md-input">
+      <textarea id="mdText" rows="1" placeholder="כתוב כאן תשובה או פקודה… (Enter לשליחה)" aria-label="תשובה או פקודה"></textarea>
+      <button id="mdSend" type="button">שליחה</button>
+    </div>
+    <div class="md-note" id="mdNote">ההתקדמות נשמרת רק בדפדפן שלך · לא נאסף שום מידע</div>
+  </main>
+
+<script>
+window.MADRICH = {
+ "title": "מומחה אנרגיית האלסטיות — Eel = ½kx²",
+ "persona": "מומחה אנרגיית האלסטיות",
+ "story": "אתה מהנדס בולמי זעזועים. ממשיכים מחוק הוק (נושא 3): נבין איך קפיצים אוגרים אנרגיה כשהם נמתחים או נדחסים — ונדע לחשב אותה בדיוק.",
+ "desc": "הגדרה וקשר לחוק הוק, k ו-x בריבוע, הנוסחה והמרת ס״מ, מתיחה מול דחיסה, ותרגול מדורג.",
+ "num": "מדריך 7 מתוך 8",
+ "emoji": "🌀",
+ "next": {
+  "href": "04-madrich-8-shimur.html",
+  "title": "מדריך 8: שומר האנרגיה המכנית",
+  "teaser": "שימור אנרגיה מכנית — גובה, תנועה ואלסטיות יחד, במצב אידיאלי."
+ },
+ "stages": [
+  {
+   "title": "מהי אנרגיית אלסטיות",
+   "open": {
+    "q": "מאיפה \"מגיעה\" האנרגיה שגורמת לחץ לעוף כשמשחררים את מיתר <strong>הקשת<\/strong>?",
+    "model": "מהאנרגיה ש<strong>נאגרה במיתר ובקשת<\/strong> כשמתחנו אותם. בשחרור היא הופכת ל<strong>אנרגיית תנועה<\/strong> של החץ."
+   },
+   "explain": [
+    "<p><strong>אנרגיית אלסטיות<\/strong> (Eel) — אנרגיה \"שמורה\" בגוף <strong>שעבר עיוות זמני<\/strong> — נמתח, נדחס או התכופף — ושיכול לחזור לצורתו: קפיץ, מיתר קשת, גומייה.<\/p><div class=\"md-flow\"><b>מותחים קפיץ<\/b><i>←<\/i><b>אנרגיה נאגרת<\/b><i>←<\/i><b>משחררים<\/b><i>←<\/i><b>הופכת לתנועה<\/b><\/div><p>קשר לחוק הוק (נושא 3): ככל שהקפיץ <strong>נוקשה יותר<\/strong> ו<strong>נמתח יותר<\/strong> — הוא אוגר יותר.<\/p>"
+   ],
+   "example": "קטפולטה (רוגטקה): מותחים את הגומי, הוא אוגר אנרגיה — ובשחרור האבן עפה.",
+   "again": "<p>זה בדיוק כמו אנרגיית גובה — אנרגיה ש<strong>\"מחכה\"<\/strong> — רק שבמקום גובה, היא אצורה ב<strong>עיוות<\/strong> של חומר אלסטי.<\/p>",
+   "simple": "<p>אנרגיית אלסטיות = אנרגיה ש<strong>נאגרת במתיחה או בדחיסה<\/strong>, וחוזרת בשחרור.<\/p>",
+   "check": {
+    "q": "איפה נאגרת אנרגיית אלסטיות?",
+    "options": [
+     {
+      "t": "בגוף אלסטי שנמתח או נדחס, כמו קפיץ",
+      "ok": true,
+      "fb": "נכון."
+     },
+     {
+      "t": "בכל גוף שנמצא בגובה",
+      "ok": false,
+      "fb": "זו אנרגיית גובה."
+     },
+     {
+      "t": "בכל גוף שזז",
+      "ok": false,
+      "fb": "זו אנרגיית תנועה."
+     }
+    ],
+    "hint": "עיוות זמני.",
+    "why": "אנרגיית אלסטיות נאגרת בעיוות של גוף אלסטי."
+   },
+   "summary": [
+    "Eel — אנרגיה בגוף שעבר עיוות זמני",
+    "קפיץ, מיתר, גומייה",
+    "בשחרור — הופכת לתנועה"
+   ],
+   "homework": [
+    "תן שלוש דוגמאות לאגירת אנרגיה אלסטית.",
+    "איך אנרגיית אלסטיות דומה לאנרגיית גובה?"
+   ]
+  },
+  {
+   "title": "שני הגורמים: k ו-x",
+   "open": {
+    "q": "אם <strong>מכפילים את המתיחה<\/strong> של קפיץ — מה קורה לאנרגיה האגורה?",
+    "model": "היא גדלה <strong>פי 4<\/strong> — x מופיע בנוסחה <strong>בריבוע<\/strong>, כמו המהירות באנרגיית תנועה."
+   },
+   "explain": [
+    "<table><tr><th>גורם<\/th><th>יחידה<\/th><th>קשר<\/th><th>אם מכפילים פי 2<\/th><\/tr><tr><td><strong>k<\/strong> — קבוע הקפיץ<\/td><td>N/m<\/td><td>ישר<\/td><td>Eel פי 2<\/td><\/tr><tr><td><strong>x<\/strong> — מרחק העיוות<\/td><td>מ׳<\/td><td><strong>בריבוע<\/strong><\/td><td>Eel פי <strong>4<\/strong><\/td><\/tr><\/table><p>k — תכונה של הקפיץ: <strong>נוקשה<\/strong> (k גדול) ← אוגר יותר באותה מתיחה. x — <strong>כמה<\/strong> הוא נמתח או נדחס ממצב המנוחה.<\/p>"
+   ],
+   "example": "קפיץ שנמתח 5 ס״מ אוגר כמות מסוימת. אותו קפיץ שנמתח 10 ס״מ — אוגר פי 4. ב-15 ס״מ — פי 9.",
+   "again": "<p>שלוש הנוסחאות \"בריבוע\" שלמדנו: <strong>Ek<\/strong> — v². <strong>Eel<\/strong> — x². ורק <strong>Ep<\/strong> ליניארית בגובה.<\/p>",
+   "simple": "<p>k פי 2 ← פי 2. מתיחה פי 2 ← <strong>פי 4<\/strong>.<\/p>",
+   "check": {
+    "q": "קפיץ A ו-B זהים. A נמתח 3 ס״מ ו-B נמתח 6 ס״מ. פי כמה B אוגר יותר?",
+    "options": [
+     {
+      "t": "פי 4",
+      "ok": true,
+      "fb": "נכון — מתיחה פי 2 ← אנרגיה פי 4."
+     },
+     {
+      "t": "פי 2",
+      "ok": false,
+      "fb": "x בריבוע — פי 4."
+     },
+     {
+      "t": "פי 3",
+      "ok": false,
+      "fb": "היחס הוא (6÷3)² = 4."
+     }
+    ],
+    "hint": "(6 ÷ 3)².",
+    "why": "יחס המתיחות 2, ולכן יחס האנרגיות 2² = 4."
+   },
+   "summary": [
+    "k — קשר ישר",
+    "x — בריבוע: פי 2 ← פי 4",
+    "קפיץ נוקשה ← אוגר יותר באותה מתיחה"
+   ],
+   "homework": [
+    "פי כמה גדלה Eel אם x גדל פי 3?",
+    "מה קורה ל-Eel אם k גדל פי 2 ו-x קטן בחצי?"
+   ]
+  },
+  {
+   "title": "הרכבת הנוסחה, יחידות והמרת ס״מ",
+   "open": {
+    "q": "קפיץ נמתח <strong>10 ס״מ<\/strong>. מה ה-x שמציבים בנוסחה?",
+    "model": "<strong>0.1 מ׳<\/strong> — ממירים ס״מ למטרים: ÷ 100."
+   },
+   "explain": [
+    "<p style=\"text-align:center\"><strong>Eel = ½ × k × x²<\/strong><\/p><table><tr><th>גודל<\/th><th>יחידת בסיס<\/th><th>המרה<\/th><\/tr><tr><td>k<\/td><td>N/m<\/td><td>—<\/td><\/tr><tr><td>x<\/td><td>מ׳<\/td><td>ס״מ ÷ 100<\/td><\/tr><tr><td>Eel<\/td><td>ג׳ול (J)<\/td><td>—<\/td><\/tr><\/table>",
+    "<p><strong>דוגמה פתורה:<\/strong> k = 200 N/m, x = 0.1 מ׳. Eel = ½ × 200 × 0.1² = ½ × 200 × 0.01 = <strong>1 J<\/strong>.<\/p><p><strong>סדר:<\/strong> קודם <strong>x²<\/strong>, אחר כך כפול k, ובסוף חצי.<\/p>"
+   ],
+   "example": "k = 400 N/m, x = 5 ס״מ = 0.05 מ׳: Eel = ½ × 400 × 0.0025 = <strong>0.5 J<\/strong>.",
+   "again": "<p>⚠️ <strong>0.1² = 0.01<\/strong>, לא 0.2! מספר קטן מ-1 בריבוע נעשה <strong>קטן יותר<\/strong>.<\/p>",
+   "simple": "<p>Eel = <strong>½ × k × (מטרים)²<\/strong>. ס״מ? <strong>÷ 100<\/strong> קודם.<\/p>",
+   "check": {
+    "q": "קפיץ עם k = 600 N/m נדחס <strong>20 ס״מ<\/strong>. כמה אנרגיה אגורה בו?",
+    "options": [
+     {
+      "t": "12 J",
+      "ok": true,
+      "fb": "נכון: x = 0.2 ← ½ × 600 × 0.04 = 12."
+     },
+     {
+      "t": "120,000 J",
+      "ok": false,
+      "fb": "הצבת ס״מ בלי להמיר."
+     },
+     {
+      "t": "60 J",
+      "ok": false,
+      "fb": "בדוק: 0.2² = 0.04, לא 0.2."
+     },
+     {
+      "t": "24 J",
+      "ok": false,
+      "fb": "שכחת את החצי."
+     }
+    ],
+    "hint": "20 ס״מ = 0.2 מ׳; 0.2² = ?",
+    "why": "Eel = ½ × 600 × 0.2² = ½ × 600 × 0.04 = 12 J."
+   },
+   "summary": [
+    "Eel = ½ × k × x² ← ג׳ול",
+    "x במטרים: ס״מ ÷ 100",
+    "סדר: x² ← × k ← × ½",
+    "0.1² = 0.01"
+   ],
+   "homework": [
+    "חשב Eel: k = 300 N/m, x = 4 ס״מ.",
+    "חשב Eel: k = 1,000 N/m, x = 0.3 מ׳."
+   ]
+  },
+  {
+   "title": "מתיחה מול דחיסה",
+   "open": {
+    "q": "קפיץ נמתח 5 ס״מ, וקפיץ זהה נדחס 5 ס״מ. באיזה נאגרת יותר אנרגיה?",
+    "model": "<strong>שווה<\/strong>. x הוא <strong>גודל העיוות<\/strong> ממצב המנוחה, בלי קשר לכיוון — מתיחה ודחיסה אוגרות באותה צורה."
+   },
+   "explain": [
+    "<p>הנוסחה <strong>Eel = ½kx²<\/strong> תקפה <strong>גם למתיחה וגם לדחיסה<\/strong> — כי x הוא <strong>גודל העיוות<\/strong> ממצב המנוחה. תמיד מציבים x <strong>חיובי<\/strong>.<\/p><table><tr><th><\/th><th>מתיחה<\/th><th>דחיסה<\/th><\/tr><tr><td>מה קורה<\/td><td>הקפיץ מתארך<\/td><td>הקפיץ מתקצר<\/td><\/tr><tr><td>x<\/td><td>כמה התארך<\/td><td>כמה התקצר<\/td><\/tr><tr><td>Eel<\/td><td>½kx²<\/td><td>½kx² — אותה נוסחה<\/td><\/tr><\/table>"
+   ],
+   "example": "מיתר קשת <strong>נמתח<\/strong>; קפיץ בבולם זעזועים <strong>נדחס<\/strong> כשעוברים על בור. שניהם אוגרים אנרגיה לפי אותה נוסחה, ובבולם היא משתחררת בעדינות במקום זעזוע חד.",
+   "again": "<p>כי x <strong>בריבוע<\/strong>, גם אם היינו מציבים x שלילי לדחיסה — התוצאה הייתה <strong>חיובית<\/strong>. אנרגיה אגורה תמיד חיובית.<\/p>",
+   "simple": "<p>מתיחה או דחיסה — <strong>אותה נוסחה, אותה אנרגיה<\/strong>.<\/p>",
+   "check": {
+    "q": "למה מתיחה ודחיסה באותו מרחק אוגרות אותה אנרגיה?",
+    "options": [
+     {
+      "t": "כי x מייצג את גודל העיוות, בלי קשר לכיוון",
+      "ok": true,
+      "fb": "נכון."
+     },
+     {
+      "t": "כי בדחיסה k משתנה",
+      "ok": false,
+      "fb": "k הוא תכונה של הקפיץ — אותו k לשני הכיוונים."
+     },
+     {
+      "t": "הן לא אוגרות אותה אנרגיה",
+      "ok": false,
+      "fb": "באותו x — כן."
+     }
+    ],
+    "hint": "מה x מייצג?",
+    "why": "x הוא גודל העיוות; אותו x ואותו k ← אותה אנרגיה."
+   },
+   "summary": [
+    "Eel תקפה למתיחה ולדחיסה",
+    "x = גודל העיוות, תמיד חיובי",
+    "בולם זעזועים: נדחס ומשחרר בעדינות"
+   ],
+   "homework": [
+    "הסבר למה מתיחה ודחיסה אוגרות אנרגיה באותו אופן.",
+    "תן דוגמה לקפיץ שאוגר אנרגיה במתיחה, ודוגמה לדחיסה."
+   ]
+  },
+  {
+   "title": "תרגול חישובי מדורג",
+   "open": {
+    "q": "נתון Eel = 4 J ו-k = 200 N/m. <strong>איך<\/strong> תמצא את x?",
+    "model": "מחלצים: <strong>x² = 2 × Eel ÷ k<\/strong> = 8 ÷ 200 = 0.04, ואז <strong>שורש<\/strong>: x = <strong>0.2 מ׳<\/strong> = 20 ס״מ."
+   },
+   "explain": [
+    "<p><strong>שלבי פתרון:<\/strong> 1. רשום נתונים <strong>עם יחידות<\/strong> · 2. המר ליחידות בסיס (מ׳, ק״ג, מ׳/שנ׳) · 3. בחר נוסחה · 4. הצב וחשב · 5. בדוק שהתשובה הגיונית.<\/p><table><tr><th>מחפשים<\/th><th>נוסחה<\/th><\/tr><tr><td>Eel<\/td><td>Eel = ½ × k × x²<\/td><\/tr><tr><td>k<\/td><td>k = 2 × Eel ÷ x²<\/td><\/tr><tr><td>x<\/td><td>x² = 2 × Eel ÷ k, ואז שורש<\/td><\/tr><\/table>",
+    "<p><strong>השוואה (פתורה):<\/strong> קפיץ A: k = 100, x = 0.4 ← Eel = ½ × 100 × 0.16 = <strong>8 J<\/strong>. קפיץ B: k = 400, x = 0.1 ← Eel = ½ × 400 × 0.01 = <strong>2 J<\/strong>. הקפיץ הרך אוגר יותר — כי הוא נמתח הרבה יותר, ו-x בריבוע!<\/p><p>✍️ עכשיו פתור בעצמך.<\/p>"
+   ],
+   "example": "יחס: אותו קפיץ נמתח x ואז 2x — היחס בין האנרגיות הוא 4, בלי לחשב כל אחת.",
+   "again": "<p>כשמחפשים <strong>x<\/strong> — השורש בסוף, ואז בדוק: האם המתיחה <strong>הגיונית<\/strong>? (קפיץ שנמתח 50 מטר — כנראה טעות.)<\/p>",
+   "simple": "<p>מחפשים x? <strong>2 × Eel ÷ k<\/strong>, ואז <strong>שורש<\/strong>.<\/p>",
+   "check": {
+    "q": "קפיץ אוגר 9 J כשהוא נמתח 0.3 מ׳. מה קבוע הקפיץ?",
+    "options": [
+     {
+      "t": "200 N/m",
+      "ok": true,
+      "fb": "נכון: k = 2 × 9 ÷ 0.09 = 200."
+     },
+     {
+      "t": "60 N/m",
+      "ok": false,
+      "fb": "שכחת להעלות את x בריבוע."
+     },
+     {
+      "t": "100 N/m",
+      "ok": false,
+      "fb": "שכחת להכפיל ב-2."
+     },
+     {
+      "t": "5.4 N/m",
+      "ok": false,
+      "fb": "כפלת במקום לחלק."
+     }
+    ],
+    "hint": "k = 2 × Eel ÷ x².",
+    "why": "x² = 0.09; k = 18 ÷ 0.09 = 200 N/m."
+   },
+   "summary": [
+    "k = 2Eel ÷ x² · x = √(2Eel ÷ k)",
+    "קפיץ רך שנמתח הרבה יכול לאגור יותר מנוקשה",
+    "יחס אנרגיות = (יחס מתיחות)²"
+   ],
+   "homework": [
+    "Eel = 2 J, k = 400 N/m. מה x בס״מ?",
+    "Eel = 25 J, x = 0.5 מ׳. מה k?",
+    "קפיץ עם k = 250 N/m נמתח 12 ס״מ. כמה אנרגיה אגורה בו?"
+   ]
+  }
+ ],
+ "unitTitle": "אנרגיות ומעברי אנרגיה",
+ "id": "f9-p4-7"
+};
+</script>
+<script src="madrich-engine.js"></script>
+</body>
+</html>
